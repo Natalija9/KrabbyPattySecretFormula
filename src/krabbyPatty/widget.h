@@ -13,7 +13,16 @@ class Widget : public QWidget
 
 public:
     Widget(QWidget *parent = nullptr);
+    void onEsc(QKeyEvent *event);
     ~Widget();
+
+private slots:
+
+    void on_startButton_clicked();
+
+    void on_quitButton_clicked();
+
+    void on_Level1_clicked();
 
 private:
     Ui::Widget *ui;

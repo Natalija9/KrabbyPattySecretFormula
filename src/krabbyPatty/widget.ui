@@ -37,6 +37,9 @@
        <height>75</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <widget class="QWidget" name="mainMenu">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
@@ -72,13 +75,15 @@
               </property>
               <property name="font">
                <font>
-                <pointsize>13</pointsize>
+                <family>Krabby Patty</family>
+                <pointsize>19</pointsize>
                 <italic>true</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
               </property>
               <property name="text">
                <string>Rang list</string>
@@ -133,13 +138,15 @@ color: rgb(240,230,100);</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>13</pointsize>
+                <family>Krabby Patty</family>
+                <pointsize>19</pointsize>
                 <italic>true</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
               </property>
               <property name="text">
                <string>Settings</string>
@@ -162,13 +169,15 @@ color: rgb(240,230,100);</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>13</pointsize>
+                <family>Krabby Patty</family>
+                <pointsize>19</pointsize>
                 <italic>true</italic>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
               </property>
               <property name="text">
                <string>Start game</string>
@@ -191,10 +200,10 @@ color: rgb(240,230,100);</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>13</pointsize>
-                <weight>50</weight>
+                <family>Krabby Patty</family>
+                <pointsize>19</pointsize>
                 <italic>true</italic>
-                <bold>false</bold>
+                <bold>true</bold>
                 <stylestrategy>PreferDefault</stylestrategy>
                </font>
               </property>
@@ -202,8 +211,8 @@ color: rgb(240,230,100);</string>
                <bool>false</bool>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
               </property>
               <property name="text">
                <string>Quit game</string>
@@ -230,9 +239,16 @@ color: rgb(240,230,100);</string>
          <height>61</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
        </property>
        <property name="text">
         <string>Level 1</string>
@@ -247,9 +263,17 @@ color: rgb(240,230,100);</string>
          <height>61</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;
+</string>
        </property>
        <property name="text">
         <string>Level 2</string>
@@ -264,9 +288,16 @@ color: rgb(240,230,100);</string>
          <height>61</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
        </property>
        <property name="text">
         <string>Level 3</string>
@@ -281,9 +312,16 @@ color: rgb(240,230,100);</string>
          <height>61</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
        </property>
        <property name="text">
         <string>Level 4</string>
@@ -298,12 +336,169 @@ color: rgb(240,230,100);</string>
          <height>61</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/images/menuButton.jpg) 0 0 0 0 stretch stretch;
-color: rgb(240,230,100);</string>
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
        </property>
        <property name="text">
-        <string>Level5</string>
+        <string>Level 5</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="settings">
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/settingsBackground.jpg) 0 0 0 0 stretch stretch;</string>
+      </property>
+      <widget class="QLabel" name="Sound">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>200</y>
+         <width>161</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>17</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string> Sound</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>230</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string>On</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="Sound_2">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>290</y>
+         <width>161</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>17</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string> Mode</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>300</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string>Easy</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>330</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string>Hard</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>89</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Krabby Patty</family>
+         <pointsize>19</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: black;</string>
+       </property>
+       <property name="text">
+        <string>Back</string>
        </property>
       </widget>
      </widget>

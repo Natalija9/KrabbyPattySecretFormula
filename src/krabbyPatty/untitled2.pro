@@ -31,4 +31,5 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
-    images/player.png
+    images/player.png \
+    images/playerLeft.png

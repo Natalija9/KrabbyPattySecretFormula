@@ -2,6 +2,8 @@
 #include "ui_widget.h"
 #include "level.h"
 
+Level *level;
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -35,10 +37,22 @@ void Widget::on_quitButton_clicked()
 
 void Widget::on_Level1_clicked()
 {
-    Level *level = new Level();
-    level->start();
-    this->hide();
-    ui->stackedWidget->setCurrentIndex(2);
+    level = new Level();
 
+    this->hide();
+
+
+}
+
+
+void Widget::on_settingsButton_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void Widget::on_pushButton_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
 }
 

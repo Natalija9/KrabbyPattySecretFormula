@@ -1,5 +1,7 @@
 #include "level.h"
 #include "player.h"
+#include "life.h"
+#include "ingredient.h"
 
 
 #include<QGraphicsScene>
@@ -14,7 +16,12 @@ Level::Level()
 
     player ->setFocus();
 
+    Ingredient *ingredient = new Ingredient();
+    Life *life = new Life();
+
     scene->addItem(player);
+    scene->addItem(ingredient);
+    scene->addItem(life);
 
 
 

@@ -9,5 +9,7 @@
         <file>images/playerLeft.png</file>
         <file>images/settingsBackground.jpg</file>
         <file>images/transparent.png</file>
+        <file>images/star.png</file>
+        <file>images/bun.png</file>
     </qresource>
 </RCC>

@@ -1,7 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "level.h"
-
+#include<QFile>
 Level *level;
 
 Widget::Widget(QWidget *parent)
@@ -9,6 +9,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
 }
 
 Widget::~Widget()

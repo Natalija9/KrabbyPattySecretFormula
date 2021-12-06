@@ -15,7 +15,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
     protected:
         virtual void advance(int phase) override;
     private:
-
+        bool isOnGround(Player *p);
         void jump();
         void walk();
         qreal m_velocityX;

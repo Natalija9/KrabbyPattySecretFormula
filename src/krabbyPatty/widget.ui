@@ -75,7 +75,6 @@
               </property>
               <property name="font">
                <font>
-                <family>Krabby Patty</family>
                 <pointsize>19</pointsize>
                 <italic>true</italic>
                 <bold>true</bold>
@@ -138,7 +137,6 @@ color: #feff41;</string>
               </property>
               <property name="font">
                <font>
-                <family>Krabby Patty</family>
                 <pointsize>19</pointsize>
                 <italic>true</italic>
                 <bold>true</bold>
@@ -169,15 +167,15 @@ color: #feff41;</string>
               </property>
               <property name="font">
                <font>
-                <family>Krabby Patty</family>
                 <pointsize>19</pointsize>
-                <italic>true</italic>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
-color: #feff41;</string>
+color: #feff41;
+</string>
               </property>
               <property name="text">
                <string>Start game</string>
@@ -200,7 +198,6 @@ color: #feff41;</string>
               </property>
               <property name="font">
                <font>
-                <family>Krabby Patty</family>
                 <pointsize>19</pointsize>
                 <italic>true</italic>
                 <bold>true</bold>
@@ -241,7 +238,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>
@@ -265,7 +261,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>
@@ -290,7 +285,6 @@ color: #feff41;
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>
@@ -314,7 +308,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>
@@ -338,7 +331,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>
@@ -367,7 +359,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>17</pointsize>
          <bold>true</bold>
         </font>
@@ -391,7 +382,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>15</pointsize>
          <bold>true</bold>
          <underline>false</underline>
@@ -416,7 +406,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>17</pointsize>
          <bold>true</bold>
         </font>
@@ -440,7 +429,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>15</pointsize>
          <bold>true</bold>
         </font>
@@ -464,7 +452,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>15</pointsize>
          <bold>true</bold>
         </font>
@@ -488,7 +475,6 @@ color: #feff41;</string>
        </property>
        <property name="font">
         <font>
-         <family>Krabby Patty</family>
          <pointsize>19</pointsize>
          <bold>true</bold>
         </font>

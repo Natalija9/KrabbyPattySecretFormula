@@ -11,5 +11,8 @@
         <file>images/transparent.png</file>
         <file>images/star.png</file>
         <file>images/bun.png</file>
+        <file>fonts/KrabbyPatty.ttf</file>
     </qresource>
+    <qresource prefix="/font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
 </RCC>

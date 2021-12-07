@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include "settings.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -28,7 +29,15 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_checkSound_stateChanged(int arg1);
+
+    void on_rbEasy_clicked();
+
+    void on_rbHard_clicked();
+
+
 private:
     Ui::Widget *ui;
+    Settings *settings;
 };
 #endif // WIDGET_H

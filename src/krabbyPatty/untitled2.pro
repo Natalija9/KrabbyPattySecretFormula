@@ -15,6 +15,7 @@ SOURCES += \
     life.cpp \
     main.cpp \
     player.cpp \
+    settings.cpp \
     widget.cpp
 
 HEADERS += \
@@ -23,6 +24,7 @@ HEADERS += \
     level.h \
     life.h \
     player.h \
+    settings.h \
     widget.h
 
 FORMS += \

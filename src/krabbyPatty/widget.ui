@@ -371,7 +371,7 @@ color: #feff41;</string>
         <string> Sound</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="checkSound">
        <property name="geometry">
         <rect>
          <x>680</x>
@@ -418,7 +418,7 @@ color: #feff41;</string>
         <string> Mode</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="rbEasy">
        <property name="geometry">
         <rect>
          <x>680</x>
@@ -441,7 +441,7 @@ color: #feff41;</string>
         <string>Easy</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="rbHard">
        <property name="geometry">
         <rect>
          <x>680</x>

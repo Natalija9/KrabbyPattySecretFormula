@@ -18,7 +18,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         bool isOnGround(Player *p);
         void jump();
         void walk();
-        qreal m_velocityX;
+        qreal m_velocityX = 0;
         qreal m_velocityY = 1;
         qreal m_gravity   = 1;
         bool m_canMove    = true;

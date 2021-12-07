@@ -9,7 +9,7 @@
 
 Level::Level()
 {
-    QGraphicsScene *scene =new QGraphicsScene(0,0,1000,5000);
+    QGraphicsScene *scene =new QGraphicsScene(0,0,5000,1000);
     mainTimer = new QTimer(this);
     Player *player = new Player();
     player-> setFlag(QGraphicsItem::ItemIsFocusable);
@@ -28,11 +28,9 @@ Level::Level()
 
 
 
-    QGraphicsView *view = new QGraphicsView(scene);
+    this->view = new QGraphicsView(scene);
     view->setBackgroundBrush(QPixmap(":/images/level1.jpg"));
 
-
-    //view->resize(500,500);
     view->ensureVisible(player);
     view->centerOn(player);
 
@@ -42,17 +40,15 @@ Level::Level()
 
     view->show();
 }
-Level::~Level(){}
 
-void Level::start(){
+void Level::center(QGraphicsItem *i){
+    this->view->centerOn(i);
+}
 
+Level::~Level(){
 
 }
 
-//void nivo::keyPressEvent(QKeyEvent *event){
-//    if(event->key() == Qt::Key_Escape){
-//        event->accept();
-//    }
-//}
+
 
 

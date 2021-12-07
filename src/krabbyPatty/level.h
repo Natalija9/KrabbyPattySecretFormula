@@ -15,9 +15,11 @@ class Level: public QGraphicsView
 public:
 
     void start();
+    void center(QGraphicsItem *i);
 
     virtual ~Level();
 private:
+    QGraphicsView *view;
     QTimer *mainTimer;
 
 };

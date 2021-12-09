@@ -2,18 +2,23 @@
 #include "ui_widget.h"
 #include "level.h"
 #include "settings.h"
+#include "score.h"
 #include<QFile>
 Level *level;
+Score *score;
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
     , settings(new Settings)
+
 {
     ui->setupUi(this);
 
     ui->checkSound->setChecked(true);
     ui->rbEasy->setChecked(true);
+
+    score = new Score();
 
 }
 

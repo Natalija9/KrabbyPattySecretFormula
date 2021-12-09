@@ -2,11 +2,14 @@
 #include "player.h"
 #include "life.h"
 #include "ingredient.h"
+#include "score.h"
 #include <QTimer>
 
 
 #include<QGraphicsScene>
 #include<QGraphicsView>
+
+extern Score *score;
 
 Level::Level()
 {
@@ -56,19 +59,19 @@ void Level::center(QGraphicsItem *i){
 }
 
 void Level::increaseScore() {
-
+    score->increase();
 }
 
 void Level::increaseLife() {
-
+    score->addLife();
 }
 
 void Level::decreaseScore() {
-
+    score->decrease();
 }
 
 void Level::death() {
-
+    score->takeLife();
 }
 
 Level::~Level(){

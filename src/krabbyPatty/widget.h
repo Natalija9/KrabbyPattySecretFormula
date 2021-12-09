@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "settings.h"
+#include "score.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -15,6 +16,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     void onEsc(QKeyEvent *event);
+    //Score *score;
     ~Widget();
 
 private slots:
@@ -41,5 +43,6 @@ private slots:
 private:
     Ui::Widget *ui;
     Settings *settings;
+
 };
 #endif // WIDGET_H

@@ -36,6 +36,8 @@ private slots:
     void on_rbHard_clicked();
 
 
+
+
 private:
     Ui::Widget *ui;
     Settings *settings;

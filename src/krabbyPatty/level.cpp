@@ -4,6 +4,7 @@
 #include "ingredient.h"
 #include <QTimer>
 
+
 #include<QGraphicsScene>
 #include<QGraphicsView>
 
@@ -35,14 +36,39 @@ Level::Level()
     view->centerOn(player);
 
 
+    QObject::connect(player, SIGNAL(ingredientPicked()), this, SLOT(increaseScore()));
+    QObject::connect(player, SIGNAL(lifePicked()), this, SLOT(increaseLife()));
+    QObject::connect(player, SIGNAL(slowingBarrier()), this, SLOT(decreaseScore()));
+    QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
+
 
     view->setWindowTitle("level 1");
 
     view->show();
+
+
+
 }
+
 
 void Level::center(QGraphicsItem *i){
     this->view->centerOn(i);
+}
+
+void Level::increaseScore() {
+
+}
+
+void Level::increaseLife() {
+
+}
+
+void Level::decreaseScore() {
+
+}
+
+void Level::death() {
+
 }
 
 Level::~Level(){

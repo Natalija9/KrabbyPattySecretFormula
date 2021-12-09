@@ -8,6 +8,7 @@ class Life : public Item
 public:
     Life();
     //virtual ~Life();
+
 private:
     int number_of_lives;
 };

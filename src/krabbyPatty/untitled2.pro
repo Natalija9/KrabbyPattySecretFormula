@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    deadlybarrier.cpp \
     ingredient.cpp \
     item.cpp \
     level.cpp \
@@ -16,15 +17,18 @@ SOURCES += \
     main.cpp \
     player.cpp \
     settings.cpp \
+    slowingbarrier.cpp \
     widget.cpp
 
 HEADERS += \
+    deadlybarrier.h \
     ingredient.h \
     item.h \
     level.h \
     life.h \
     player.h \
     settings.h \
+    slowingbarrier.h \
     widget.h
 
 FORMS += \

@@ -3,7 +3,7 @@
 
 #include <QKeyEvent>
 #include<QGraphicsView>
-
+#include "player.h"
 
 class Level: public QGraphicsView
 {
@@ -18,9 +18,18 @@ public:
     void center(QGraphicsItem *i);
 
     virtual ~Level();
+
+public slots:
+    void increaseScore();
+    void increaseLife();
+    void decreaseScore();
+    void death();
+
 private:
+    //Player *player;
     QGraphicsView *view;
     QTimer *mainTimer;
+
 
 };
 

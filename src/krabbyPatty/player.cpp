@@ -2,8 +2,11 @@
 #include <thread>
 #include <QKeyEvent>
 #include<iostream>
-
 #include "level.h"
+#include "ingredient.h"
+#include "life.h"
+#include "slowingbarrier.h"
+#include "deadlybarrier.h"
 
 extern Level *level;
 
@@ -11,6 +14,7 @@ Player::Player()
 {
     setPixmap(QPixmap(":images/player.png").scaled(70,100));
     setPos(100, 275);
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
@@ -53,6 +57,8 @@ void Player::advance(int phase)
         walk();
     }
     jump();
+    detectCollision();
+
     level->center(this);
 }
 
@@ -93,3 +99,36 @@ void Player::walk()
     level->center(this);
 }
 
+
+void Player::detectCollision() {
+
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+
+    if(colliding_items.size())
+    {
+        for (auto &colliding_item : colliding_items)
+        {
+            if (typeid(*(colliding_item)) == typeid(Ingredient))
+            {
+                scene()->removeItem(colliding_item);
+                emit ingredientPicked();
+            }
+            if (typeid(*(colliding_item)) == typeid(Life))
+            {
+                scene()->removeItem(colliding_item);
+                emit lifePicked();
+            }
+            if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
+            {
+                //scene()->removeItem(colliding_item);
+                emit slowingBarrier();
+            }
+            if (typeid(*(colliding_item)) == typeid(DeadlyBarrier))
+            {
+                //scene()->removeItem(colliding_item);
+                emit deadlyBarrier();
+            }
+        }
+    }
+
+}

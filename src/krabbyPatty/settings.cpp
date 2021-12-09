@@ -13,3 +13,11 @@ void Settings::setSound(int value) {
 void Settings::setMode(int value) {
     _mode = value;
 }
+
+int Settings::getSound() {
+    return _sound;
+}
+
+int Settings::getMode() {
+    return _mode;
+}

@@ -8,11 +8,14 @@
 #include "slowingbarrier.h"
 #include "deadlybarrier.h"
 
+#include<QApplication>
+
 extern Level *level;
 
 Player::Player()
 {
-    setPixmap(QPixmap(":images/player.png").scaled(70,100));
+    calculateDimension();
+    setPixmap(QPixmap(":images/player.png").scaled(_width, _height));
     setPos(100, 275);
 
 }
@@ -20,13 +23,13 @@ Player::Player()
 void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_Right){
-        setPixmap(QPixmap(":images/playerRight.png").scaled(70,100));
-        m_velocityX = 5;
+        setPixmap(QPixmap(":images/playerRight.png").scaled(_width, _height));
+        m_velocityX = 0.07 * _width;
     }if(event->key() == Qt::Key_Left){
-        setPixmap(QPixmap(":images/playerLeft.png").scaled(70,100));
-        m_velocityX = -5;
+        setPixmap(QPixmap(":images/playerLeft.png").scaled(_width, _height));
+        m_velocityX = -0.07 * _width;
     }if(event->key() == Qt::Key_Up && m_isOnGround){
-        m_velocityY = -15;
+        m_velocityY = -0.13 * _height;
         setPos(x(), y() + m_velocityY);
         m_isOnGround = false;
     }
@@ -36,11 +39,11 @@ void Player::keyPressEvent(QKeyEvent *event){
 void Player::keyReleaseEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_Right){
         m_velocityX = 0;
-        setPixmap(QPixmap(":images/player.png").scaled(70,100));
+        setPixmap(QPixmap(":images/player.png").scaled(_width, _height));
     }
     if(event->key() == Qt::Key_Left){
         m_velocityX = 0;
-        setPixmap(QPixmap(":images/player.png").scaled(70,100));
+        setPixmap(QPixmap(":images/player.png").scaled(_width, _height));
     }
 }
 
@@ -132,3 +135,13 @@ void Player::detectCollision() {
     }
 
 }
+
+void Player::calculateDimension(){
+    QScreen *screen = QApplication::screens().at(0);
+    qreal screenHeight = screen->availableSize().height();
+
+
+    _height = screenHeight * 0.2;
+    _width = _height * 0.7;
+}
+

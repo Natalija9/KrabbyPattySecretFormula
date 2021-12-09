@@ -16,6 +16,8 @@ public:
 
     void start();
     void center(QGraphicsItem *i);
+    qreal screenWidth;
+    qreal screenHeight;
 
     virtual ~Level();
 

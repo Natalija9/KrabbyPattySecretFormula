@@ -1,7 +1,9 @@
 #include "life.h"
 
-Life::Life()
+Life::Life(qreal playerWidth, qreal playerHeight)
 {
-    setPixmap(QPixmap(":images/star.png").scaled(50,50));
+    qreal width = playerWidth * 0.5;
+    qreal height = width;
+    setPixmap(QPixmap(":images/star.png").scaled(width, height));
     setPos(180, 150);
 }

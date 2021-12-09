@@ -6,7 +6,7 @@
 class Life : public Item
 {
 public:
-    Life();
+    Life(qreal playerWidth, qreal playerHeight);
     //virtual ~Life();
 
 private:

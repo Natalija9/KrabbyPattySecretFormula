@@ -7,7 +7,7 @@
 class Ingredient : public Item
 {
 public:
-    Ingredient();
+    Ingredient(qreal playerWidth, qreal playerHeight);
     friend int Item::collect();
 
     //virtual ~Ingredient();

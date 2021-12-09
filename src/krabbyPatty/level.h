@@ -15,9 +15,9 @@ class Level: public QGraphicsView
 public:
 
     void start();
-    void center(QGraphicsItem *i);
     qreal screenWidth;
     qreal screenHeight;
+    QGraphicsView *view;
 
     virtual ~Level();
 
@@ -29,7 +29,7 @@ public slots:
 
 private:
     //Player *player;
-    QGraphicsView *view;
+
     QTimer *mainTimer;
 
 

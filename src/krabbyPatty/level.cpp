@@ -5,7 +5,6 @@
 #include "score.h"
 #include <QTimer>
 
-
 #include<QGraphicsScene>
 #include<QGraphicsView>
 #include <QApplication>
@@ -18,7 +17,7 @@ Level::Level()
     screenHeight = screen->availableSize().height();
     screenWidth = screen->availableSize().width();
 
-    QGraphicsScene *scene =new QGraphicsScene(0,0,5000,screenHeight);
+    QGraphicsScene *scene =new QGraphicsScene(0,0,5 * screenWidth ,screenHeight);
     mainTimer = new QTimer(this);
     Player *player = new Player();
     player-> setFlag(QGraphicsItem::ItemIsFocusable);
@@ -62,10 +61,6 @@ Level::Level()
 
 }
 
-
-void Level::center(QGraphicsItem *i){
-    this->view->centerOn(i);
-}
 
 void Level::increaseScore() {
     score->increase();

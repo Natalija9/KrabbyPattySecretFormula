@@ -35,9 +35,11 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void calculateDimension();
         qreal m_velocityX = 0;
         qreal m_velocityY = 1;
-        qreal m_gravity   = 1;
+        qreal m_gravity = 1;
         bool m_canMove    = true;
         bool m_isOnGround = true;
+        qreal stepX = 8;
+        qreal stepY = 1;
 
 };
 

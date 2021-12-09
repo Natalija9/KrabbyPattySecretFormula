@@ -24,12 +24,12 @@ void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_Right){
         setPixmap(QPixmap(":images/playerRight.png").scaled(_width, _height));
-        m_velocityX = 0.07 * _width;
+        m_velocityX = stepX;
     }if(event->key() == Qt::Key_Left){
         setPixmap(QPixmap(":images/playerLeft.png").scaled(_width, _height));
-        m_velocityX = -0.07 * _width;
+        m_velocityX = -stepX;
     }if(event->key() == Qt::Key_Up && m_isOnGround){
-        m_velocityY = -0.13 * _height;
+        m_velocityY = -stepY;
         setPos(x(), y() + m_velocityY);
         m_isOnGround = false;
     }
@@ -62,7 +62,8 @@ void Player::advance(int phase)
     jump();
     detectCollision();
 
-    level->center(this);
+
+    level->view->centerOn(this);
 }
 
 void Player::jump()
@@ -70,22 +71,14 @@ void Player::jump()
 
     if(!m_isOnGround)
     {
-//        if(y() < 0) // player is hitting the top of the scene
-//        {
-//            setPos(x(), 0);
-//            m_velocityY = 5;
-//        }
 
         if(m_velocityY < 10)
             m_velocityY += m_gravity;
 
          setPos(x(), y() + m_velocityY);
-         //m_isOnGround = true;
     }
     if(isOnGround(this))
         m_isOnGround = true;
-
-    level->center(this);
 }
 
 
@@ -99,7 +92,6 @@ bool Player::isOnGround(Player *p){
 void Player::walk()
 {
     setPos(x() + m_velocityX, y());
-    level->center(this);
 }
 
 
@@ -143,5 +135,7 @@ void Player::calculateDimension(){
 
     _height = screenHeight * 0.2;
     _width = _height * 0.7;
+    stepY = _height * 0.12;
+    m_gravity = 0.05 * stepY;
 }
 

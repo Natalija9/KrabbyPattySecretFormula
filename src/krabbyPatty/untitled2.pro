@@ -16,6 +16,7 @@ SOURCES += \
     life.cpp \
     main.cpp \
     player.cpp \
+    ranglist.cpp \
     score.cpp \
     settings.cpp \
     slowingbarrier.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     level.h \
     life.h \
     player.h \
+    ranglist.h \
     score.h \
     settings.h \
     slowingbarrier.h \
@@ -45,5 +47,6 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
+    files/players.txt \
     images/player.png \
     images/playerLeft.png

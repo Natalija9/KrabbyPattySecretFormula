@@ -488,6 +488,73 @@ color: black;</string>
        </property>
       </widget>
      </widget>
+     <widget class="QWidget" name="rangList">
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/ranglist.jpg) 0 0 0 0 stretch stretch;</string>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>0</y>
+         <width>191</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="text">
+        <string>TOP 10 </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>30</y>
+         <width>181</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="text">
+        <string>PLAYER         SCORE</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="text_rang_list">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>60</y>
+         <width>261</width>
+         <height>311</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/papir.png) 0 0 0 0 stretch stretch;
+font-size: 18px; font:bolid;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>510</y>
+         <width>141</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="text">
+        <string>MAIN MENU</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </item>
   </layout>

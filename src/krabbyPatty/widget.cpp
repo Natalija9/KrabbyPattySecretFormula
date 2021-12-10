@@ -3,6 +3,7 @@
 #include "level.h"
 #include "settings.h"
 #include "score.h"
+#include "ranglist.h"
 #include<QFile>
 Level *level;
 Score *score;
@@ -11,7 +12,7 @@ Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
     , settings(new Settings)
-
+    , ranglist (new RangList)
 {
     ui->setupUi(this);
 
@@ -84,4 +85,19 @@ void Widget::on_rbHard_clicked()
 
 
 
+
+
+void Widget::on_rangListButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    ui->text_rang_list->setAlignment(Qt::AlignCenter);
+    ui->text_rang_list->setText(ranglist->printListToRangList());
+    //this->hide();
+}
+
+
+void Widget::on_pushButton_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
 

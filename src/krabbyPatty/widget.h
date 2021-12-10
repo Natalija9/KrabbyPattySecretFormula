@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "settings.h"
 #include "score.h"
+#include "ranglist.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -40,9 +41,14 @@ private slots:
 
 
 
+    void on_rangListButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Widget *ui;
     Settings *settings;
+    RangList *ranglist;
 
 };
 #endif // WIDGET_H

@@ -14,7 +14,13 @@
         <file>images/level1.jpg</file>
         <file>images/level1.jpeg</file>
         <file>images/tile.png</file>
+        <file>images/rangListBackground.png</file>
+        <file>images/background_rang_list.jpg</file>
+        <file>images/ranglist.jpg</file>
+        <file>files/players.txt</file>
+        <file>images/papir.png</file>
+        <file>images/backgroud.jpeg</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
 </RCC>

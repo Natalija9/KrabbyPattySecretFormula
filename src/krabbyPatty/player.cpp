@@ -16,7 +16,7 @@ Player::Player()
 {
     calculateDimension();
     setPixmap(QPixmap(":images/player.png").scaled(_width, _height));
-    setPos(100, 275);
+    setPos(100, posY);
 
 }
 
@@ -83,7 +83,7 @@ void Player::jump()
 
 
 bool Player::isOnGround(Player *p){
-    if(p->y() >=275)
+    if(p->y() >=posY)
         return true;
 
     return false;
@@ -135,7 +135,7 @@ void Player::calculateDimension(){
 
     _height = screenHeight * 0.2;
     _width = _height * 0.7;
-    stepY = _height * 0.12;
-    m_gravity = 0.05 * stepY;
+    stepY = _height *0.13;
+    m_gravity = 0.05 *stepY;
+    posY = screenHeight * 0.65;
 }
-

@@ -28,11 +28,12 @@ public slots:
     void death();
 
 private:
-    //Player *player;
-
     QTimer *mainTimer;
-
-
+    void parseLevelMap(QString file);
+    void addObject(char type, int x,int y);
+    QGraphicsScene *scene ;
+    qreal playerWidth;
+    qreal playerHeight;
 };
 
 #endif // LEVEL_H

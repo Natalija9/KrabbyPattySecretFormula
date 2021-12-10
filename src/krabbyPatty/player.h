@@ -39,7 +39,8 @@ class Player:  public QObject, public QGraphicsPixmapItem
         bool m_canMove    = true;
         bool m_isOnGround = true;
         qreal stepX = 8;
-        qreal stepY = 1;
+        qreal stepY;
+        qreal posY;
 
 };
 

@@ -4,6 +4,9 @@
 #include "ingredient.h"
 #include "score.h"
 #include <QTimer>
+#include <QFile>
+#include "tile.h"
+#include <iostream>
 
 #include<QGraphicsScene>
 #include<QGraphicsView>
@@ -17,7 +20,7 @@ Level::Level()
     screenHeight = screen->availableSize().height();
     screenWidth = screen->availableSize().width();
 
-    QGraphicsScene *scene =new QGraphicsScene(0,0,5 * screenWidth ,screenHeight);
+    scene =new QGraphicsScene(0,0,5 * screenWidth ,screenHeight);
     mainTimer = new QTimer(this);
     Player *player = new Player();
     player-> setFlag(QGraphicsItem::ItemIsFocusable);
@@ -26,18 +29,14 @@ Level::Level()
     QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
     mainTimer->start(20);
 
-
-    Ingredient *ingredient = new Ingredient(player->_width, player->_height);
-    Life *life = new Life(player->_width, player->_height);
+    playerWidth = player->_width;
+    playerHeight = player->_height;
 
     scene->addItem(player);
-    scene->addItem(ingredient);
-    scene->addItem(life);
-
-
+    parseLevelMap(":/LevelMaps/level1.txt");
 
     this->view = new QGraphicsView(scene);
-    view->setBackgroundBrush(QPixmap(":/images/level1.jpeg").scaledToHeight(screenHeight));
+    view->setBackgroundBrush(QPixmap(":/images/level1.jpg").scaledToHeight(screenHeight));
 
     view->resize(screenWidth,screenHeight);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -76,6 +75,58 @@ void Level::decreaseScore() {
 
 void Level::death() {
     score->takeLife();
+}
+
+void Level::parseLevelMap(QString filePath){
+    QFile file(filePath);
+    if(!file.exists()){
+        qDebug() << "File does not exist";
+        return ;
+    }
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug() << "Opening failed";
+        return ;
+    }
+
+    QTextStream in(&file);
+    QStringList line = in.readLine().split(" ");
+    int sizeX = line[0].toInt();
+    int sizeY = line[1].toInt();
+
+    for(int y = 0; y < sizeY; y++){
+        QString sceneObjects = in.readLine();
+        for( int x = 0; x < sizeX - 1; x++){
+            addObject(sceneObjects[x].toLatin1(), x*55,y);
+        }
+    }
+
+    file.close();
+}
+void Level::addObject(char type, int x,int y){
+    switch(type){
+        case '-' :
+            break;
+    case '*' :{
+            Life *life = new Life(playerWidth);
+            life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            scene->addItem(life);
+            break;
+    }
+    case '_' :{
+            Tile *tile = new Tile(playerWidth);
+            tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
+            scene->addItem(tile);
+            break;
+    }
+    case '$' :{
+            Ingredient *ingredient = new Ingredient(playerWidth);
+            ingredient->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            scene->addItem(ingredient);
+            break;
+    }
+        default :
+            break;
+    }
 }
 
 Level::~Level(){

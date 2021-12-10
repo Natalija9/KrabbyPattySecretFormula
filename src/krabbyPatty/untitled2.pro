@@ -20,6 +20,7 @@ SOURCES += \
     score.cpp \
     settings.cpp \
     slowingbarrier.cpp \
+    tile.cpp \
     widget.cpp
 
 HEADERS += \
@@ -33,6 +34,7 @@ HEADERS += \
     score.h \
     settings.h \
     slowingbarrier.h \
+    tile.h \
     widget.h
 
 FORMS += \

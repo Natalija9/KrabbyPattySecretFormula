@@ -20,6 +20,7 @@
         <file>images/backgroud.jpeg</file>
         <file>images/level1.jpg</file>
         <file>LevelMaps/level1.txt</file>
+        <file>images/ranglist1.jpg</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource lang="KrustyKrab_font" prefix="/font"/>

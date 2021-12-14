@@ -41,6 +41,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         qreal stepX = 8;
         qreal stepY;
         qreal posY;
+        QPolygonF m_playerRectPoints;
 
 };
 

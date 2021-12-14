@@ -1,11 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/player.png</file>
         <file>images/menuBackground.jpg</file>
         <file>images/menuButton.jpg</file>
         <file>images/levelMenuBackground.png</file>
-        <file>images/playerRight.png</file>
-        <file>images/playerLeft.png</file>
         <file>images/settingsBackground.jpg</file>
         <file>images/transparent.png</file>
         <file>images/star.png</file>
@@ -21,7 +18,19 @@
         <file>images/level1.jpg</file>
         <file>LevelMaps/level1.txt</file>
         <file>images/ranglist1.jpg</file>
+        <file>images/playerRight.png</file>
+        <file>images/playerLeft.png</file>
+        <file>images/player.png</file>
+        <file>images/water.png</file>
+        <file>images/tomato.png</file>
+        <file>images/pickles.png</file>
+        <file>images/patty.png</file>
+        <file>images/lettuce.png</file>
+        <file>images/jellyfish.png</file>
+        <file>images/flag.png</file>
+        <file>images/cheese.png</file>
+        <file>images/car.png</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource lang="KrustyKrab_font" prefix="/font"/>
+    <qresource prefix="/font" lang="KrustyKrab_font"/>
 </RCC>

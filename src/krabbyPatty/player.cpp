@@ -1,12 +1,13 @@
 #include "player.h"
 #include <thread>
 #include <QKeyEvent>
-#include<iostream>
+#include <iostream>
 #include "level.h"
 #include "ingredient.h"
 #include "life.h"
 #include "slowingbarrier.h"
 #include "deadlybarrier.h"
+#include "tile.h"
 
 #include<QApplication>
 
@@ -77,17 +78,8 @@ void Player::jump()
 
          setPos(x(), y() + m_velocityY);
     }
-    if(isOnGround(this))
-        m_isOnGround = true;
 }
 
-
-bool Player::isOnGround(Player *p){
-    if(p->y() >=posY)
-        return true;
-
-    return false;
-}
 
 void Player::walk()
 {
@@ -115,16 +107,50 @@ void Player::detectCollision() {
             }
             if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
             {
-                //scene()->removeItem(colliding_item);
                 emit slowingBarrier();
             }
             if (typeid(*(colliding_item)) == typeid(DeadlyBarrier))
             {
-                //scene()->removeItem(colliding_item);
                 emit deadlyBarrier();
             }
+            if (typeid(*(colliding_item)) == typeid(Tile))
+             {
+
+                QRectF tileRect          = colliding_item->boundingRect();
+                QPolygonF tileRectPoints = colliding_item->mapToScene(tileRect);
+
+                m_playerRectPoints = mapToScene(boundingRect());
+                // 0 1
+                // 3 2
+
+                if(m_playerRectPoints[2].y() <= tileRectPoints[0].y() + 22)
+                {
+                   m_isOnGround = true;
+                }   // stoji na platformi
+                else if(!m_isOnGround && m_playerRectPoints[3].x() <= tileRectPoints[3].x() - 25 &&
+                        m_playerRectPoints[1].y() <= tileRectPoints[3].y() - 20)
+                {
+                   setPos(x() - 8, y());
+                }   // sa leve strane
+                else if(!m_isOnGround && m_playerRectPoints[2].x() >= tileRectPoints[2].x() + 25 &&
+                        m_playerRectPoints[1].y() <= tileRectPoints[3].y() - 20)
+                {
+                    setPos(x() + 8, y());
+                }   // sa desne strane
+                 if(!m_isOnGround && m_playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
+                     m_playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
+                     m_playerRectPoints[3].x() < tileRectPoints[2].x() - 2)
+                {
+                        m_velocityY = 5;
+                }
+             }
         }
     }
+    else
+        {
+            m_isOnGround = false;
+        }
+
 
 }
 

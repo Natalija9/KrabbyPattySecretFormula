@@ -96,7 +96,7 @@ void Level::parseLevelMap(QString filePath){
     for(int y = 0; y < sizeY; y++){
         QString sceneObjects = in.readLine();
         for( int x = 0; x < sizeX - 1; x++){
-            addObject(sceneObjects[x].toLatin1(), x*55,y);
+            addObject(sceneObjects[x].toLatin1(), x*screenWidth*5/200,y);
         }
     }
 

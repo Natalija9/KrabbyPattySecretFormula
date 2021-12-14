@@ -12,6 +12,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         Player();
         void keyPressEvent(QKeyEvent *event) override;
         void keyReleaseEvent(QKeyEvent *event) override;
+        bool isDead();
         qreal _width;
         qreal _height;
 

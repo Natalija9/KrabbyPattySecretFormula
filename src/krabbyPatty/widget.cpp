@@ -5,6 +5,9 @@
 #include "score.h"
 #include "ranglist.h"
 #include<QFile>
+
+#include<iostream>
+
 Level *level;
 Score *score;
 
@@ -21,6 +24,18 @@ Widget::Widget(QWidget *parent)
 
     score = new Score();
 
+
+    QObject::connect(ui->Level1, SIGNAL(clicked()), this, SLOT(createLevel()));
+    QObject::connect(ui->Level2, SIGNAL(clicked()), this, SLOT(createLevel()));
+    QObject::connect(ui->Level3, SIGNAL(clicked()), this, SLOT(createLevel()));
+    QObject::connect(ui->Level4, SIGNAL(clicked()), this, SLOT(createLevel()));
+    QObject::connect(ui->Level5, SIGNAL(clicked()), this, SLOT(createLevel()));
+}
+
+void Widget::createLevel(){
+    level = new Level();
+    int levelId = sender()->objectName().toStdString()[5] - '0';
+    level->startLevel(levelId);
 }
 
 Widget::~Widget()
@@ -46,15 +61,6 @@ void Widget::on_quitButton_clicked()
     this->close();
 }
 
-
-void Widget::on_Level1_clicked()
-{
-    level = new Level();
-
-    this->hide();
-
-
-}
 
 
 void Widget::on_settingsButton_clicked()
@@ -82,8 +88,6 @@ void Widget::on_rbHard_clicked()
 {
     settings->setMode(1);
 }
-
-
 
 
 

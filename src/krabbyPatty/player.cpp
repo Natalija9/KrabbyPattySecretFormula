@@ -63,8 +63,14 @@ void Player::advance(int phase)
     jump();
     detectCollision();
 
+    if(isDead()){
+        level->view->close();
+        delete level;
+    }
+    else{
+        level->view->centerOn(this);
+    }
 
-    level->view->centerOn(this);
 }
 
 void Player::jump()
@@ -152,6 +158,10 @@ void Player::detectCollision() {
         }
 
 
+}
+
+bool Player::isDead(){
+    return y() > level->screenHeight;
 }
 
 void Player::calculateDimension(){

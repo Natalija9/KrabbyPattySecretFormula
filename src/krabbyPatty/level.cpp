@@ -16,6 +16,12 @@ extern Score *score;
 
 Level::Level()
 {
+
+}
+
+void Level::startLevel(int levelId){
+
+    std::cout << "level:" << levelId << std::endl;
     QScreen *screen = QApplication::screens().at(0);
     screenHeight = screen->availableSize().height();
     screenWidth = screen->availableSize().width();
@@ -54,12 +60,10 @@ Level::Level()
 
     view->setWindowTitle("level 1");
 
+    view->setFocus();
     view->show();
 
-
-
 }
-
 
 void Level::increaseScore() {
     score->increase();

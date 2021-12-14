@@ -14,7 +14,7 @@ class Level: public QGraphicsView
 
 public:
 
-    void start();
+    void startLevel(int levelId);
     qreal screenWidth;
     qreal screenHeight;
     QGraphicsView *view;

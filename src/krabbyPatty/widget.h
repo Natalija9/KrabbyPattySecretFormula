@@ -22,11 +22,10 @@ public:
 
 private slots:
 
+
     void on_startButton_clicked();
 
     void on_quitButton_clicked();
-
-    void on_Level1_clicked();
 
     void on_settingsButton_clicked();
 
@@ -38,7 +37,7 @@ private slots:
 
     void on_rbHard_clicked();
 
-
+    void createLevel();
 
 
     void on_rangListButton_clicked();

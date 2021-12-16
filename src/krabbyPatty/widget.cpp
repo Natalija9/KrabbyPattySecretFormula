@@ -5,7 +5,7 @@
 #include "score.h"
 #include "ranglist.h"
 #include<QFile>
-
+#include<QVector>
 
 #include<iostream>
 
@@ -35,15 +35,33 @@ Widget::Widget(QWidget *parent)
     QObject::connect(ui->Level6, SIGNAL(clicked()), this, SLOT(createLevel()));
 }
 
-void Widget::createLevel(){
-    int levelId = sender()->objectName().toStdString()[5] - '0';
-    level = new Level(levelId, levelData);
-    level->startLevel();
-}
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+
+void Widget::createLevel(){
+    int levelId = sender()->objectName().toStdString()[5] - '0';
+    level = new Level(levelId, levelData);
+
+    QObject::connect(level, SIGNAL(endLevel()), this, SLOT(updateScore()));
+    level->startLevel();
+}
+
+
+
+void Widget::updateScore(){
+    delete level;
+    std::vector<int> tmp = score->getScores();
+    ui->Score1->setText(QString::number(tmp[0]));
+    ui->Score2->setText(QString::number(tmp[1]));
+    ui->Score3->setText(QString::number(tmp[2]));
+    ui->Score4->setText(QString::number(tmp[3]));
+    ui->Score5->setText(QString::number(tmp[4]));
+    ui->Score6->setText(QString::number(tmp[5]));
+
 }
 
 void Widget::on_startButton_clicked()
@@ -51,8 +69,6 @@ void Widget::on_startButton_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 
 }
-
-
 
 void Widget::onEsc(QKeyEvent *event){
     if(event->key() == Qt::Key_Escape)
@@ -63,8 +79,6 @@ void Widget::on_quitButton_clicked()
 {
     this->close();
 }
-
-
 
 void Widget::on_settingsButton_clicked()
 {

@@ -71,6 +71,13 @@ void Level::startLevel(){
 
 }
 
+void Level::finishLevel(){
+    score->saveCurrentScore(levelId);
+    this->view->close();
+
+    emit endLevel();
+}
+
 void Level::increaseScore() {
     score->increase();
 }

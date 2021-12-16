@@ -64,8 +64,7 @@ void Player::advance(int phase)
     detectCollision();
 
     if(isDead()){
-        level->view->close();
-        delete level;
+        level->finishLevel();
     }
     else{
         level->view->centerOn(this);

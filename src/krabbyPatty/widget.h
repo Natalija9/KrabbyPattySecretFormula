@@ -23,6 +23,7 @@ public:
 
 private slots:
 
+    void updateScore();
 
     void on_startButton_clicked();
 

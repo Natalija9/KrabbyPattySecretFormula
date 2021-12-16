@@ -12,6 +12,8 @@ public:
     void decrease();
     void addLife();
     void takeLife();
+    std::vector<int> getScores();
+    void saveCurrentScore(int levelId);
 
 private:
     std::vector<int> scores;

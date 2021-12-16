@@ -16,11 +16,15 @@ class Level: public QGraphicsView
 public:
 
     void startLevel();
+    void finishLevel();
     qreal screenWidth;
     qreal screenHeight;
     QGraphicsView *view;
 
     virtual ~Level();
+
+signals:
+    void endLevel();
 
 public slots:
     void increaseScore();

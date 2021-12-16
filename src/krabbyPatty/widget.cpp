@@ -94,14 +94,15 @@ void Widget::on_rbHard_clicked()
 void Widget::on_rangListButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
-    ui->text_rang_list->setAlignment(Qt::AlignCenter);
+   // ui->text_rang_list->setAlignment(Qt::AlignCenter);
     ui->text_rang_list->setText(ranglist->printListToRangList());
     //this->hide();
 }
 
 
-void Widget::on_pushButton_2_clicked()
+
+void Widget::on_pushButtonMainMenu_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
 }
 

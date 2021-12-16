@@ -42,7 +42,7 @@ private slots:
 
     void on_rangListButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButtonMainMenu_clicked();
 
 private:
     Ui::Widget *ui;

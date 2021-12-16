@@ -31,6 +31,7 @@ void RangList::readFromFileAndInsertIntoList()
 {
     QFile players(":/files/players.txt");
 
+    /*
     if(players.exists()){
         cout << "fajl postoji na toj putanji" << endl;
     }
@@ -39,7 +40,9 @@ void RangList::readFromFileAndInsertIntoList()
         cout << "otvorio fajl" << endl;
     }else
         cout << " nije otvorio fajl " << endl;
+    */
 
+    players.open(QIODevice::ReadOnly);
     QTextStream stream(&players);
 
     while (!stream.atEnd()) {
@@ -114,7 +117,7 @@ QString RangList::printListToRangList()
     //QString scores;
     //QString positions;
 
-    QString rez = "\n";
+    QString rez = "";
     for (int i = 0; i < playerList.size(); i++) {
         std::tuple<QString, int> player = playerList.at(i);
         QString position = QString::number(i + 1) + ". ";
@@ -126,9 +129,9 @@ QString RangList::printListToRangList()
         //scores += QString("%1").arg(score, 10, QChar(' ')) + "\n";
 
         if (i == playerList.size()-1){
-            rez += "     " + position + " " + name + " " + score + "\n";
+            rez += "      " + position + " " + name + " " + score + "\n";
         }else{
-            rez += "     " + position + "   " + name + " " + score + "\n";
+            rez += "      " + position + "   " + name + " " + score + "\n";
         }
        // printf("%s \n", name.toStdString().c_str());
        // printf("%s \n", score.toStdString().c_str());

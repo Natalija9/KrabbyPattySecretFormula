@@ -4,17 +4,18 @@
 #include <QKeyEvent>
 #include<QGraphicsView>
 #include "player.h"
+#include "leveldata.h"
 
 class Level: public QGraphicsView
 {
     Q_OBJECT
     public:
         // Methods
-        Level();
+        Level(int levelId, LevelData *levelData);
 
 public:
 
-    void startLevel(int levelId);
+    void startLevel();
     qreal screenWidth;
     qreal screenHeight;
     QGraphicsView *view;
@@ -28,8 +29,10 @@ public slots:
     void death();
 
 private:
+    int levelId;
+    LevelData *levelData;
     QTimer *mainTimer;
-    void parseLevelMap(QString file);
+    void parseLevelMap();
     void addObject(char type, int x,int y);
     QGraphicsScene *scene ;
     qreal playerWidth;

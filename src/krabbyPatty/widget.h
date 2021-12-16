@@ -5,6 +5,7 @@
 #include "settings.h"
 #include "score.h"
 #include "ranglist.h"
+#include "leveldata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -48,6 +49,8 @@ private:
     Ui::Widget *ui;
     Settings *settings;
     RangList *ranglist;
+    LevelData *levelData;
+
 
 };
 #endif // WIDGET_H

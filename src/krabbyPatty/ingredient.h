@@ -7,7 +7,7 @@
 class Ingredient : public Item
 {
 public:
-    Ingredient(qreal playerWidth);
+    Ingredient(qreal playerWidth, QString imagePath);
     friend int Item::collect();
 
     //virtual ~Ingredient();

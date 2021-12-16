@@ -13,6 +13,7 @@ SOURCES += \
     ingredient.cpp \
     item.cpp \
     level.cpp \
+    leveldata.cpp \
     life.cpp \
     main.cpp \
     player.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     ingredient.h \
     item.h \
     level.h \
+    leveldata.h \
     life.h \
     player.h \
     ranglist.h \

@@ -30,6 +30,8 @@
         <file>images/flag.png</file>
         <file>images/cheese.png</file>
         <file>images/car.png</file>
+        <file>images/level2.png</file>
+        <file>images/level3.png</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource prefix="/font" lang="KrustyKrab_font"/>

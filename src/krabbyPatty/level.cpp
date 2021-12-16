@@ -12,19 +12,23 @@
 #include<QGraphicsView>
 #include <QApplication>
 
+
 extern Score *score;
 
-Level::Level()
+Level::Level(int levelId, LevelData *levelData)
 {
+
+    this->levelId = levelId;
+    this->levelData = levelData;
 
 }
 
-void Level::startLevel(int levelId){
+void Level::startLevel(){
 
     std::cout << "level:" << levelId << std::endl;
     QScreen *screen = QApplication::screens().at(0);
-    screenHeight = screen->availableSize().height();
-    screenWidth = screen->availableSize().width();
+    screenHeight = screen->size().height();
+    screenWidth = screen->size().width();
 
     scene =new QGraphicsScene(0,0,5 * screenWidth ,screenHeight);
     mainTimer = new QTimer(this);
@@ -39,10 +43,12 @@ void Level::startLevel(int levelId){
     playerHeight = player->_height;
 
     scene->addItem(player);
-    parseLevelMap(":/LevelMaps/level1.txt");
+    parseLevelMap();
 
     this->view = new QGraphicsView(scene);
-    view->setBackgroundBrush(QPixmap(":/images/level1.jpg").scaledToHeight(screenHeight));
+
+    QString path = levelData->getBackground(levelId);
+    view->setBackgroundBrush(QPixmap(path).scaledToHeight(screenHeight));
 
     view->resize(screenWidth,screenHeight);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -58,10 +64,10 @@ void Level::startLevel(int levelId){
     QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
 
 
-    view->setWindowTitle("level 1");
+    view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
 
     view->setFocus();
-    view->show();
+    view->showFullScreen();
 
 }
 
@@ -81,8 +87,8 @@ void Level::death() {
     score->takeLife();
 }
 
-void Level::parseLevelMap(QString filePath){
-    QFile file(filePath);
+void Level::parseLevelMap(){
+    QFile file(levelData->getLevelMap(levelId));
     if(!file.exists()){
         qDebug() << "File does not exist";
         return ;
@@ -123,7 +129,7 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case '$' :{
-            Ingredient *ingredient = new Ingredient(playerWidth);
+            Ingredient *ingredient = new Ingredient(playerWidth, levelData->getIngredient(levelId));
             ingredient->setPos(x, (0.225 + y * 0.25 )*screenHeight);
             scene->addItem(ingredient);
             break;

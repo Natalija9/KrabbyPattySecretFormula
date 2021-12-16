@@ -6,6 +6,7 @@
 #include "ranglist.h"
 #include<QFile>
 
+
 #include<iostream>
 
 Level *level;
@@ -23,6 +24,7 @@ Widget::Widget(QWidget *parent)
     ui->rbEasy->setChecked(true);
 
     score = new Score();
+    levelData = new LevelData();
 
 
     QObject::connect(ui->Level1, SIGNAL(clicked()), this, SLOT(createLevel()));
@@ -30,12 +32,13 @@ Widget::Widget(QWidget *parent)
     QObject::connect(ui->Level3, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level4, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level5, SIGNAL(clicked()), this, SLOT(createLevel()));
+    QObject::connect(ui->Level6, SIGNAL(clicked()), this, SLOT(createLevel()));
 }
 
 void Widget::createLevel(){
-    level = new Level();
     int levelId = sender()->objectName().toStdString()[5] - '0';
-    level->startLevel(levelId);
+    level = new Level(levelId, levelData);
+    level->startLevel();
 }
 
 Widget::~Widget()

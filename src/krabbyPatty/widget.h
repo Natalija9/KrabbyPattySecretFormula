@@ -46,6 +46,12 @@ private slots:
 
     void on_pushButtonMainMenu_clicked();
 
+    void on_helpButton_clicked();
+
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
+
 private:
     Ui::Widget *ui;
     Settings *settings;

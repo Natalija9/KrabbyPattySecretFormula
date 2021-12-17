@@ -40,6 +40,9 @@
      <property name="styleSheet">
       <string notr="true"/>
      </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
      <widget class="QWidget" name="mainMenu">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
@@ -89,7 +92,23 @@ color: #feff41;</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>500</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="5" column="0">
              <spacer name="verticalSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -104,52 +123,6 @@ color: #feff41;</string>
                </size>
               </property>
              </spacer>
-            </item>
-            <item row="0" column="1">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Expanding</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>575</width>
-                <height>5</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="settingsButton">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>75</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>19</pointsize>
-                <italic>true</italic>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
-color: #feff41;</string>
-              </property>
-              <property name="text">
-               <string>Settings</string>
-              </property>
-             </widget>
             </item>
             <item row="0" column="0">
              <widget class="QPushButton" name="startButton">
@@ -179,6 +152,36 @@ color: #feff41;
               </property>
               <property name="text">
                <string>Start game</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="settingsButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>75</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>19</pointsize>
+                <italic>true</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+              </property>
+              <property name="text">
+               <string>Settings</string>
               </property>
              </widget>
             </item>
@@ -213,6 +216,25 @@ color: #feff41;</string>
               </property>
               <property name="text">
                <string>Quit game</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QPushButton" name="helpButton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-image: url(:/images/help.png);</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -741,6 +763,107 @@ color: #feff41;</string>
        </property>
        <property name="text">
         <string>MAIN MENU</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="help">
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/how_to_play.jpg) 0 0 0 0 stretch stretch;</string>
+      </property>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>240</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_message">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>0</y>
+         <width>281</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/bubble_for_help.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_arrows">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>20</y>
+         <width>61</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/button_arrow.png) 0 0 0 0 stretch stretch;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>40</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch; font-size: 18px;</string>
+       </property>
+       <property name="text">
+        <string>Use</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>40</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch; font-size: 18px;</string>
+       </property>
+       <property name="text">
+        <string>to move left,</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>60</y>
+         <width>241</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch; font-size: 18px;</string>
+       </property>
+       <property name="plainText">
+        <string>up, down and right. Try to be fast and to avoid every obstacle. If you manage to pass all the levels, you may be in the top 10! So, have a good luck!</string>
        </property>
       </widget>
      </widget>

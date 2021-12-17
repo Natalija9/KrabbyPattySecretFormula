@@ -123,3 +123,24 @@ void Widget::on_pushButtonMainMenu_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+
+
+void Widget::on_helpButton_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+
+
+void Widget::on_buttonBox_accepted()
+{
+     ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+void Widget::on_buttonBox_rejected()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+

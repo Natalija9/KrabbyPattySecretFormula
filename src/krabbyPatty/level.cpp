@@ -11,6 +11,7 @@
 #include<QGraphicsScene>
 #include<QGraphicsView>
 #include <QApplication>
+#include <QMessageBox>
 
 
 extern Score *score;
@@ -38,6 +39,11 @@ void Level::startLevel(){
     player ->setFocus();
     QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
     mainTimer->start(20);
+
+    levelTimer = new QTimer(this);
+    levelTimer->start(120000);
+    QObject::connect(levelTimer, SIGNAL(timeout()), this, SLOT(outOfTime()));
+
 
     playerWidth = player->_width;
     playerHeight = player->_height;
@@ -72,8 +78,11 @@ void Level::startLevel(){
 }
 
 void Level::finishLevel(){
+    std::cout << score->getLives() << std::endl;
     score->saveCurrentScore(levelId);
     this->view->close();
+    score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
+    levelTimer->stop();
 
     emit endLevel();
 }
@@ -92,6 +101,22 @@ void Level::decreaseScore() {
 
 void Level::death() {
     score->takeLife();
+    this->finishLevel();
+    QMessageBox msgBox;
+    msgBox.setText("Ooops, you lost a life!");
+    msgBox.setWindowTitle(" ");
+    msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
+    msgBox.exec();
+}
+
+void Level::outOfTime() {
+    score->takeLife();
+    this->finishLevel();
+    QMessageBox msgBox;
+    msgBox.setText("Ooops, you ran out of time!");
+    msgBox.setWindowTitle("No more time");
+    msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
+    msgBox.exec();
 }
 
 void Level::parseLevelMap(){
@@ -147,7 +172,7 @@ void Level::addObject(char type, int x,int y){
 }
 
 Level::~Level(){
-
+    std::cout << score->getLevelTime(levelId) / 1000 << "s" << std::endl;
 }
 
 

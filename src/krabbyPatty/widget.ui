@@ -76,7 +76,6 @@
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                </font>
@@ -139,7 +138,6 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                </font>
@@ -170,7 +168,6 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <weight>75</weight>
                 <italic>false</italic>
                 <bold>true</bold>
                </font>
@@ -202,7 +199,6 @@ color: #feff41;
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                 <stylestrategy>PreferDefault</stylestrategy>
@@ -243,7 +239,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -267,7 +262,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -292,7 +286,6 @@ color: #feff41;
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -316,7 +309,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -340,7 +332,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -364,7 +355,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -388,7 +378,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -412,7 +401,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -436,7 +424,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -460,7 +447,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -484,7 +470,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -508,7 +493,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -537,7 +521,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>17</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -561,7 +544,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
          <underline>false</underline>
         </font>
@@ -586,7 +568,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>17</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -610,7 +591,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -634,7 +614,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -658,7 +637,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -687,7 +665,6 @@ color: black;</string>
        <property name="font">
         <font>
          <pointsize>26</pointsize>
-         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>
@@ -712,7 +689,6 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
-         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>
@@ -755,7 +731,6 @@ text-align: left;</string>
        <property name="font">
         <font>
          <pointsize>16</pointsize>
-         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>

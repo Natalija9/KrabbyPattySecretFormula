@@ -10,6 +10,7 @@
 #include "tile.h"
 
 #include<QApplication>
+#include<QTimer>
 
 extern Level *level;
 
@@ -64,7 +65,7 @@ void Player::advance(int phase)
     detectCollision();
 
     if(isDead()){
-        level->finishLevel();
+        level->death();
     }
     else{
         level->view->centerOn(this);

@@ -20,6 +20,7 @@ public:
     qreal screenWidth;
     qreal screenHeight;
     QGraphicsView *view;
+    QTimer *levelTimer;
 
     virtual ~Level();
 
@@ -31,11 +32,13 @@ public slots:
     void increaseLife();
     void decreaseScore();
     void death();
+    void outOfTime();
 
 private:
     int levelId;
     LevelData *levelData;
     QTimer *mainTimer;
+//    QTimer *levelTimer;
     void parseLevelMap();
     void addObject(char type, int x,int y);
     QGraphicsScene *scene ;

@@ -166,6 +166,18 @@ void Level::addObject(char type, int x,int y){
             scene->addItem(ingredient);
             break;
     }
+    case 'X' :{
+            Ingredient *ingredient = new Ingredient(playerWidth, ":/images/jellyfish.png");
+            ingredient->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            scene->addItem(ingredient);
+            break;
+    }
+    case '+' :{
+            Ingredient *ingredient = new Ingredient(playerHeight*1.41, ":/images/flag.png");
+            ingredient->setPos(x, (0.225 + y * 0.23 )*screenHeight);
+            scene->addItem(ingredient);
+            break;
+    }
         default :
             break;
     }

@@ -32,7 +32,9 @@
         <file>images/car.png</file>
         <file>images/level2.png</file>
         <file>images/level3.png</file>
+        <file>images/level4.png</file>
+        <file>LevelMaps/level2.txt</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
 </RCC>

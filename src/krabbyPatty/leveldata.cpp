@@ -6,7 +6,7 @@ LevelData::LevelData()
     backgrounds = {":/images/level1.jpg",
                   ":/images/level2.png",
                   ":/images/level3.png",
-                  ":/images/level1.jpg",
+                  ":/images/level4.png",
                   ":/images/level1.jpg",
                   ":/images/level1.jpg"};
 
@@ -18,7 +18,7 @@ LevelData::LevelData()
                   ":/images/pickles.png"};
 
     levelMaps = {":/LevelMaps/level1.txt",
-                ":/LevelMaps/level1.txt",
+                ":/LevelMaps/level2.txt",
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt",

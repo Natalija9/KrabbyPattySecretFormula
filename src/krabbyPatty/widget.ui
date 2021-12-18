@@ -79,6 +79,7 @@
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
+                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                </font>
@@ -141,6 +142,7 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
+                <weight>75</weight>
                 <italic>false</italic>
                 <bold>true</bold>
                </font>
@@ -172,6 +174,7 @@ color: #feff41;
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
+                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                </font>
@@ -202,6 +205,7 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
+                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                 <stylestrategy>PreferDefault</stylestrategy>
@@ -261,6 +265,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -284,6 +289,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -308,6 +314,7 @@ color: #feff41;
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -331,6 +338,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -354,6 +362,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -377,6 +386,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -400,6 +410,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -423,6 +434,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -446,6 +458,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -469,6 +482,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -492,6 +506,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -515,6 +530,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>20</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -524,6 +540,30 @@ color: #feff41;</string>
        </property>
        <property name="text">
         <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Give_up">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>440</y>
+         <width>211</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch;
+color: #feff41;</string>
+       </property>
+       <property name="text">
+        <string>Give up</string>
        </property>
       </widget>
      </widget>
@@ -543,6 +583,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>17</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -566,6 +607,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
          <underline>false</underline>
         </font>
@@ -590,6 +632,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>17</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -613,6 +656,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -636,6 +680,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -659,6 +704,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>19</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -687,6 +733,7 @@ color: black;</string>
        <property name="font">
         <font>
          <pointsize>26</pointsize>
+         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>
@@ -711,6 +758,7 @@ color: #feff41;</string>
        <property name="font">
         <font>
          <pointsize>15</pointsize>
+         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>
@@ -753,6 +801,7 @@ text-align: left;</string>
        <property name="font">
         <font>
          <pointsize>16</pointsize>
+         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>

@@ -24,8 +24,8 @@ LevelData::LevelData()
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt"};
 
-    unlocked.resize(5, false);
-    unlocked[0] = true;
+//    unlocked.resize(5, false);
+//    unlocked[0] = true;
 
 }
 
@@ -41,6 +41,6 @@ QString LevelData::getLevelMap(int levelId){
     return this->levelMaps[levelId-1];
 }
 
-bool LevelData::isUnlocked(int levelId){
-    return this->unlocked[levelId - 1];
-}
+//bool LevelData::isUnlocked(int levelId){
+//    return this->unlocked[levelId - 1];
+//}

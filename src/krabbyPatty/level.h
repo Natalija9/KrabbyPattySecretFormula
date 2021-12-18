@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include<QGraphicsView>
+
 #include "player.h"
 #include "leveldata.h"
 

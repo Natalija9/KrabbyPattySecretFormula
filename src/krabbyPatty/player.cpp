@@ -8,6 +8,7 @@
 #include "slowingbarrier.h"
 #include "deadlybarrier.h"
 #include "tile.h"
+#include "flag.h"
 
 #include<QApplication>
 #include<QTimer>
@@ -56,13 +57,6 @@ void Player::advance(int phase)
     if(!phase){
         return;
     }
-    QGraphicsItem::advance(phase);
-    if(m_canMove)
-    {
-        walk();
-    }
-    jump();
-    detectCollision();
 
     if(isDead()){
         level->death();
@@ -70,6 +64,14 @@ void Player::advance(int phase)
     else{
         level->view->centerOn(this);
     }
+
+    if(m_canMove)
+    {
+        walk();
+    }
+    jump();
+    detectCollision();
+
 
 }
 
@@ -101,6 +103,10 @@ void Player::detectCollision() {
     {
         for (auto &colliding_item : colliding_items)
         {
+            if (typeid(*(colliding_item)) == typeid(Flag))
+            {
+                level->finishLevel();
+            }
             if (typeid(*(colliding_item)) == typeid(Ingredient))
             {
                 scene()->removeItem(colliding_item);

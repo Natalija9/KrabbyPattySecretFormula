@@ -6,6 +6,7 @@
 #include "ranglist.h"
 #include<QFile>
 #include<QVector>
+#include <QMessageBox>
 
 #include<iostream>
 
@@ -23,9 +24,17 @@ Widget::Widget(QWidget *parent)
     ui->checkSound->setChecked(true);
     ui->rbEasy->setChecked(true);
 
-    score = new Score();
     levelData = new LevelData();
 
+    score = new Score();
+    QVector<QLabel*> labels;
+    labels.append(ui->Score1);
+    labels.append(ui->Score2);
+    labels.append(ui->Score3);
+    labels.append(ui->Score4);
+    labels.append(ui->Score5);
+    labels.append(ui->Score6);
+    score->setScoreLabels(labels);
 
     QObject::connect(ui->Level1, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level2, SIGNAL(clicked()), this, SLOT(createLevel()));
@@ -53,14 +62,25 @@ void Widget::createLevel(){
 
 
 void Widget::updateScore(){
+
     delete level;
-    std::vector<int> tmp = score->getScores();
-    ui->Score1->setText(QString::number(tmp[0]));
-    ui->Score2->setText(QString::number(tmp[1]));
-    ui->Score3->setText(QString::number(tmp[2]));
-    ui->Score4->setText(QString::number(tmp[3]));
-    ui->Score5->setText(QString::number(tmp[4]));
-    ui->Score6->setText(QString::number(tmp[5]));
+
+    if(score->isSuccessful()){
+        ui->Give_up->setText("Save Score");
+    }
+
+    if(score->getLives() == 0){
+        score->reset();
+
+        QMessageBox msgBox;
+        msgBox.setText("No spare lives left. Better luck next time!");
+        msgBox.setWindowTitle(" ");
+        msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
+        msgBox.exec();
+
+        ui->stackedWidget->setCurrentIndex(0);
+
+    }
 
 }
 
@@ -111,9 +131,7 @@ void Widget::on_rbHard_clicked()
 void Widget::on_rangListButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
-   // ui->text_rang_list->setAlignment(Qt::AlignCenter);
     ui->text_rang_list->setText(ranglist->printListToRangList());
-    //this->hide();
 }
 
 
@@ -142,5 +160,23 @@ void Widget::on_buttonBox_accepted()
 void Widget::on_buttonBox_rejected()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void Widget::on_Give_up_clicked()
+{
+    if(!score->isSuccessful()){
+        ui->stackedWidget->setCurrentIndex(0);
+        score->reset();
+
+    }
+    else {
+        ui->stackedWidget->setCurrentIndex(3);
+        ui->text_rang_list->setText(ranglist->printListToRangList());
+
+        // za sada se ovde resetuje rezultat, treba povezati upisivanje novog rezultata u rang listu
+        score->reset();
+    }
+
 }
 

@@ -25,6 +25,7 @@ private slots:
 
     void updateScore();
 
+
     void on_startButton_clicked();
 
     void on_quitButton_clicked();
@@ -51,6 +52,8 @@ private slots:
     void on_buttonBox_accepted();
 
     void on_buttonBox_rejected();
+
+    void on_Give_up_clicked();
 
 private:
     Ui::Widget *ui;

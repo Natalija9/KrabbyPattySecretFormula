@@ -1,17 +1,21 @@
+#include<QGraphicsScene>
+#include<QGraphicsView>
+#include <QApplication>
+#include <QMessageBox>
+#include <QTimer>
+#include <QFile>
+
 #include "level.h"
 #include "player.h"
 #include "life.h"
 #include "ingredient.h"
 #include "score.h"
-#include <QTimer>
-#include <QFile>
 #include "tile.h"
+#include "flag.h"
+
 #include <iostream>
 
-#include<QGraphicsScene>
-#include<QGraphicsView>
-#include <QApplication>
-#include <QMessageBox>
+
 
 
 extern Score *score;
@@ -78,11 +82,11 @@ void Level::startLevel(){
 }
 
 void Level::finishLevel(){
-    std::cout << score->getLives() << std::endl;
+//    std::cout << "life: " <<score->getLives() << std::endl;
     score->saveCurrentScore(levelId);
-    this->view->close();
     score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
     levelTimer->stop();
+    this->view->close();
 
     emit endLevel();
 }
@@ -101,22 +105,26 @@ void Level::decreaseScore() {
 
 void Level::death() {
     score->takeLife();
-    this->finishLevel();
     QMessageBox msgBox;
     msgBox.setText("Ooops, you lost a life!");
     msgBox.setWindowTitle(" ");
     msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
     msgBox.exec();
+
+    this->finishLevel();
+
 }
 
 void Level::outOfTime() {
     score->takeLife();
-    this->finishLevel();
     QMessageBox msgBox;
     msgBox.setText("Ooops, you ran out of time!");
     msgBox.setWindowTitle("No more time");
     msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
     msgBox.exec();
+
+    this->finishLevel();
+
 }
 
 void Level::parseLevelMap(){
@@ -173,9 +181,9 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case '+' :{
-            Ingredient *ingredient = new Ingredient(playerHeight*1.41, ":/images/flag.png");
-            ingredient->setPos(x, (0.225 + y * 0.23 )*screenHeight);
-            scene->addItem(ingredient);
+            Flag *flag = new Flag(playerHeight*1.41);
+            flag->setPos(x, (0.225 + y * 0.23 )*screenHeight);
+            scene->addItem(flag);
             break;
     }
         default :

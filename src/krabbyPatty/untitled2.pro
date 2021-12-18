@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     deadlybarrier.cpp \
+    flag.cpp \
     ingredient.cpp \
     item.cpp \
     level.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     deadlybarrier.h \
+    flag.h \
     ingredient.h \
     item.h \
     level.h \

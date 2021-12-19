@@ -1,5 +1,7 @@
 #include "leveldata.h"
 
+#include <cstdlib>
+
 LevelData::LevelData()
 {
 
@@ -24,8 +26,8 @@ LevelData::LevelData()
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt"};
 
-//    unlocked.resize(5, false);
-//    unlocked[0] = true;
+    deadlyBarriers = {":/images/jellyfish.png",
+                     ":/images/jellyfish_blue.png"};
 
 }
 
@@ -41,6 +43,8 @@ QString LevelData::getLevelMap(int levelId){
     return this->levelMaps[levelId-1];
 }
 
-//bool LevelData::isUnlocked(int levelId){
-//    return this->unlocked[levelId - 1];
-//}
+QString LevelData::getDeadlyBarrier(){
+    int i = rand() % (deadlyBarriers.size());
+    return deadlyBarriers[i];
+}
+

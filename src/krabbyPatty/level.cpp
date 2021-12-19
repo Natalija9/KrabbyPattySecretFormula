@@ -12,6 +12,7 @@
 #include "score.h"
 #include "tile.h"
 #include "flag.h"
+#include "deadlybarrier.h"
 
 #include <iostream>
 
@@ -175,9 +176,9 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case 'X' :{
-            Ingredient *ingredient = new Ingredient(playerWidth, ":/images/jellyfish.png");
-            ingredient->setPos(x, (0.225 + y * 0.25 )*screenHeight);
-            scene->addItem(ingredient);
+            DeadlyBarrier *jellyfish = new DeadlyBarrier(playerWidth, levelData->getDeadlyBarrier());
+            jellyfish->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            scene->addItem(jellyfish);
             break;
     }
     case '+' :{

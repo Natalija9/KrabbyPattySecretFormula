@@ -38,7 +38,8 @@
         <file>images/how_to_play.jpg</file>
         <file>images/bubble_for_help.png</file>
         <file>images/button_arrow.png</file>
+        <file>images/jellyfish_blue.png</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
 </RCC>

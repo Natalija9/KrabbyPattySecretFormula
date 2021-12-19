@@ -12,12 +12,14 @@ public:
     QString getBackground(int levelId);
     QString getIngredient(int levelId);
     QString getLevelMap(int levelId);
+    QString getDeadlyBarrier();
 //    bool isUnlocked(int levelId);
 
 private:
     std::vector<QString> backgrounds;
     std::vector<QString> ingredients;
     std::vector<QString> levelMaps;
+    std::vector<QString> deadlyBarriers;
 //    std::vector<bool> unlocked;
 };
 

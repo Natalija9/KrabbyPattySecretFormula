@@ -2,8 +2,10 @@
 
 #include <cstdlib>
 
-LevelData::LevelData()
+LevelData::LevelData(Settings *settings)
 {
+
+    this->settings = settings;
 
     backgrounds = {":/images/level1.jpg",
                   ":/images/level2.png",
@@ -31,6 +33,7 @@ LevelData::LevelData()
 
 }
 
+
 QString LevelData::getBackground(int levelId){
     return this->backgrounds[levelId - 1];
 }
@@ -48,3 +51,8 @@ QString LevelData::getDeadlyBarrier(){
     return deadlyBarriers[i];
 }
 
+bool LevelData::getRandomDecision(){
+    double x = ((double) rand() / (RAND_MAX));
+    decisionMaker = settings->getMode() ? 0.9 : 0.6;
+    return x < decisionMaker;
+}

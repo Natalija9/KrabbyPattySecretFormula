@@ -83,7 +83,6 @@ void Level::startLevel(){
 }
 
 void Level::finishLevel(){
-//    std::cout << "life: " <<score->getLives() << std::endl;
     score->saveCurrentScore(levelId);
     score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
     levelTimer->stop();
@@ -176,10 +175,20 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case 'X' :{
-            DeadlyBarrier *jellyfish = new DeadlyBarrier(playerWidth, levelData->getDeadlyBarrier());
-            jellyfish->setPos(x, (0.225 + y * 0.25 )*screenHeight);
-            scene->addItem(jellyfish);
+
+            if(levelData->getRandomDecision()){
+                DeadlyBarrier *jellyfish = new DeadlyBarrier(playerWidth, levelData->getDeadlyBarrier());
+                jellyfish->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+                scene->addItem(jellyfish);
+            }
+//            else{
+//                Life *life = new Life(playerWidth);
+//                life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+//                scene->addItem(life);
+
+//            }
             break;
+
     }
     case '+' :{
             Flag *flag = new Flag(playerHeight*1.41);

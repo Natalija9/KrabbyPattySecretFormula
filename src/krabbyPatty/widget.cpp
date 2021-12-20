@@ -24,7 +24,7 @@ Widget::Widget(QWidget *parent)
     ui->checkSound->setChecked(true);
     ui->rbEasy->setChecked(true);
 
-    levelData = new LevelData();
+    levelData = new LevelData(settings);
 
     score = new Score();
     QVector<QLabel*> labels;
@@ -125,7 +125,6 @@ void Widget::on_rbHard_clicked()
 {
     settings->setMode(1);
 }
-
 
 
 void Widget::on_rangListButton_clicked()

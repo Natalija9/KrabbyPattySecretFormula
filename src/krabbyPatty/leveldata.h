@@ -5,22 +5,28 @@
 #include <string>
 #include <QString>
 
+#include "settings.h"
+
 class LevelData
 {
 public:
-    LevelData();
+    LevelData(Settings *settings);
     QString getBackground(int levelId);
     QString getIngredient(int levelId);
     QString getLevelMap(int levelId);
     QString getDeadlyBarrier();
-//    bool isUnlocked(int levelId);
+    bool getRandomDecision();
+
 
 private:
     std::vector<QString> backgrounds;
     std::vector<QString> ingredients;
     std::vector<QString> levelMaps;
     std::vector<QString> deadlyBarriers;
-//    std::vector<bool> unlocked;
+    Settings *settings;
+    double decisionMaker;
+
+
 };
 
 #endif // LEVELDATA_H

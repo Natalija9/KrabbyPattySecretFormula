@@ -154,6 +154,8 @@ void Level::parseLevelMap(){
 
     file.close();
 }
+
+
 void Level::addObject(char type, int x,int y){
     switch(type){
         case '-' :

@@ -13,6 +13,7 @@ LevelData::LevelData(Settings *settings)
                   ":/images/level4.png",
                   ":/images/level5.png",
                   ":/images/level6.png"};
+
     tiles = {":/images/tile.png",
              ":/images/tile2.png",
              ":/images/tile3.png",

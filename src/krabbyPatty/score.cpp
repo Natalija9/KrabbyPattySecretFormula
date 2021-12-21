@@ -1,6 +1,13 @@
 #include "score.h"
 #include<iostream>
 
+/*
+ * score * remainingTime * koeficijent
+ * koef. 0.1 za easy i 0.15 za hard
+ * easy 352 hard 520
+ *       344     516
+ */
+
 Score::Score()
 {
     scores.resize(6, 0);
@@ -48,7 +55,10 @@ int Score::getLives(){
 void Score::saveCurrentScore(int levelId){
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;
-        unlocked[levelId] = true;
+        if(levelId < 6){
+            unlocked[levelId] = true;
+            buttons[levelId]->setEnabled(true);
+        }
     }
     current_score = 0;
 
@@ -84,9 +94,11 @@ void Score::reset(){
         unlocked[i] = false;
         level_time[i] = 0;
         updateScoreLabel(i+1);
+        buttons[i]->setDisabled(true);
     }
 
     unlocked[0] = true;
+    buttons[0]->setEnabled(true);
     current_score = 0;
     lives = 3;
 }
@@ -106,4 +118,12 @@ void Score::updateScoreLabel(int levelId){
     }
 
     label->setText(str);
+}
+
+void Score::setLevelButtons(QVector<QPushButton *> buttons){
+    this->buttons = buttons;
+    for(int i = 0; i < 6; i++){
+        buttons[i]->setDisabled(true);
+    }
+    buttons[0]->setEnabled(true);
 }

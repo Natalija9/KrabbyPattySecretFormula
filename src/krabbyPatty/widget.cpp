@@ -36,6 +36,17 @@ Widget::Widget(QWidget *parent)
     labels.append(ui->Score6);
     score->setScoreLabels(labels);
 
+    QVector<QPushButton*> buttons;
+    buttons.append(ui->Level1);
+    buttons.append(ui->Level2);
+    buttons.append(ui->Level3);
+    buttons.append(ui->Level4);
+    buttons.append(ui->Level5);
+    buttons.append(ui->Level6);
+    score->setLevelButtons(buttons);
+
+
+
     QObject::connect(ui->Level1, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level2, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level3, SIGNAL(clicked()), this, SLOT(createLevel()));

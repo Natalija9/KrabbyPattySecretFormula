@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <QLabel>
+#include <QPushButton>
 
 
 class Score
@@ -24,6 +25,7 @@ public:
     void updateScoreLabel(int levelId);
     bool isUnlocked(int levelId);
     void setScoreLabels(QVector<QLabel*> labels);
+    void setLevelButtons(QVector<QPushButton*> buttons);
 
 private:
     std::vector<int> scores;
@@ -33,6 +35,7 @@ private:
     const int value = 5;
     std::vector<int> level_time;
     QVector<QLabel*> scoreLabels;
+    QVector<QPushButton*> buttons;
 };
 
 #endif // SCORE_H

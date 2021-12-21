@@ -13,6 +13,7 @@
 #include "tile.h"
 #include "flag.h"
 #include "deadlybarrier.h"
+#include "slowingbarrier.h"
 
 #include <iostream>
 
@@ -101,6 +102,7 @@ void Level::increaseLife() {
 
 void Level::decreaseScore() {
     score->decrease();
+
 }
 
 void Level::death() {
@@ -163,7 +165,7 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case '_' :{
-            Tile *tile = new Tile(playerWidth);
+            Tile *tile = new Tile(playerWidth,levelData->getTiles(levelId));
             tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
             scene->addItem(tile);
             break;
@@ -190,9 +192,24 @@ void Level::addObject(char type, int x,int y){
             break;
 
     }
+    case 'S' :{
+
+            if(levelData->getRandomDecision()){
+                SlowingBarrier *waterTiles = new SlowingBarrier(playerWidth, levelData->getSlowingBarrier(levelId));
+                waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                scene->addItem(waterTiles);
+            }
+            else{
+                Tile *tile = new Tile(playerWidth,levelData->getTiles(levelId));
+                tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                scene->addItem(tile);
+                }
+            break;
+
+    }
     case '+' :{
             Flag *flag = new Flag(playerHeight*1.41);
-            flag->setPos(x, (0.225 + y * 0.23 )*screenHeight);
+            flag->setPos(x, (0.225 + y * 0.25 )*screenHeight);
             scene->addItem(flag);
             break;
     }

@@ -1,11 +1,12 @@
 #ifndef SLOWINGBARRIER_H
 #define SLOWINGBARRIER_H
 
+#include "item.h"
 
-class SlowingBarrier
+class SlowingBarrier: public Item
 {
 public:
-    SlowingBarrier();
+     SlowingBarrier(qreal playerWidth, QString imagePath);
 };
 
 #endif // SLOWINGBARRIER_H

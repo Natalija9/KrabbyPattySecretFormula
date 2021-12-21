@@ -5,7 +5,7 @@
 class Tile : public Item
 {
 public:
-    Tile(qreal playerWidth);
+    Tile(qreal playerWidth, QString imagePath);
 };
 
 #endif // TILE_H

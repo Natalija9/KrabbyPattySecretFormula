@@ -19,7 +19,7 @@ void Score::increase()
 
 void Score::decrease()
 {
-    current_score -= value;
+    current_score -= 1;
 }
 
 void Score::addLife()

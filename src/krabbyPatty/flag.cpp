@@ -2,7 +2,7 @@
 
 Flag::Flag(qreal playerWidth)
 {
-    qreal width = playerWidth * 0.5;
-    qreal height = width;
+    qreal width = playerWidth * 0.7;
+    qreal height = width*2;
     setPixmap(QPixmap(":images/flag.png").scaled(width, height));
 }

@@ -39,7 +39,24 @@
         <file>images/bubble_for_help.png</file>
         <file>images/button_arrow.png</file>
         <file>images/jellyfish_blue.png</file>
+        <file>images/tile6.png</file>
+        <file>images/tile5.png</file>
+        <file>images/tile4.png</file>
+        <file>images/tile3.png</file>
+        <file>images/tile2.png</file>
+        <file>images/SlowingTile6.png</file>
+        <file>images/SlowingTile5.png</file>
+        <file>images/SlowingTile4.png</file>
+        <file>images/SlowingTile3.png</file>
+        <file>images/SlowingTile.png</file>
+        <file>images/EvilSpongeBob.png</file>
+        <file>images/dirtyBubble.png</file>
+        <file>images/SlowingTile2.png</file>
+        <file>images/level6.png</file>
+        <file>images/level5.png</file>
+        <file>images/dirtyBubble1.png</file>
+        <file>images/keren.png</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource lang="KrustyKrab_font" prefix="/font"/>
+    <qresource prefix="/font" lang="KrustyKrab_font"/>
 </RCC>

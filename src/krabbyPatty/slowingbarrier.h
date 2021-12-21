@@ -3,7 +3,7 @@
 
 #include "item.h"
 
-class SlowingBarrier: public Item
+class SlowingBarrier: public QObject, public QGraphicsPixmapItem
 {
 public:
      SlowingBarrier(qreal playerWidth, QString imagePath);

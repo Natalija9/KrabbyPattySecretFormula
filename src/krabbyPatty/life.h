@@ -7,7 +7,8 @@ class Life : public Item
 {
 public:
     Life(qreal playerWidth);
-    //virtual ~Life();
+    void collect() override;
+
 
 private:
     int number_of_lives;

@@ -8,8 +8,8 @@ class Item : QObject, public QGraphicsPixmapItem
         Q_OBJECT
 public:
     Item();
-    bool check_overlap();
-    int collect();
+
+    virtual void collect() = 0;
 };
 
 #endif // ITEM_H

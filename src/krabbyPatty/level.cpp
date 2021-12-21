@@ -69,9 +69,6 @@ void Level::startLevel(){
     view->ensureVisible(player);
     view->centerOn(player);
 
-
-    QObject::connect(player, SIGNAL(ingredientPicked()), this, SLOT(increaseScore()));
-    QObject::connect(player, SIGNAL(lifePicked()), this, SLOT(increaseLife()));
     QObject::connect(player, SIGNAL(slowingBarrier()), this, SLOT(decreaseScore()));
     QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
 
@@ -79,25 +76,21 @@ void Level::startLevel(){
     view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
 
     view->setFocus();
+    QApplication::setOverrideCursor(Qt::BlankCursor);
+
     view->showFullScreen();
 
 }
 
 void Level::finishLevel(){
+    QApplication::setOverrideCursor(Qt::ArrowCursor);
+
     score->saveCurrentScore(levelId);
     score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
     levelTimer->stop();
     this->view->close();
 
     emit endLevel();
-}
-
-void Level::increaseScore() {
-    score->increase();
-}
-
-void Level::increaseLife() {
-    score->addLife();
 }
 
 void Level::decreaseScore() {
@@ -107,6 +100,8 @@ void Level::decreaseScore() {
 
 void Level::death() {
     score->takeLife();
+    QApplication::setOverrideCursor(Qt::ArrowCursor);
+
     QMessageBox msgBox;
     msgBox.setText("Ooops, you lost a life!");
     msgBox.setWindowTitle(" ");
@@ -119,6 +114,8 @@ void Level::death() {
 
 void Level::outOfTime() {
     score->takeLife();
+    QApplication::setOverrideCursor(Qt::ArrowCursor);
+
     QMessageBox msgBox;
     msgBox.setText("Ooops, you ran out of time!");
     msgBox.setWindowTitle("No more time");

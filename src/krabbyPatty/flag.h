@@ -3,7 +3,7 @@
 
 #include "item.h"
 
-class Flag : public Item
+class Flag : public QObject, public QGraphicsPixmapItem
 {
 public:
     Flag(qreal playerWidth);

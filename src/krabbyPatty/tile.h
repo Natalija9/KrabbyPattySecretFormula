@@ -2,7 +2,7 @@
 #define TILE_H
 #include "item.h"
 
-class Tile : public Item
+class Tile : public QObject, public QGraphicsPixmapItem
 {
 public:
     Tile(qreal playerWidth, QString imagePath);

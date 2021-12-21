@@ -107,15 +107,10 @@ void Player::detectCollision() {
             {
                 level->finishLevel();
             }
-            if (typeid(*(colliding_item)) == typeid(Ingredient))
+            if(dynamic_cast<Item*>(colliding_item))
             {
+                dynamic_cast<Item*>(colliding_item)->collect();
                 scene()->removeItem(colliding_item);
-                emit ingredientPicked();
-            }
-            if (typeid(*(colliding_item)) == typeid(Life))
-            {
-                scene()->removeItem(colliding_item);
-                emit lifePicked();
             }
             if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
             {

@@ -8,9 +8,9 @@ class Ingredient : public Item
 {
 public:
     Ingredient(qreal playerWidth, QString imagePath);
-    friend int Item::collect();
 
-    //virtual ~Ingredient();
+    void collect() override;
+
 private:
     int number_of_points;
 };

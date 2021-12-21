@@ -29,8 +29,6 @@ signals:
     void endLevel();
 
 public slots:
-    void increaseScore();
-    void increaseLife();
     void decreaseScore();
     void death();
     void outOfTime();

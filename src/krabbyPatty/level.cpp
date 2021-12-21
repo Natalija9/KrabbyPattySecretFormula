@@ -85,8 +85,8 @@ void Level::startLevel(){
 void Level::finishLevel(){
     QApplication::setOverrideCursor(Qt::ArrowCursor);
 
-    score->saveCurrentScore(levelId);
-    score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
+    score->saveCurrentScore(levelId, levelTimer->remainingTime());
+   //score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
     levelTimer->stop();
     this->view->close();
 

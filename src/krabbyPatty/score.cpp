@@ -52,22 +52,25 @@ int Score::getLives(){
     return this->lives;
 }
 
-void Score::saveCurrentScore(int levelId){
+void Score::saveCurrentScore(int levelId, int time){
+    std::cout<< "time: "<<time/1000 <<std::endl;
+    std::cout<< "score: "<<current_score <<std::endl;
+
+    current_score = current_score > 0 ? current_score * time  / 10000 : 0;
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;
+        this->level_time[levelId - 1] = time;
         if(levelId < 6){
             unlocked[levelId] = true;
-            buttons[levelId]->setEnabled(true);
+            updateLevelButton(levelId+1, true);
         }
     }
-    current_score = 0;
 
+    current_score = 0;
     updateScoreLabel(levelId);
 }
 
-void Score::saveCurrentTime(int levelId, int time){
-    this->level_time[levelId - 1] = time;
-}
+
 
 int Score::getLevelTime(int levelId) {
     return this->level_time[levelId - 1];
@@ -94,11 +97,12 @@ void Score::reset(){
         unlocked[i] = false;
         level_time[i] = 0;
         updateScoreLabel(i+1);
-        buttons[i]->setDisabled(true);
+        updateLevelButton(i+1, false);
+
     }
 
     unlocked[0] = true;
-    buttons[0]->setEnabled(true);
+    updateLevelButton(1, true);
     current_score = 0;
     lives = 3;
 }
@@ -123,7 +127,18 @@ void Score::updateScoreLabel(int levelId){
 void Score::setLevelButtons(QVector<QPushButton *> buttons){
     this->buttons = buttons;
     for(int i = 0; i < 6; i++){
-        buttons[i]->setDisabled(true);
+       updateLevelButton(i+1, false);
     }
-    buttons[0]->setEnabled(true);
+      updateLevelButton(1, true);
+}
+
+void Score::updateLevelButton(int levelId, bool enabled){
+
+    buttons[levelId - 1]->setEnabled(enabled);
+    if(enabled){
+        buttons[levelId-1]->setStyleSheet("border-image: url(:/images/transparent.png); color: #feff41;");
+    }else{
+        buttons[levelId-1]->setStyleSheet("border-image: url(:/images/transparent.png); color: rgb(128, 128, 128); ");
+    }
+
 }

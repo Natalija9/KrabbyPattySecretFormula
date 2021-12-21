@@ -8,7 +8,7 @@
         <file>images/star.png</file>
         <file>images/bun.png</file>
         <file>fonts/KrabbyPatty.ttf</file>
-        <file>images/tile.png</file>
+        <file>images/tile1.png</file>
         <file>images/rangListBackground.png</file>
         <file>images/background_rang_list.jpg</file>
         <file>images/ranglist.jpg</file>
@@ -40,18 +40,18 @@
         <file>images/button_arrow.png</file>
         <file>images/jellyfish_blue.png</file>
         <file>images/tile6.png</file>
-        <file>images/tile5.png</file>
+        <file>images/tile2.png</file>
         <file>images/tile4.png</file>
         <file>images/tile3.png</file>
-        <file>images/tile2.png</file>
+        <file>images/tile5.png</file>
         <file>images/SlowingTile6.png</file>
-        <file>images/SlowingTile5.png</file>
+        <file>images/SlowingTile2.png</file>
         <file>images/SlowingTile4.png</file>
         <file>images/SlowingTile3.png</file>
-        <file>images/SlowingTile.png</file>
+        <file>images/SlowingTile1.png</file>
         <file>images/EvilSpongeBob.png</file>
         <file>images/dirtyBubble.png</file>
-        <file>images/SlowingTile2.png</file>
+        <file>images/SlowingTile5.png</file>
         <file>images/level6.png</file>
         <file>images/level5.png</file>
         <file>images/dirtyBubble1.png</file>

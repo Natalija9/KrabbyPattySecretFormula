@@ -20,7 +20,7 @@ LevelData::LevelData(Settings *settings)
                   ":/images/level5.png",
                   ":/images/level6.png"};
 
-    tiles = {":/images/tile.png",
+    tiles = {":/images/tile1.png",
              ":/images/tile2.png",
              ":/images/tile3.png",
              ":/images/tile4.png",
@@ -47,7 +47,7 @@ LevelData::LevelData(Settings *settings)
                      ":/images/dirtyBubble1.png",
                      ":/images/keren.png"};
 
-    slowingBarriers = {":/images/SlowingTile.png",
+    slowingBarriers = {":/images/SlowingTile1.png",
                        ":/images/SlowingTile2.png",
                        ":/images/SlowingTile3.png",
                        ":/images/SlowingTile4.png",

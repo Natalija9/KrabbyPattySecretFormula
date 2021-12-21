@@ -10,9 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     deadlybarrier.cpp \
+    dirtybubble.cpp \
+    evilspongebob.cpp \
     flag.cpp \
     ingredient.cpp \
     item.cpp \
+    jellyfish.cpp \
+    karen.cpp \
     level.cpp \
     leveldata.cpp \
     life.cpp \
@@ -27,9 +31,13 @@ SOURCES += \
 
 HEADERS += \
     deadlybarrier.h \
+    dirtybubble.h \
+    evilspongebob.h \
     flag.h \
     ingredient.h \
     item.h \
+    jellyfish.h \
+    karen.h \
     level.h \
     leveldata.h \
     life.h \

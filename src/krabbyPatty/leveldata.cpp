@@ -1,4 +1,10 @@
 #include "leveldata.h"
+#include "jellyfish.h"
+#include "dirtybubble.h"
+#include "karen.h"
+#include "evilspongebob.h"
+
+#include <QRandomGenerator>
 
 #include <cstdlib>
 
@@ -48,6 +54,7 @@ LevelData::LevelData(Settings *settings)
                        ":/images/SlowingTile5.png",
                        ":/images/SlowingTile6.png"};
 
+    this->generator = new QRandomGenerator();
 }
 
 
@@ -67,17 +74,39 @@ QString LevelData::getLevelMap(int levelId){
     return this->levelMaps[levelId-1];
 }
 
-QString LevelData::getDeadlyBarrier(){
-    int i = rand() % (deadlyBarriers.size());
-    return deadlyBarriers[i];
+DeadlyBarrier* LevelData::getDeadlyBarrier(int playerWidth){
+
+    int x = generator->bounded(100) % 4;
+
+    switch(x) {
+        case 0 : {
+            return new Jellyfish(playerWidth);
+        }
+        case 1 : {
+            return new DirtyBubble(playerWidth);
+        }
+        case 2: {
+            return new Karen(playerWidth);
+        }
+        case 3: {
+            return new EvilSpongeBob(playerWidth);
+        }
+        default: {
+            return new Jellyfish(playerWidth);
+        }
+    }
+
 }
+
+
 QString LevelData::getSlowingBarrier(int levelId){
     return this->slowingBarriers[levelId - 1];
 }
 
 
 bool LevelData::getRandomDecision(){
-    double x = ((double) rand() / (RAND_MAX));
-    decisionMaker = settings->getMode() ? 0.9 : 0.6;
+
+    double x = generator->bounded(1.0);
+    decisionMaker = settings->getMode() ? 0.9 : 0.7;
     return x < decisionMaker;
 }

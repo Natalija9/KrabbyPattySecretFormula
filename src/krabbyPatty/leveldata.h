@@ -3,9 +3,11 @@
 
 #include <vector>
 #include <string>
+#include <QRandomGenerator>
 #include <QString>
 
 #include "settings.h"
+#include "deadlybarrier.h"
 
 class LevelData
 {
@@ -15,7 +17,7 @@ public:
     QString getTiles(int levelId);
     QString getIngredient(int levelId);
     QString getLevelMap(int levelId);
-    QString getDeadlyBarrier();
+    DeadlyBarrier* getDeadlyBarrier(int playerWidth);
     QString getSlowingBarrier(int levelId);
     bool getRandomDecision();
 
@@ -30,7 +32,7 @@ private:
 
     Settings *settings;
     double decisionMaker;
-
+    QRandomGenerator *generator;
 
 };
 

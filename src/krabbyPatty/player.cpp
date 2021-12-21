@@ -121,7 +121,7 @@ void Player::detectCollision() {
             {
                 emit slowingBarrier();
             }
-            if (typeid(*(colliding_item)) == typeid(DeadlyBarrier))
+            if (dynamic_cast<DeadlyBarrier*>(colliding_item))
             {
                 emit deadlyBarrier();
             }

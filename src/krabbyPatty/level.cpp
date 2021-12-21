@@ -181,9 +181,9 @@ void Level::addObject(char type, int x,int y){
     case 'X' :{
 
             if(levelData->getRandomDecision()){
-                DeadlyBarrier *jellyfish = new DeadlyBarrier(playerWidth, levelData->getDeadlyBarrier());
-                jellyfish->setPos(x, (0.225 + y * 0.25 )*screenHeight);
-                scene->addItem(jellyfish);
+                DeadlyBarrier *barrier = levelData->getDeadlyBarrier(playerWidth);
+                barrier->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+                scene->addItem(barrier);
             }
 //            else{
 //                Life *life = new Life(playerWidth);

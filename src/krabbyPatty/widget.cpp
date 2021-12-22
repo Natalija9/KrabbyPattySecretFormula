@@ -7,6 +7,8 @@
 #include<QFile>
 #include<QVector>
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QDir>
 
 #include<iostream>
 
@@ -181,12 +183,20 @@ void Widget::on_Give_up_clicked()
 
     }
     else {
-        ui->stackedWidget->setCurrentIndex(3);
+        bool ok = true;
+        QInputDialog diag;
+        diag.setWindowTitle("");
+        diag.setStyleSheet("font-size: 20px; font-style: bolid italic; color: rgb(0,0,0);");
+        QString username = diag.getText(this, tr(" "), tr("Username: "), QLineEdit::Normal, QDir::home().dirName(), &ok);
+
+        if(ok && !username.isEmpty()){
+            ranglist->addPlayer(username, score->getTotalScore());
+            ui->stackedWidget->setCurrentIndex(3);
+        }else{
+            ui->stackedWidget->setCurrentIndex(0);
+        }
+
         ui->text_rang_list->setText(ranglist->printListToRangList());
-
-        // za sada se ovde resetuje rezultat, treba povezati upisivanje novog rezultata u rang listu
-        score->reset();
     }
-
 }
 

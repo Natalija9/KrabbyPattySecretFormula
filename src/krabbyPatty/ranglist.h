@@ -18,7 +18,7 @@ public:
      QString printListToRangList();
 
 private:
-    QList<std::tuple<QString, int>> playerList;
+    QList<std::pair<QString, int>> playerList;
 
 };
 

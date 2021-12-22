@@ -27,6 +27,7 @@ public:
     bool isUnlocked(int levelId);
     void setScoreLabels(QVector<QLabel*> labels);
     void setLevelButtons(QVector<QPushButton*> buttons);
+    int getTotalScore();
 
 private:
     std::vector<int> scores;

@@ -1,16 +1,16 @@
 #include "ranglist.h"
-#include <iostream>
-using namespace std;
+#include <QDir>
+
 RangList::RangList()
 {
 }
 
 struct QPairScoreComparer {
     template <typename T1, typename T2>
-    bool operator()(const std::tuple<T1, T2>& a,
-        const std::tuple<T1, T2>& b)
+    bool operator()(const std::pair<T1, T2>& a,
+        const std::pair<T1, T2>& b)
     {
-        return std::get<1>(a) > std::get<1>(b);
+        return a.second > b.second;
     }
 };
 
@@ -29,20 +29,20 @@ void RangList::addPlayer(QString &name, int score)
 // reading players from file and inserting into list
 void RangList::readFromFileAndInsertIntoList()
 {
-    QFile players(":/files/players.txt");
+    QDir d;
+    QFile players(d.absoluteFilePath("players.txt"));
 
     /*
     if(players.exists()){
         cout << "fajl postoji na toj putanji" << endl;
     }
-
     if (players.open(QIODevice::ReadOnly)){
-        cout << "otvorio fajl" << endl;
+        cout << "otvoren" << endl;
     }else
-        cout << " nije otvorio fajl " << endl;
+        cout << " nije otvoren " << endl;
     */
 
-    players.open(QIODevice::ReadOnly);
+    players.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&players);
 
     while (!stream.atEnd()) {
@@ -52,7 +52,7 @@ void RangList::readFromFileAndInsertIntoList()
         QString name = lineList.at(0);
         int score = lineList.at(1).toInt();
 
-        playerList.append(std::make_tuple(name, score));
+        playerList.append(std::make_pair(name, score));
     }
 
     players.close();
@@ -69,8 +69,8 @@ void RangList::insertPlayerIntoList(QString name, int score)
 {
     int position = -1;
     for (int i = 0; i < playerList.size(); i++) {
-        std::tuple<QString, int> player = playerList.at(i);
-        int score1 = std::get<1>(player);
+        std::pair<QString, int> player = playerList.at(i);
+        int score1 = player.second;
 
         if (score > score1) {
             position = i;
@@ -83,7 +83,7 @@ void RangList::insertPlayerIntoList(QString name, int score)
             if (i > position) {
                 playerList[i] = playerList.at(i - 1);
             } else if (i == position) {
-                std::tuple<QString, int> currentPlayer = std::make_tuple(name, score);
+                std::pair<QString, int> currentPlayer = std::pair(name, score);
                 playerList[i] = currentPlayer;
             }
         }
@@ -93,14 +93,15 @@ void RangList::insertPlayerIntoList(QString name, int score)
 // printing players from list to file
 void RangList::printPlayersIntoFile()
 {
-    QFile players(":/files/players.txt");
+    QDir d;
+    QFile players(d.absoluteFilePath("players.txt"));
     players.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
 
     QTextStream stream(&players);
 
     for (int i = 0; i < playerList.size(); i++) {
-        std::tuple<QString, int> player = playerList.at(i);
-        stream << std::get<0>(player) << " " << std::get<1>(player) << '\n';
+        std::pair<QString, int> player = playerList.at(i);
+        stream << player.first << " " << player.second << '\n';
     }
 
     players.close();
@@ -113,33 +114,21 @@ QString RangList::printListToRangList()
     readFromFileAndInsertIntoList();
     sortPlayersByScore();
 
-    //QString names;
-    //QString scores;
-    //QString positions;
-
     QString rez = "";
     for (int i = 0; i < playerList.size(); i++) {
-        std::tuple<QString, int> player = playerList.at(i);
+        std::pair<QString, int> player = playerList.at(i);
         QString position = QString::number(i + 1) + ". ";
-        QString name = std::get<0>(player);
-        QString score = QString::number(std::get<1>(player));
-
-        //positions += QString("%1").arg(position, 5, QChar(' ')) + "\n";
-        //names += QString("%1").arg(name, 15, QChar(' ')) + "\n";
-        //scores += QString("%1").arg(score, 10, QChar(' ')) + "\n";
+        QString name = player.first;
+        QString score = QString::number(player.second);
 
         if (i == playerList.size()-1){
             rez += "      " + position + " " + name + " " + score + "\n";
         }else{
             rez += "      " + position + "   " + name + " " + score + "\n";
         }
-       // printf("%s \n", name.toStdString().c_str());
-       // printf("%s \n", score.toStdString().c_str());
-
     }
 
     return rez;
-    //ui->text_rang_list->setText(positions);
 }
 
 

@@ -1,10 +1,10 @@
-Ana 50
-Milos 10
-korisnik 3
-svasta11 87
+Igor 350
 nikola 96
+svasta11 87
 anja 78
-jaaaaaaaaaa 23
-sofija 39
+Ana 50
 luka 42
+sofija 39
 andrej 24
+jaaaaaaaaaa 23
+Milos 10

@@ -142,3 +142,11 @@ void Score::updateLevelButton(int levelId, bool enabled){
     }
 
 }
+
+int Score::getTotalScore(){
+    int zbir = 0;
+    for(int score : this->scores)
+        zbir += score;
+
+    return zbir;
+}

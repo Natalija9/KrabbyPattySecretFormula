@@ -34,8 +34,7 @@ public slots:
     void decreaseScore();
     void death();
     void outOfTime();
-    void setHealthBar();
-    void setIngredientBar();
+    void setInformationBar();
 
 private:
     int levelId;

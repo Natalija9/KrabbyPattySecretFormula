@@ -76,14 +76,13 @@ void Level::startLevel(){
 
     ingredientLabelPic = new QLabel(view);
     ingredientLabelText = new QLabel(view);
-    setHealthBar();
-    setIngredientBar();
+    setInformationBar();
+
 
 //Connections
     QObject::connect(player, SIGNAL(slowingBarrier()), this, SLOT(decreaseScore()));
     QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
-    QObject::connect(player, SIGNAL(healthChanged()), this, SLOT(setHealthBar()));
-    QObject::connect(player, SIGNAL(ingredientChanged()), this, SLOT(setIngredientBar()));
+    QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
 
 
     view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
@@ -95,24 +94,9 @@ void Level::startLevel(){
     view->showFullScreen();
 
 }
-void Level::setIngredientBar(){
 
-
-//Ingredient picture
-       QPixmap pix = QPixmap(levelData->getIngredient(levelId)).scaled(40,40);
-       ingredientLabelPic->setGeometry(10,60,40,40);
-       ingredientLabelPic->setPixmap(pix);
-       ingredientLabelPic->show();
-//Ingredient count
-       ingredientLabelText->setGeometry(55,60,40,40);
-       ingredientLabelText->setText("");
-       ingredientLabelText->setText(QString::number(score->current_score));
-       ingredientLabelText->show();
-
-
-}
-void Level::setHealthBar(){
-
+void Level::setInformationBar(){
+    //Lives
     QLabel *m_label[score->getLives()];
     QPixmap pix = QPixmap(":/images/star.png").scaled(40,40);
     for(int i = 0; i < score -> getLives(); i++){
@@ -122,6 +106,16 @@ void Level::setHealthBar(){
         m_label[i]->show();
     }
 
+    //Ingredient picture
+           QPixmap pix1 = QPixmap(levelData->getIngredient(levelId)).scaled(40,40);
+           ingredientLabelPic->setGeometry(10,60,40,40);
+           ingredientLabelPic->setPixmap(pix1);
+           ingredientLabelPic->show();
+    //Ingredient count
+           ingredientLabelText->setGeometry(55,60,40,40);
+           ingredientLabelText->setText("");
+           ingredientLabelText->setText(QString::number(score->current_score));
+           ingredientLabelText->show();
 
 }
 void Level::finishLevel(){

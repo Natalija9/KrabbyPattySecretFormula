@@ -119,13 +119,8 @@ void Player::detectCollision() {
             {
                 dynamic_cast<Item*>(colliding_item)->collect();
                 scene()->removeItem(colliding_item);
-                //Temporarily code TODO
-                if (typeid(*(colliding_item)) == typeid(Life))
-                {
-                    emit healthChanged();
-                }else{
-                    emit ingredientChanged();
-                }
+
+                emit countChanged();
             }
             if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
             {

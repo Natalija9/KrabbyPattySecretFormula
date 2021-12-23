@@ -21,7 +21,7 @@ Score::Score()
 void Score::increase()
 {
     current_score += value;
-    std::cout << current_score << std::endl;
+//    std::cout << current_score << std::endl;
 }
 
 void Score::decrease()

@@ -4,12 +4,13 @@
 #include <vector>
 #include <QLabel>
 #include <QPushButton>
+#include "leveldata.h"
 
 
 class Score
 {
 public:
-    Score();
+    Score(LevelData *level_data);
 
     void increase();
     void decrease();
@@ -27,6 +28,7 @@ public:
     bool isUnlocked(int levelId);
     void setScoreLabels(QVector<QLabel*> labels);
     void setLevelButtons(QVector<QPushButton*> buttons);
+    void updateLabels(int levelId);
     int getTotalScore();
     int current_score;
 
@@ -39,6 +41,7 @@ private:
     std::vector<int> level_time;
     QVector<QLabel*> scoreLabels;
     QVector<QPushButton*> buttons;
+    LevelData *level_data;
 };
 
 #endif // SCORE_H

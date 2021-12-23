@@ -8,14 +8,15 @@
  *       344     516
  */
 
-Score::Score()
+Score::Score(LevelData *level_data)
 {
     scores.resize(6, 0);
     unlocked.resize(6, false);
     unlocked[0] = true;
     level_time.resize(6, 0);
     current_score = 0;
-    lives = 3;
+    lives = 100;
+    this->level_data = level_data;
 }
 
 void Score::increase()
@@ -96,7 +97,8 @@ void Score::reset(){
         scores[i] = 0;
         unlocked[i] = false;
         level_time[i] = 0;
-        updateScoreLabel(i+1);
+        //updateScoreLabel(i+1);
+        updateLabels(i+1);
         updateLevelButton(i+1, false);
 
     }
@@ -116,11 +118,35 @@ void Score::setScoreLabels(QVector<QLabel *> labels){
 void Score::updateScoreLabel(int levelId){
     QLabel* label = scoreLabels[levelId - 1];
     QString str = "";
+    QString ingredient = level_data->getIngredient(levelId);
+    QString style = "border-image: url(" + ingredient + ");";
 
-    if(isUnlocked(levelId)){
+    if(levelId < 6){
+        if(isUnlocked(levelId+1)){
+            str = QString::number(scores[levelId - 1]);
+            label->setStyleSheet(style);
+
+
+            QLabel *next_label = scoreLabels[levelId];
+            next_label->setStyleSheet("border-image: url(:/images/unlocked.png);");
+        }
+    }else{
         str = QString::number(scores[levelId - 1]);
+        label->setStyleSheet(style);
     }
 
+    label->setText(str);
+}
+
+void Score::updateLabels(int levelId){
+    QString str = "";
+    QLabel* label = scoreLabels[levelId - 1];
+
+    if (levelId == 1){
+        label->setStyleSheet("border-image: url(:/images/unlocked.png);");
+    }else{
+         label->setStyleSheet("border-image: url(:/images/locked_grey.png);");
+    }
     label->setText(str);
 }
 

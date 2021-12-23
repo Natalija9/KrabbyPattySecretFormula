@@ -55,6 +55,9 @@
         <file>images/level5.png</file>
         <file>images/dirtyBubble1.png</file>
         <file>images/karen.png</file>
+        <file>images/locked.png</file>
+        <file>images/unlocked.png</file>
+        <file>images/locked_grey.png</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource prefix="/font" lang="KrustyKrab_font"/>

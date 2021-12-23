@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
 
     levelData = new LevelData(settings);
 
-    score = new Score();
+    score = new Score(levelData);
     QVector<QLabel*> labels;
     labels.append(ui->Score1);
     labels.append(ui->Score2);
@@ -187,7 +187,9 @@ void Widget::on_Give_up_clicked()
         QInputDialog diag;
         diag.setWindowTitle("");
         diag.setStyleSheet("font-size: 20px; font-style: bolid italic; color: rgb(0,0,0);");
-        QString username = diag.getText(this, tr(" "), tr("Username: "), QLineEdit::Normal, QDir::home().dirName(), &ok);
+        setStyleSheet("QInputDialog {background-color: rgb(148, 153, 0);}");
+
+        QString username = diag.getText(this, tr(" "), tr("Username: "), QLineEdit::Normal, "", &ok);
 
         if(ok && !username.isEmpty()){
             ranglist->addPlayer(username, score->getTotalScore());

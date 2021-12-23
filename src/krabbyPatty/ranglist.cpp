@@ -1,6 +1,6 @@
 #include "ranglist.h"
 #include <QDir>
-
+#include<iostream>
 RangList::RangList()
 {
 }
@@ -32,15 +32,15 @@ void RangList::readFromFileAndInsertIntoList()
     QDir d;
     QFile players(d.absoluteFilePath("players.txt"));
 
-    /*
-    if(players.exists()){
-        cout << "fajl postoji na toj putanji" << endl;
-    }
-    if (players.open(QIODevice::ReadOnly)){
-        cout << "otvoren" << endl;
-    }else
-        cout << " nije otvoren " << endl;
-    */
+
+//    if(players.exists()){
+//        std::cout << "fajl postoji na toj putanji" <<std:: endl;
+//    }
+//    if (players.open(QIODevice::ReadOnly)){
+//        std::cout << "otvoren" << std::endl;
+//    }else
+//        std::cout << " nije otvoren " <<std::  endl;
+
 
     players.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&players);

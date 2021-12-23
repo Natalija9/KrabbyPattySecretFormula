@@ -206,6 +206,12 @@ void Level::addObject(char type, int x,int y){
             break;
 
     }
+    case 'B' :{
+                SlowingBarrier *waterTiles = new SlowingBarrier(playerWidth, levelData->getSlowingBarrier(levelId));
+                waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                scene->addItem(waterTiles);
+            break;
+    }
     case '+' :{
             Flag *flag = new Flag(playerHeight*1.41);
             flag->setPos(x, (0.225 + y * 0.25 )*screenHeight);

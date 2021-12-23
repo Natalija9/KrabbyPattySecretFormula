@@ -34,6 +34,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void walk();
         void detectCollision();
         void calculateDimension();
+        void changeSpeed();
         qreal m_velocityX = 0;
         qreal m_velocityY = 1;
         qreal m_gravity = 1;
@@ -43,7 +44,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         qreal stepY;
         qreal posY;
         QPolygonF m_playerRectPoints;
-
+        bool m_slowed = false;
 };
 
 #endif // PLAYER_H

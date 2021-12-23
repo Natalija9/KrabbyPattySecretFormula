@@ -32,9 +32,15 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPixmap(QPixmap(":images/playerLeft.png").scaled(_width, _height));
         m_velocityX = -stepX;
     }if(event->key() == Qt::Key_Up && m_isOnGround){
-        m_velocityY = -stepY;
-        setPos(x(), y() + m_velocityY);
-        m_isOnGround = false;
+        if(!m_slowed){
+            m_velocityY = -stepY;
+            setPos(x(), y() + m_velocityY);
+            m_isOnGround = false;
+        }
+        else{
+            event->ignore();
+        }
+
     }
 
 
@@ -72,7 +78,6 @@ void Player::advance(int phase)
     jump();
     detectCollision();
 
-
 }
 
 void Player::jump()
@@ -91,7 +96,7 @@ void Player::jump()
 
 void Player::walk()
 {
-    setPos(x() + m_velocityX, y());
+        setPos(x() + m_velocityX, y());
 }
 
 
@@ -114,6 +119,9 @@ void Player::detectCollision() {
             }
             if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
             {
+                m_slowed = true;
+                changeSpeed();
+                m_isOnGround = true;
                 emit slowingBarrier();
             }
             if (dynamic_cast<DeadlyBarrier*>(colliding_item))
@@ -122,6 +130,8 @@ void Player::detectCollision() {
             }
             if (typeid(*(colliding_item)) == typeid(Tile))
              {
+                m_slowed = false;
+                changeSpeed();
 
                 QRectF tileRect          = colliding_item->boundingRect();
                 QPolygonF tileRectPoints = colliding_item->mapToScene(tileRect);
@@ -160,7 +170,13 @@ void Player::detectCollision() {
 
 
 }
-
+void Player::changeSpeed(){
+    if(m_slowed){
+        stepX = 3;
+    }else{
+        stepX = 8;
+    }
+}
 bool Player::isDead(){
     return y() > level->screenHeight;
 }

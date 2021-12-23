@@ -13,7 +13,6 @@ public:
     Score(LevelData *level_data);
 
     void increase();
-    void decrease();
     void addLife();
     void takeLife();
     std::vector<int> getScores();
@@ -37,7 +36,6 @@ private:
     std::vector<bool> unlocked;
 
     int lives;
-    const int value = 5;
     std::vector<int> level_time;
     QVector<QLabel*> scoreLabels;
     QVector<QPushButton*> buttons;

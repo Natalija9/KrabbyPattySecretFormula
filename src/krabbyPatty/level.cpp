@@ -34,7 +34,6 @@ Level::Level(int levelId, LevelData *levelData)
 
 void Level::startLevel(){
 
-    std::cout << "level:" << levelId << std::endl;
     QScreen *screen = QApplication::screens().at(0);
     screenHeight = screen->size().height();
     screenWidth = screen->size().width();
@@ -80,7 +79,6 @@ void Level::startLevel(){
 
 
 //Connections
-    QObject::connect(player, SIGNAL(slowingBarrier()), this, SLOT(decreaseScore()));
     QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
     QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
 
@@ -96,17 +94,23 @@ void Level::startLevel(){
 }
 
 void Level::setInformationBar(){
+
     //Lives
-    QLabel *m_label[score->getLives()];
-    QPixmap pix = QPixmap(":/images/star.png").scaled(40,40);
-    for(int i = 0; i < score -> getLives(); i++){
-        m_label[i] = new QLabel(view);
-        m_label[i]->setGeometry(10+(i*45),10,40,40);
-        m_label[i]->setPixmap(pix);
-        m_label[i]->show();
+   if(score->getLives() != lifeBar.size()){
+
+        lifeBar.clear();
+        QPixmap pix = QPixmap(":/images/star.png").scaled(40,40);
+        for(int i = 0; i < score -> getLives(); i++){
+            lifeBar.append(new QLabel(view));
+            lifeBar[i]->setGeometry(10+(i*45),10,40,40);
+            lifeBar[i]->setPixmap(pix);
+            lifeBar[i]->show();
+        }
+
     }
 
     //Ingredient picture
+
            QPixmap pix1 = QPixmap(levelData->getIngredient(levelId)).scaled(40,40);
            ingredientLabelPic->setGeometry(10,60,40,40);
            ingredientLabelPic->setPixmap(pix1);
@@ -129,10 +133,7 @@ void Level::finishLevel(){
     emit endLevel();
 }
 
-void Level::decreaseScore() {
-    score->decrease();
 
-}
 
 void Level::death() {
     score->takeLife();

@@ -15,20 +15,16 @@ Score::Score(LevelData *level_data)
     unlocked[0] = true;
     level_time.resize(6, 0);
     current_score = 0;
-    lives = 100;
+    lives = 3;
     this->level_data = level_data;
 }
 
 void Score::increase()
 {
-    current_score += value;
+    current_score ++;;
 //    std::cout << current_score << std::endl;
 }
 
-void Score::decrease()
-{
-    //current_score -= 1;
-}
 
 void Score::addLife()
 {
@@ -57,7 +53,7 @@ void Score::saveCurrentScore(int levelId, int time){
     std::cout<< "time: "<<time/1000 <<std::endl;
     std::cout<< "score: "<<current_score <<std::endl;
 
-    current_score = current_score > 0 ? current_score * time  / 10000 : 0;
+    current_score = current_score > 0 ? current_score * 5 * time  / 10000 : 0;
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;
         this->level_time[levelId - 1] = time;

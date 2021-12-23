@@ -40,7 +40,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         qreal m_gravity = 1;
         bool m_canMove    = true;
         bool m_isOnGround = true;
-        qreal stepX = 8;
+        qreal stepX = 10;
         qreal stepY;
         qreal posY;
         QPolygonF m_playerRectPoints;

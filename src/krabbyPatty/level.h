@@ -31,7 +31,6 @@ signals:
     void endLevel();
 
 public slots:
-    void decreaseScore();
     void death();
     void outOfTime();
     void setInformationBar();
@@ -47,6 +46,8 @@ private:
     qreal playerHeight;
     QLabel *ingredientLabelPic;
     QLabel *ingredientLabelText;
+    QVector<QLabel*> lifeBar;
+
 };
 
 #endif // LEVEL_H

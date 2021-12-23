@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include<QGraphicsView>
+#include <QLabel>
 
 #include "player.h"
 #include "leveldata.h"
@@ -13,6 +14,7 @@ class Level: public QGraphicsView
     public:
         // Methods
         Level(int levelId, LevelData *levelData);
+
 
 public:
 
@@ -32,17 +34,20 @@ public slots:
     void decreaseScore();
     void death();
     void outOfTime();
+    void setHealthBar();
+    void setIngredientBar();
 
 private:
     int levelId;
     LevelData *levelData;
     QTimer *mainTimer;
-//    QTimer *levelTimer;
     void parseLevelMap();
     void addObject(char type, int x,int y);
     QGraphicsScene *scene ;
     qreal playerWidth;
     qreal playerHeight;
+    QLabel *ingredientLabelPic;
+    QLabel *ingredientLabelText;
 };
 
 #endif // LEVEL_H

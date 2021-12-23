@@ -28,11 +28,12 @@ public:
     void setScoreLabels(QVector<QLabel*> labels);
     void setLevelButtons(QVector<QPushButton*> buttons);
     int getTotalScore();
+    int current_score;
 
 private:
     std::vector<int> scores;
     std::vector<bool> unlocked;
-    int current_score;
+
     int lives;
     const int value = 5;
     std::vector<int> level_time;

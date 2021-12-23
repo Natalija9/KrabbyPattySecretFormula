@@ -25,6 +25,9 @@ Player::Player()
 
 void Player::keyPressEvent(QKeyEvent *event){
 
+    if(event->key() == Qt::Key_Escape){
+        level->death();
+    }
     if(event->key() == Qt::Key_Right){
         setPixmap(QPixmap(":images/playerRight.png").scaled(_width, _height));
         m_velocityX = stepX;
@@ -43,8 +46,8 @@ void Player::keyPressEvent(QKeyEvent *event){
 
     }
 
-
 }
+
 void Player::keyReleaseEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_Right){
         m_velocityX = 0;
@@ -116,6 +119,13 @@ void Player::detectCollision() {
             {
                 dynamic_cast<Item*>(colliding_item)->collect();
                 scene()->removeItem(colliding_item);
+                //Temporarily code TODO
+                if (typeid(*(colliding_item)) == typeid(Life))
+                {
+                    emit healthChanged();
+                }else{
+                    emit ingredientChanged();
+                }
             }
             if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
             {

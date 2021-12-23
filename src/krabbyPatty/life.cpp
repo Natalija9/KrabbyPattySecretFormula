@@ -12,4 +12,5 @@ Life::Life(qreal playerWidth)
 
 void Life::collect(){
     score->addLife();
+
 }

@@ -21,12 +21,12 @@ Score::Score()
 void Score::increase()
 {
     current_score += value;
-//    std::cout << current_score << std::endl;
+    std::cout << current_score << std::endl;
 }
 
 void Score::decrease()
 {
-    current_score -= 1;
+    //current_score -= 1;
 }
 
 void Score::addLife()

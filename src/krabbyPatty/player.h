@@ -21,7 +21,8 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void lifePicked();
         void slowingBarrier();
         void deadlyBarrier();
-
+        void healthChanged();
+        void ingredientChanged();
 
     protected:
         virtual void advance(int phase) override;

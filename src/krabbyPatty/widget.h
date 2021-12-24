@@ -24,35 +24,20 @@ public:
 private slots:
 
     void updateScore();
-
-
-    void on_startButton_clicked();
-
-    void on_quitButton_clicked();
-
-    void on_settingsButton_clicked();
-
-    void on_pushButton_clicked();
-
-    void on_checkSound_stateChanged(int arg1);
-
-    void on_rbEasy_clicked();
-
-    void on_rbHard_clicked();
-
     void createLevel();
 
-
+    void on_startButton_clicked();
+    void on_quitButton_clicked();
+    void on_settingsButton_clicked();
+    void on_pushButton_clicked();
+    void on_checkSound_stateChanged(int arg1);
+    void on_rbEasy_clicked();
+    void on_rbHard_clicked();
     void on_rangListButton_clicked();
-
     void on_pushButtonMainMenu_clicked();
-
     void on_helpButton_clicked();
-
     void on_buttonBox_accepted();
-
     void on_buttonBox_rejected();
-
     void on_Give_up_clicked();
 
 private:
@@ -60,7 +45,6 @@ private:
     Settings *settings;
     RangList *ranglist;
     LevelData *levelData;
-
 
 };
 #endif // WIDGET_H

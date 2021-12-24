@@ -36,7 +36,6 @@ Widget::Widget(QWidget *parent)
     labels.append(ui->Score4);
     labels.append(ui->Score5);
     labels.append(ui->Score6);
-    score->setScoreLabels(labels);
 
     QVector<QPushButton*> buttons;
     buttons.append(ui->Level1);
@@ -45,9 +44,9 @@ Widget::Widget(QWidget *parent)
     buttons.append(ui->Level4);
     buttons.append(ui->Level5);
     buttons.append(ui->Level6);
+
+    score->setScoreLabels(labels);
     score->setLevelButtons(buttons);
-
-
 
     QObject::connect(ui->Level1, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level2, SIGNAL(clicked()), this, SLOT(createLevel()));
@@ -92,15 +91,12 @@ void Widget::updateScore(){
         msgBox.exec();
 
         ui->stackedWidget->setCurrentIndex(0);
-
     }
-
 }
 
 void Widget::on_startButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
-
 }
 
 void Widget::onEsc(QKeyEvent *event){
@@ -118,7 +114,6 @@ void Widget::on_settingsButton_clicked()
      ui->stackedWidget->setCurrentIndex(2);
 }
 
-
 void Widget::on_pushButton_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
@@ -132,13 +127,14 @@ void Widget::on_checkSound_stateChanged(int arg1)
 void Widget::on_rbEasy_clicked()
 {
     settings->setMode(0);
+    score->parameter = 0.1;
 }
 
 void Widget::on_rbHard_clicked()
 {
     settings->setMode(1);
+    score->parameter = 0.15;
 }
-
 
 void Widget::on_rangListButton_clicked()
 {
@@ -146,34 +142,25 @@ void Widget::on_rangListButton_clicked()
     ui->text_rang_list->setText(ranglist->printListToRangList());
 }
 
-
-
 void Widget::on_pushButtonMainMenu_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
-
 
 void Widget::on_helpButton_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
 }
 
-
-
-
 void Widget::on_buttonBox_accepted()
 {
      ui->stackedWidget->setCurrentIndex(1);
 }
 
-
 void Widget::on_buttonBox_rejected()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
 
 void Widget::on_Give_up_clicked()
 {

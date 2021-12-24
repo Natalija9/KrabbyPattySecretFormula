@@ -6,8 +6,6 @@
 
 #include <QRandomGenerator>
 
-#include <cstdlib>
-
 LevelData::LevelData(Settings *settings)
 {
 
@@ -19,13 +17,6 @@ LevelData::LevelData(Settings *settings)
                   ":/images/level4.png",
                   ":/images/level5.png",
                   ":/images/level6.png"};
-
-    tiles = {":/images/tile1.png",
-             ":/images/tile2.png",
-             ":/images/tile3.png",
-             ":/images/tile4.png",
-             ":/images/tile5.png",
-             ":/images/tile6.png"};
 
     ingredients = {":/images/bun.png",
                   ":/images/patty.png",
@@ -41,11 +32,12 @@ LevelData::LevelData(Settings *settings)
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt"};
 
-    deadlyBarriers = {":/images/jellyfish.png",
-                     ":/images/jellyfish_blue.png",
-                     ":/images/EvilSpongeBob.png",
-                     ":/images/dirtyBubble1.png",
-                     ":/images/keren.png"};
+    tiles = {":/images/tile1.png",
+             ":/images/tile2.png",
+             ":/images/tile3.png",
+             ":/images/tile4.png",
+             ":/images/tile5.png",
+             ":/images/tile6.png"};
 
     slowingBarriers = {":/images/SlowingTile1.png",
                        ":/images/SlowingTile2.png",
@@ -53,6 +45,12 @@ LevelData::LevelData(Settings *settings)
                        ":/images/SlowingTile4.png",
                        ":/images/SlowingTile5.png",
                        ":/images/SlowingTile6.png"};
+
+    deadlyBarriers = {":/images/jellyfish.png",
+                     ":/images/jellyfish_blue.png",
+                     ":/images/EvilSpongeBob.png",
+                     ":/images/dirtyBubble1.png",
+                     ":/images/keren.png"};
 
     this->generator = new QRandomGenerator();
 }

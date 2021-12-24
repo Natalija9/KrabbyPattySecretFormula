@@ -7,7 +7,6 @@ class Jellyfish : public DeadlyBarrier
 {
 public:
     Jellyfish(qreal playerWidth);
-
     void move() override;
 
 private:

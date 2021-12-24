@@ -8,7 +8,6 @@ class Ingredient : public Item
 {
 public:
     Ingredient(qreal playerWidth, QString imagePath);
-
     void collect() override;
 
 private:

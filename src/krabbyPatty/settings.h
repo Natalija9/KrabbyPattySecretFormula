@@ -9,7 +9,6 @@ public:
 
     void setSound(int value);
     void setMode(int value);
-
     int getSound();
     int getMode();
 

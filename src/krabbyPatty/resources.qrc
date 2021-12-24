@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>images/menuBackground.jpg</file>
         <file>images/menuButton.jpg</file>
-        <file>images/levelMenuBackground.png</file>
         <file>images/settingsBackground.jpg</file>
         <file>images/transparent.png</file>
         <file>images/star.png</file>
@@ -58,6 +57,7 @@
         <file>images/locked.png</file>
         <file>images/unlocked.png</file>
         <file>images/locked_grey.png</file>
+        <file>images/levelMenuBackground.png</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource prefix="/font" lang="KrustyKrab_font"/>

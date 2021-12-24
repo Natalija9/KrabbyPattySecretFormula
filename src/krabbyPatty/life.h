@@ -9,9 +9,6 @@ public:
     Life(qreal playerWidth);
     void collect() override;
 
-
-private:
-    int number_of_lives;
 };
 
 #endif // LIFE_H

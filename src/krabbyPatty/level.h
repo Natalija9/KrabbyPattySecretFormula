@@ -12,41 +12,38 @@ class Level: public QGraphicsView
 {
     Q_OBJECT
     public:
-        // Methods
         Level(int levelId, LevelData *levelData);
 
+        void startLevel();
+        void finishLevel();
+        qreal screenWidth;
+        qreal screenHeight;
+        QGraphicsView *view;
+        QTimer *levelTimer;
 
-public:
+        ~Level();
 
-    void startLevel();
-    void finishLevel();
-    qreal screenWidth;
-    qreal screenHeight;
-    QGraphicsView *view;
-    QTimer *levelTimer;
+    signals:
+        void endLevel();
 
-    virtual ~Level();
+    public slots:
+        void death();
+        void outOfTime();
+        void setInformationBar();
 
-signals:
-    void endLevel();
+    private:
+        int levelId;
+        LevelData *levelData;
+        QTimer *mainTimer;
+        QGraphicsScene *scene ;
+        qreal playerWidth;
+        qreal playerHeight;
+        QLabel *ingredientLabelPic;
+        QLabel *ingredientLabelText;
+        QVector<QLabel*> lifeBar;
 
-public slots:
-    void death();
-    void outOfTime();
-    void setInformationBar();
-
-private:
-    int levelId;
-    LevelData *levelData;
-    QTimer *mainTimer;
-    void parseLevelMap();
-    void addObject(char type, int x,int y);
-    QGraphicsScene *scene ;
-    qreal playerWidth;
-    qreal playerHeight;
-    QLabel *ingredientLabelPic;
-    QLabel *ingredientLabelText;
-    QVector<QLabel*> lifeBar;
+        void parseLevelMap();
+        void addObject(char type, int x,int y);
 
 };
 

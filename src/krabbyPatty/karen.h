@@ -8,7 +8,6 @@ class Karen : public DeadlyBarrier
 {
 public:
     Karen(qreal playerWidth);
-
     void move() override;
 
 private:

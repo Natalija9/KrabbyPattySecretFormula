@@ -15,9 +15,7 @@ public:
     void increase();
     void addLife();
     void takeLife();
-    std::vector<int> getScores();
     void saveCurrentScore(int levelId, int time);
-   // void saveCurrentTime(int levelId, int time);
     int getLevelTime(int levelId);
     int getLives();
     bool isSuccessful();
@@ -30,12 +28,13 @@ public:
     void updateLabels(int levelId);
     int getTotalScore();
     int current_score;
+    double parameter = 0.1;
+
 
 private:
+    int lives;
     std::vector<int> scores;
     std::vector<bool> unlocked;
-
-    int lives;
     std::vector<int> level_time;
     QVector<QLabel*> scoreLabels;
     QVector<QPushButton*> buttons;

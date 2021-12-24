@@ -7,9 +7,7 @@
 class RangList : public QWidget
 {
 public:
-    RangList();
-
-public:
+     RangList();
      void addPlayer(QString& name, int score);
      void readFromFileAndInsertIntoList();
      void sortPlayersByScore();

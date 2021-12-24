@@ -17,8 +17,6 @@ class Player:  public QObject, public QGraphicsPixmapItem
         qreal _height;
 
     signals:
-        void ingredientPicked();
-        void lifePicked();
         void slowingBarrier();
         void deadlyBarrier();
         void countChanged();
@@ -26,25 +24,25 @@ class Player:  public QObject, public QGraphicsPixmapItem
     protected:
         virtual void advance(int phase) override;
 
-
-
     private:
-        bool isOnGround(Player *p);
+
+        bool _canMove = true;
+        bool _isOnGround = true;
+        bool _slowed = false;
+        qreal _velocityX = 0;
+        qreal _velocityY = 1;
+        qreal _gravity = 1;
+        qreal _stepX = 10;
+        qreal _stepY;
+        qreal _posY;
+        QPolygonF _playerRectPoints;
+
         void jump();
         void walk();
         void detectCollision();
         void calculateDimension();
         void changeSpeed();
-        qreal m_velocityX = 0;
-        qreal m_velocityY = 1;
-        qreal m_gravity = 1;
-        bool m_canMove    = true;
-        bool m_isOnGround = true;
-        qreal stepX = 10;
-        qreal stepY;
-        qreal posY;
-        QPolygonF m_playerRectPoints;
-        bool m_slowed = false;
+
 };
 
 #endif // PLAYER_H

@@ -1,13 +1,6 @@
 #include "score.h"
 #include<iostream>
 
-/*
- * score * remainingTime * koeficijent
- * koef. 0.1 za easy i 0.15 za hard
- * easy 352 hard 520
- *       344     516
- */
-
 Score::Score(LevelData *level_data)
 {
     scores.resize(6, 0);
@@ -22,27 +15,18 @@ Score::Score(LevelData *level_data)
 void Score::increase()
 {
     current_score ++;;
-//    std::cout << current_score << std::endl;
 }
 
 
 void Score::addLife()
 {
     this->lives++;
-//    std::cout << this->lives << std::endl;
 }
 
 void Score::takeLife()
 {
     this->lives--;
     current_score = 0;
-
-//    if(lives == 0)
-//        std::cout << "nema vise zivota, kraj igrice" << std::endl;
-}
-
-std::vector<int> Score::getScores(){
-    return this->scores;
 }
 
 int Score::getLives(){
@@ -53,7 +37,7 @@ void Score::saveCurrentScore(int levelId, int time){
     std::cout<< "time: "<<time/1000 <<std::endl;
     std::cout<< "score: "<<current_score <<std::endl;
 
-    current_score = current_score > 0 ? current_score * 5 * time  / 10000 : 0;
+    current_score = current_score > 0 ? current_score * 5 * time * parameter / 1000 : 0;
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;
         this->level_time[levelId - 1] = time;
@@ -66,7 +50,6 @@ void Score::saveCurrentScore(int levelId, int time){
     current_score = 0;
     updateScoreLabel(levelId);
 }
-
 
 
 int Score::getLevelTime(int levelId) {
@@ -93,7 +76,6 @@ void Score::reset(){
         scores[i] = 0;
         unlocked[i] = false;
         level_time[i] = 0;
-        //updateScoreLabel(i+1);
         updateLabels(i+1);
         updateLevelButton(i+1, false);
 
@@ -126,7 +108,7 @@ void Score::updateScoreLabel(int levelId){
             QLabel *next_label = scoreLabels[levelId];
             next_label->setStyleSheet("border-image: url(:/images/unlocked.png);");
         }
-    }else{
+    }else if (scores[levelId - 1] > 0){
         str = QString::number(scores[levelId - 1]);
         label->setStyleSheet(style);
     }

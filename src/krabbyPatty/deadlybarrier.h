@@ -7,7 +7,6 @@
 class DeadlyBarrier : public QObject, public QGraphicsPixmapItem
 {
 public:
-   // DeadlyBarrier(qreal playerWidth, QString imagePath);
     DeadlyBarrier();
 
 protected:

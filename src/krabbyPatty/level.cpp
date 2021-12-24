@@ -28,8 +28,6 @@ Level::Level(int levelId, LevelData *levelData)
     this->levelId = levelId;
     this->levelData = levelData;
 
-
-
 }
 
 void Level::startLevel(){
@@ -51,7 +49,6 @@ void Level::startLevel(){
     levelTimer->start(120000);
     QObject::connect(levelTimer, SIGNAL(timeout()), this, SLOT(outOfTime()));
 
-
     playerWidth = player->_width;
     playerHeight = player->_height;
 
@@ -72,7 +69,6 @@ void Level::startLevel(){
 
 
 //Information bar during game
-
     ingredientLabelPic = new QLabel(view);
     ingredientLabelText = new QLabel(view);
     setInformationBar();
@@ -84,10 +80,8 @@ void Level::startLevel(){
 
 
     view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
-
     view->setFocus();
     QApplication::setOverrideCursor(Qt::BlankCursor);
-
 
     view->showFullScreen();
 
@@ -106,15 +100,14 @@ void Level::setInformationBar(){
             lifeBar[i]->setPixmap(pix);
             lifeBar[i]->show();
         }
-
     }
 
     //Ingredient picture
-
            QPixmap pix1 = QPixmap(levelData->getIngredient(levelId)).scaled(40,40);
            ingredientLabelPic->setGeometry(10,60,40,40);
            ingredientLabelPic->setPixmap(pix1);
            ingredientLabelPic->show();
+
     //Ingredient count
            ingredientLabelText->setGeometry(55,60,40,40);
            ingredientLabelText->setText("");
@@ -126,13 +119,11 @@ void Level::finishLevel(){
     QApplication::setOverrideCursor(Qt::ArrowCursor);
 
     score->saveCurrentScore(levelId, levelTimer->remainingTime());
-   //score->saveCurrentTime(levelId, levelTimer->interval() - levelTimer->remainingTime());
     levelTimer->stop();
     this->view->close();
 
     emit endLevel();
 }
-
 
 
 void Level::death() {
@@ -219,12 +210,6 @@ void Level::addObject(char type, int x,int y){
                 barrier->setPos(x, (0.225 + y * 0.25 )*screenHeight);
                 scene->addItem(barrier);
             }
-//            else{
-//                Life *life = new Life(playerWidth);
-//                life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
-//                scene->addItem(life);
-
-//            }
             break;
 
     }
@@ -260,9 +245,7 @@ void Level::addObject(char type, int x,int y){
     }
 }
 
-Level::~Level(){
-    std::cout << score->getLevelTime(levelId) / 1000 << "s" << std::endl;
-}
+Level::~Level(){}
 
 
 

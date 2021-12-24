@@ -42,14 +42,8 @@
         <file>images/tile4.png</file>
         <file>images/tile3.png</file>
         <file>images/tile5.png</file>
-        <file>images/SlowingTile6.png</file>
-        <file>images/SlowingTile2.png</file>
-        <file>images/SlowingTile4.png</file>
-        <file>images/SlowingTile3.png</file>
-        <file>images/SlowingTile1.png</file>
         <file>images/EvilSpongeBob.png</file>
         <file>images/dirtyBubble.png</file>
-        <file>images/SlowingTile5.png</file>
         <file>images/level6.png</file>
         <file>images/level5.png</file>
         <file>images/dirtyBubble1.png</file>
@@ -58,7 +52,18 @@
         <file>images/unlocked.png</file>
         <file>images/locked_grey.png</file>
         <file>images/levelMenuBackground.png</file>
+        <file>images/splash.png</file>
+        <file>images/playerRight2.png</file>
+        <file>images/playerRight1.png</file>
+        <file>images/playerLeft2.png</file>
+        <file>images/playerLeft1.png</file>
+        <file>images/SlowingTile6.png</file>
+        <file>images/SlowingTile5.png</file>
+        <file>images/SlowingTile4.png</file>
+        <file>images/SlowingTile3.png</file>
+        <file>images/SlowingTile2.png</file>
+        <file>images/SlowingTile1.png</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
 </RCC>

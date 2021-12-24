@@ -36,7 +36,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         qreal _stepY;
         qreal _posY;
         QPolygonF _playerRectPoints;
-
+        int _tmp = 0;
         void jump();
         void walk();
         void detectCollision();

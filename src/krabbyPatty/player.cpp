@@ -96,7 +96,29 @@ void Player::jump()
 
 void Player::walk()
 {
-        setPos(x() + _velocityX, y());
+
+    if(_velocityX > 0){
+        _tmp ++;
+        if(_tmp <= 4){
+            setPixmap(QPixmap(":images/playerRight1.png").scaled(_width, _height));
+            show();
+        }else if(_tmp <= 8){
+            setPixmap(QPixmap(":images/playerRight2.png").scaled(_width, _height));
+            show();
+        }
+    }else if(_velocityX < 0){
+        _tmp ++;
+        if(_tmp <= 4){
+            setPixmap(QPixmap(":images/playerLeft1.png").scaled(_width, _height));
+            show();
+        }else if(_tmp <= 8){
+            setPixmap(QPixmap(":images/playerLeft2.png").scaled(_width, _height));
+            show();
+        }
+    }
+    if(_tmp == 8)
+        _tmp = 0;
+    setPos(x() + _velocityX, y());
 }
 
 

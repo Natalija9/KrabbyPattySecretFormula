@@ -186,6 +186,8 @@ void Widget::on_Give_up_clicked()
         }
 
         ui->text_rang_list->setText(ranglist->printListToRangList());
+        score->reset();
+        ui->Give_up->setText("Give up");
     }
 }
 

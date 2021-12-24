@@ -29,9 +29,7 @@ void RangList::addPlayer(QString &name, int score)
 // reading players from file and inserting into list
 void RangList::readFromFileAndInsertIntoList()
 {
-    QDir d;
-    QFile players(d.absoluteFilePath("players.txt"));
-
+    QFile players("../krabbyPatty/files/players.txt");
 
 //    if(players.exists()){
 //        std::cout << "fajl postoji na toj putanji" <<std:: endl;
@@ -93,8 +91,7 @@ void RangList::insertPlayerIntoList(QString name, int score)
 // printing players from list to file
 void RangList::printPlayersIntoFile()
 {
-    QDir d;
-    QFile players(d.absoluteFilePath("players.txt"));
+    QFile players("../krabbyPatty/files/players.txt");
     players.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
 
     QTextStream stream(&players);

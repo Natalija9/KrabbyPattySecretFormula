@@ -1,4 +1,6 @@
 Igor 350
+konacno 347
+Ivana 347
 nikola 96
 svasta11 87
 anja 78
@@ -6,5 +8,3 @@ Ana 50
 luka 42
 sofija 39
 andrej 24
-jaaaaaaaaaa 23
-Milos 10

@@ -97,7 +97,7 @@ void Player::jump()
 void Player::walk()
 {
 
-    if(_velocityX > 0){
+    if(_velocityX > 0 && _isOnGround){
         _tmp ++;
         if(_tmp <= 4){
             setPixmap(QPixmap(":images/playerRight1.png").scaled(_width, _height));
@@ -106,7 +106,7 @@ void Player::walk()
             setPixmap(QPixmap(":images/playerRight2.png").scaled(_width, _height));
             show();
         }
-    }else if(_velocityX < 0){
+    }else if(_velocityX < 0 && _isOnGround){
         _tmp ++;
         if(_tmp <= 4){
             setPixmap(QPixmap(":images/playerLeft1.png").scaled(_width, _height));

@@ -59,7 +59,9 @@
         <file>images/SlowingTile2.png</file>
         <file>images/SlowingTile1.png</file>
         <file>images/messageBox.jpg</file>
+        <file>LevelMaps/level3.txt</file>
+        <file>LevelMaps/level4.txt</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource lang="KrustyKrab_font" prefix="/font"/>
+    <qresource prefix="/font" lang="KrustyKrab_font"/>
 </RCC>

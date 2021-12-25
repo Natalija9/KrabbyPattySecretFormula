@@ -27,8 +27,8 @@ LevelData::LevelData(Settings *settings)
 
     levelMaps = {":/LevelMaps/level1.txt",
                 ":/LevelMaps/level2.txt",
-                ":/LevelMaps/level1.txt",
-                ":/LevelMaps/level1.txt",
+                ":/LevelMaps/level3.txt",
+                ":/LevelMaps/level4.txt",
                 ":/LevelMaps/level1.txt",
                 ":/LevelMaps/level1.txt"};
 

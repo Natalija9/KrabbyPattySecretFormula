@@ -79,6 +79,7 @@ void Player::advance(int phase)
     jump();
     detectCollision();
 
+    emit activeTimer();
 }
 
 void Player::jump()

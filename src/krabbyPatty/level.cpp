@@ -66,11 +66,21 @@ void Level::startLevel(){
     informationBar = new InformationBar(view, levelData->getIngredient(levelId));
     QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
 
+    timerLabel = new QLabel(view);
+    QObject::connect(player, SIGNAL(activeTimer()), this, SLOT(updateTimerLabel()));
+
     view->showFullScreen();
 }
 
 void Level::setInformationBar(){
     informationBar->updateInformation();
+}
+
+void Level::updateTimerLabel(){
+    timerLabel->setText("time: " + QString::number(levelTimer->remainingTime()/1000) + " s");
+    timerLabel->setStyleSheet("font-size: 23px; font: bold;");
+    timerLabel->setGeometry(screenWidth-140, 10, 120, 20);
+    timerLabel->show();
 }
 
 void Level::finishLevel(MessageText msgText){

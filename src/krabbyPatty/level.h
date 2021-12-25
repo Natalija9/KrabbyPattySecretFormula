@@ -31,6 +31,7 @@ class Level: public QGraphicsView
     public slots:
         void outOfTime();
         void setInformationBar();
+        void updateTimerLabel();
 
     private:
         int levelId;
@@ -40,6 +41,7 @@ class Level: public QGraphicsView
         qreal playerWidth;
         qreal playerHeight;
         InformationBar *informationBar;
+        QLabel *timerLabel;
 
         void parseLevelMap();
         void addObject(char type, int x,int y);

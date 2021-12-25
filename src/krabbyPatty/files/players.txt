@@ -1,3 +1,4 @@
+Nikolina 2555
 Igor 350
 konacno 347
 Ivana 347
@@ -7,4 +8,3 @@ anja 78
 Ana 50
 luka 42
 sofija 39
-andrej 24

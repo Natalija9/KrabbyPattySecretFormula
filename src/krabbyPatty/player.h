@@ -19,6 +19,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
     signals:
         void slowingBarrier();
         void countChanged();
+        void activeTimer();
 
     protected:
         virtual void advance(int phase) override;

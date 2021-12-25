@@ -21,6 +21,7 @@ SOURCES += \
     leveldata.cpp \
     life.cpp \
     main.cpp \
+    message.cpp \
     player.cpp \
     ranglist.cpp \
     score.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     level.h \
     leveldata.h \
     life.h \
+    message.h \
     player.h \
     ranglist.h \
     score.h \
@@ -62,5 +64,6 @@ RESOURCES += \
 
 DISTFILES += \
     files/players.txt \
+    images/messageBox1.jpg \
     images/player.png \
     images/playerLeft.png

@@ -18,7 +18,6 @@ class Player:  public QObject, public QGraphicsPixmapItem
 
     signals:
         void slowingBarrier();
-        void deadlyBarrier();
         void countChanged();
 
     protected:

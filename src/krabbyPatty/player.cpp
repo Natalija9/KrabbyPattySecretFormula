@@ -26,7 +26,7 @@ Player::Player()
 void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_Escape){
-        level->death();
+        level->finishLevel(MessageText::Esc);
     }
     if(event->key() == Qt::Key_Right){
         setPixmap(QPixmap(":images/playerRight.png").scaled(_width, _height));
@@ -66,7 +66,7 @@ void Player::advance(int phase)
     }
 
     if(isDead()){
-        level->death();
+        level->finishLevel(MessageText::LostLife);
     }
     else{
         level->view->centerOn(this);
@@ -132,7 +132,7 @@ void Player::detectCollision() {
         {
             if (typeid(*(colliding_item)) == typeid(Flag))
             {
-                level->finishLevel();
+                level->finishLevel(MessageText::LevelCompleted);
             }
             if(dynamic_cast<Item*>(colliding_item))
             {
@@ -150,7 +150,7 @@ void Player::detectCollision() {
             }
             if (dynamic_cast<DeadlyBarrier*>(colliding_item))
             {
-                emit deadlyBarrier();
+                level->finishLevel(MessageText::LostLife);
             }
             if (typeid(*(colliding_item)) == typeid(Tile))
              {

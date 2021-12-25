@@ -75,7 +75,6 @@ void Level::startLevel(){
 
 
 //Connections
-    QObject::connect(player, SIGNAL(deadlyBarrier()), this, SLOT(death()));
     QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
 
 
@@ -115,8 +114,13 @@ void Level::setInformationBar(){
            ingredientLabelText->show();
 
 }
-void Level::finishLevel(){
+
+void Level::finishLevel(MessageText msgText){
     QApplication::setOverrideCursor(Qt::ArrowCursor);
+    if(msgText != MessageText::LevelCompleted)
+        score->takeLife();
+
+    score->msg->setMessageText(msgText);
 
     score->saveCurrentScore(levelId, levelTimer->remainingTime());
     levelTimer->stop();
@@ -126,32 +130,8 @@ void Level::finishLevel(){
 }
 
 
-void Level::death() {
-    score->takeLife();
-    QApplication::setOverrideCursor(Qt::ArrowCursor);
-
-    QMessageBox msgBox;
-    msgBox.setText("Ooops, you lost a life!");
-    msgBox.setWindowTitle(" ");
-    msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
-    msgBox.exec();
-
-    this->finishLevel();
-
-}
-
 void Level::outOfTime() {
-    score->takeLife();
-    QApplication::setOverrideCursor(Qt::ArrowCursor);
-
-    QMessageBox msgBox;
-    msgBox.setText("Ooops, you ran out of time!");
-    msgBox.setWindowTitle("No more time");
-    msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
-    msgBox.exec();
-
-    this->finishLevel();
-
+    this->finishLevel(MessageText::OutOfTime);
 }
 
 void Level::parseLevelMap(){

@@ -8,18 +8,13 @@
         <file>images/bun.png</file>
         <file>fonts/KrabbyPatty.ttf</file>
         <file>images/tile1.png</file>
-        <file>images/rangListBackground.png</file>
-        <file>images/background_rang_list.jpg</file>
-        <file>images/ranglist.jpg</file>
         <file>images/papir.png</file>
-        <file>images/backgroud.jpeg</file>
         <file>images/level1.jpg</file>
         <file>LevelMaps/level1.txt</file>
-        <file>images/ranglist1.jpg</file>
+        <file>images/ranglistBackground.jpg</file>
         <file>images/playerRight.png</file>
         <file>images/playerLeft.png</file>
         <file>images/player.png</file>
-        <file>images/water.png</file>
         <file>images/tomato.png</file>
         <file>images/pickles.png</file>
         <file>images/patty.png</file>
@@ -63,6 +58,7 @@
         <file>images/SlowingTile3.png</file>
         <file>images/SlowingTile2.png</file>
         <file>images/SlowingTile1.png</file>
+        <file>images/messageBox.jpg</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource lang="KrustyKrab_font" prefix="/font"/>

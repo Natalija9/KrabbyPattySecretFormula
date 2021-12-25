@@ -7,6 +7,7 @@
 
 #include "player.h"
 #include "leveldata.h"
+#include "message.h"
 
 class Level: public QGraphicsView
 {
@@ -15,7 +16,7 @@ class Level: public QGraphicsView
         Level(int levelId, LevelData *levelData);
 
         void startLevel();
-        void finishLevel();
+        void finishLevel(MessageText msgText);
         qreal screenWidth;
         qreal screenHeight;
         QGraphicsView *view;
@@ -27,7 +28,6 @@ class Level: public QGraphicsView
         void endLevel();
 
     public slots:
-        void death();
         void outOfTime();
         void setInformationBar();
 

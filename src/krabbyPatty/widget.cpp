@@ -84,11 +84,7 @@ void Widget::updateScore(){
     if(score->getLives() == 0){
         score->reset();
 
-        QMessageBox msgBox;
-        msgBox.setText("No spare lives left. Better luck next time!");
-        msgBox.setWindowTitle(" ");
-        msgBox.setStyleSheet("font-size: 20px; font-style: bolid italic;  color: rgb(0, 0, 0);");
-        msgBox.exec();
+        score->msg->setMessageText(MessageText::NoMoreLives);
 
         ui->stackedWidget->setCurrentIndex(0);
     }

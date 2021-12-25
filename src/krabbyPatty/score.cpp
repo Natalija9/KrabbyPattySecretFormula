@@ -1,6 +1,7 @@
 #include "score.h"
 #include<iostream>
 
+
 Score::Score(LevelData *level_data)
 {
     scores.resize(6, 0);
@@ -10,6 +11,7 @@ Score::Score(LevelData *level_data)
     current_score = 0;
     lives = 3;
     this->level_data = level_data;
+    this->msg = new Message();
 }
 
 void Score::increase()

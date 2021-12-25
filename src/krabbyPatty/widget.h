@@ -18,7 +18,6 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     void onEsc(QKeyEvent *event);
-    //Score *score;
     ~Widget();
 
 private slots:

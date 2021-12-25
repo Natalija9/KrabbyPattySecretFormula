@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include "leveldata.h"
+#include "message.h"
 
 
 class Score
@@ -29,6 +30,8 @@ public:
     int getTotalScore();
     int current_score;
     double parameter = 0.1;
+    Message *msg;
+
 
 
 private:

@@ -17,17 +17,12 @@
 
 #include <iostream>
 
-
-
-
 extern Score *score;
 
 Level::Level(int levelId, LevelData *levelData)
 {
-
     this->levelId = levelId;
     this->levelData = levelData;
-
 }
 
 void Level::startLevel(){
@@ -36,18 +31,18 @@ void Level::startLevel(){
     screenHeight = screen->size().height();
     screenWidth = screen->size().width();
 
-    scene =new QGraphicsScene(0,0,5 * screenWidth ,screenHeight);
+    scene =new QGraphicsScene(0, 0, 5 * screenWidth, screenHeight);
     mainTimer = new QTimer(this);
-    Player *player = new Player();
-    player-> setFlag(QGraphicsItem::ItemIsFocusable);
-
-    player ->setFocus();
     QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
     mainTimer->start(20);
 
     levelTimer = new QTimer(this);
     levelTimer->start(120000);
     QObject::connect(levelTimer, SIGNAL(timeout()), this, SLOT(outOfTime()));
+
+    Player *player = new Player();
+    player-> setFlag(QGraphicsItem::ItemIsFocusable);
+    player ->setFocus();
 
     playerWidth = player->_width;
     playerHeight = player->_height;
@@ -56,63 +51,26 @@ void Level::startLevel(){
     parseLevelMap();
 
     this->view = new QGraphicsView(scene);
-
     QString path = levelData->getBackground(levelId);
     view->setBackgroundBrush(QPixmap(path).scaledToHeight(screenHeight));
-
-    view->resize(screenWidth,screenHeight);
+    view->resize(screenWidth, screenHeight);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     view->ensureVisible(player);
     view->centerOn(player);
-
-
-//Information bar during game
-    ingredientLabelPic = new QLabel(view);
-    ingredientLabelText = new QLabel(view);
-    setInformationBar();
-
-
-//Connections
-    QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
-
-
     view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
     view->setFocus();
+
     QApplication::setOverrideCursor(Qt::BlankCursor);
 
-    view->showFullScreen();
+    informationBar = new InformationBar(view, levelData->getIngredient(levelId));
+    QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
 
+    view->showFullScreen();
 }
 
 void Level::setInformationBar(){
-
-    //Lives
-   if(score->getLives() != lifeBar.size()){
-
-        lifeBar.clear();
-        QPixmap pix = QPixmap(":/images/star.png").scaled(40,40);
-        for(int i = 0; i < score -> getLives(); i++){
-            lifeBar.append(new QLabel(view));
-            lifeBar[i]->setGeometry(10+(i*45),10,40,40);
-            lifeBar[i]->setPixmap(pix);
-            lifeBar[i]->show();
-        }
-    }
-
-    //Ingredient picture
-           QPixmap pix1 = QPixmap(levelData->getIngredient(levelId)).scaled(40,40);
-           ingredientLabelPic->setGeometry(10,60,40,40);
-           ingredientLabelPic->setPixmap(pix1);
-           ingredientLabelPic->show();
-
-    //Ingredient count
-           ingredientLabelText->setGeometry(55,60,40,40);
-           ingredientLabelText->setText("");
-           ingredientLabelText->setText(QString::number(score->current_score));
-           ingredientLabelText->show();
-
+    informationBar->updateInformation();
 }
 
 void Level::finishLevel(MessageText msgText){

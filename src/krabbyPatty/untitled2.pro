@@ -13,6 +13,7 @@ SOURCES += \
     dirtybubble.cpp \
     evilspongebob.cpp \
     flag.cpp \
+    informationbar.cpp \
     ingredient.cpp \
     item.cpp \
     jellyfish.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     dirtybubble.h \
     evilspongebob.h \
     flag.h \
+    informationbar.h \
     ingredient.h \
     item.h \
     jellyfish.h \

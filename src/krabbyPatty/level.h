@@ -8,6 +8,7 @@
 #include "player.h"
 #include "leveldata.h"
 #include "message.h"
+#include "informationbar.h"
 
 class Level: public QGraphicsView
 {
@@ -38,9 +39,7 @@ class Level: public QGraphicsView
         QGraphicsScene *scene ;
         qreal playerWidth;
         qreal playerHeight;
-        QLabel *ingredientLabelPic;
-        QLabel *ingredientLabelText;
-        QVector<QLabel*> lifeBar;
+        InformationBar *informationBar;
 
         void parseLevelMap();
         void addObject(char type, int x,int y);

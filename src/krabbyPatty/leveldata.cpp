@@ -29,7 +29,7 @@ LevelData::LevelData(Settings *settings)
                 ":/LevelMaps/level2.txt",
                 ":/LevelMaps/level3.txt",
                 ":/LevelMaps/level4.txt",
-                ":/LevelMaps/level1.txt",
+                ":/LevelMaps/level5.txt",
                 ":/LevelMaps/level1.txt"};
 
     tiles = {":/images/tile1.png",

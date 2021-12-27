@@ -62,6 +62,7 @@
         <file>LevelMaps/level3.txt</file>
         <file>LevelMaps/level4.txt</file>
         <file>LevelMaps/level5.txt</file>
+        <file>LevelMaps/level6.txt</file>
     </qresource>
     <qresource prefix="/font"/>
     <qresource lang="KrustyKrab_font" prefix="/font"/>

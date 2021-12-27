@@ -70,15 +70,12 @@ void Level::startLevel(){
     timerLabel = new QLabel(view);
     QObject::connect(player, SIGNAL(activeTimer()), this, SLOT(updateTimerLabel()));
 
+    music = new Sound(levelData->getSound());
 
-//If sound checked then play it
-    if(levelData->getSound() == 2){
-        music = new Sound();
-        music->playMusic();
-    }
 
     view->showFullScreen();
 }
+
 
 void Level::setInformationBar(){
     informationBar->updateInformation();
@@ -92,6 +89,7 @@ void Level::updateTimerLabel(){
 }
 
 void Level::finishLevel(MessageText msgText){
+    music->stopMusic();
     QApplication::setOverrideCursor(Qt::ArrowCursor);
     if(msgText != MessageText::LevelCompleted)
         score->takeLife();
@@ -204,11 +202,7 @@ void Level::addObject(char type, int x,int y){
 }
 
 Level::~Level(){
-//    delete this->scene;
-//    delete this->view;
-    if(levelData->getSound() == 2){
-        delete this->music;
-    }
+    delete this->music;
     delete this->mainTimer;
     delete this->levelTimer;
     delete this->informationBar;

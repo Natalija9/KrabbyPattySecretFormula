@@ -101,18 +101,13 @@ void Score::updateScoreLabel(int levelId){
     QString ingredient = level_data->getIngredient(levelId);
     QString style = "border-image: url(" + ingredient + ");";
 
-    if(levelId < 6){
-        if(isUnlocked(levelId+1)){
-            str = QString::number(scores[levelId - 1]);
-            label->setStyleSheet(style);
-
-
-            QLabel *next_label = scoreLabels[levelId];
-            next_label->setStyleSheet("border-image: url(:/images/unlocked.png);");
-        }
-    }else if (scores[levelId - 1] > 0){
+    if(isUnlocked(levelId) && scores[levelId - 1] > 0){
         str = QString::number(scores[levelId - 1]);
         label->setStyleSheet(style);
+    }
+    if(levelId < 6 && isUnlocked(levelId + 1) && scores[levelId] == 0){
+        QLabel *next_label = scoreLabels[levelId];
+        next_label->setStyleSheet("border-image: url(:/images/unlocked.png);");
     }
 
     label->setText(str);
@@ -150,9 +145,9 @@ void Score::updateLevelButton(int levelId, bool enabled){
 }
 
 int Score::getTotalScore(){
-    int zbir = 0;
+    int sum = 0;
     for(int score : this->scores)
-        zbir += score;
+        sum += score;
 
-    return zbir;
+    return sum;
 }

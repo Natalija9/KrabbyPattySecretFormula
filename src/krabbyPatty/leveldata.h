@@ -21,6 +21,8 @@ public:
     QString getSlowingBarrier(int levelId);
     bool getRandomDecision();
 
+    ~LevelData();
+
 
 private:
     std::vector<QString> backgrounds;

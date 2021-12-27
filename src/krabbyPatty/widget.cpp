@@ -56,13 +56,6 @@ Widget::Widget(QWidget *parent)
     QObject::connect(ui->Level6, SIGNAL(clicked()), this, SLOT(createLevel()));
 }
 
-
-Widget::~Widget()
-{
-    delete ui;
-}
-
-
 void Widget::createLevel(){
     int levelId = sender()->objectName().toStdString()[5] - '0';
     level = new Level(levelId, levelData);
@@ -72,7 +65,6 @@ void Widget::createLevel(){
 }
 
 
-
 void Widget::updateScore(){
 
     delete level;
@@ -80,12 +72,9 @@ void Widget::updateScore(){
     if(score->isSuccessful()){
         ui->Give_up->setText("Save Score");
     }
-
     if(score->getLives() == 0){
         score->reset();
-
         score->msg->setMessageText(MessageText::NoMoreLives);
-
         ui->stackedWidget->setCurrentIndex(0);
     }
 }
@@ -185,5 +174,12 @@ void Widget::on_Give_up_clicked()
         score->reset();
         ui->Give_up->setText("Give up");
     }
+}
+
+Widget::~Widget()
+{
+    delete ui;
+    delete levelData;
+    delete score;
 }
 

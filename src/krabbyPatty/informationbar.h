@@ -11,12 +11,13 @@ public:
     InformationBar(QGraphicsView *view, QString ingredientPath);
     void updateInformation();
 
+    ~InformationBar();
+
 private:
     QGraphicsView *view;
     QLabel *ingredientLabelPic;
     QLabel *ingredientLabelText;
     QVector<QLabel*> lifeLabels;
-    QPixmap ingredientPixmap;
     QPixmap lifePixmap;
 
 };

@@ -108,3 +108,7 @@ bool LevelData::getRandomDecision(){
     decisionMaker = settings->getMode() ? 0.9 : 0.7;
     return x < decisionMaker;
 }
+
+LevelData::~LevelData(){
+    delete generator;
+}

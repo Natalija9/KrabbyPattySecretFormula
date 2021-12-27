@@ -31,7 +31,8 @@ void Level::startLevel(){
     screenHeight = screen->size().height();
     screenWidth = screen->size().width();
 
-    scene =new QGraphicsScene(0, 0, 5 * screenWidth, screenHeight);
+    scene = new QGraphicsScene(0, 0, 5 * screenWidth, screenHeight);
+
     mainTimer = new QTimer(this);
     QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
     mainTimer->start(20);
@@ -134,9 +135,11 @@ void Level::addObject(char type, int x,int y){
         case '-' :
             break;
     case '*' :{
-            Life *life = new Life(playerWidth);
-            life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
-            scene->addItem(life);
+            if(score->getLives() < 4){
+                Life *life = new Life(playerWidth);
+                life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+                scene->addItem(life);
+            }
             break;
     }
     case '_' :{
@@ -193,7 +196,15 @@ void Level::addObject(char type, int x,int y){
     }
 }
 
-Level::~Level(){}
+Level::~Level(){
+    delete this->scene;
+    delete this->view;
+    delete this->mainTimer;
+    delete this->levelTimer;
+    delete this->informationBar;
+    delete this->timerLabel;
+
+}
 
 
 

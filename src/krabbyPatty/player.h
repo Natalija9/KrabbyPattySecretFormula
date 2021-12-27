@@ -13,8 +13,10 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void keyPressEvent(QKeyEvent *event) override;
         void keyReleaseEvent(QKeyEvent *event) override;
         bool isDead();
+        void standOnPlatform(QGraphicsItem *tile);
         qreal _width;
         qreal _height;
+        void changeSpeed(bool slowed);
 
     signals:
         void slowingBarrier();
@@ -41,7 +43,6 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void walk();
         void detectCollision();
         void calculateDimension();
-        void changeSpeed();
 
 };
 

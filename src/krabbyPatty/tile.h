@@ -1,11 +1,14 @@
 #ifndef TILE_H
 #define TILE_H
-#include "item.h"
 
-class Tile : public QObject, public QGraphicsPixmapItem
+#include <QGraphicsPixmapItem>
+#include "player.h"
+
+class Tile : QObject, public QGraphicsPixmapItem
 {
 public:
-    Tile(qreal playerWidth, QString imagePath);
+    Tile();
+    virtual void changeSpeed(Player *player) = 0;
 };
 
 #endif // TILE_H

@@ -25,9 +25,10 @@ SOURCES += \
     message.cpp \
     player.cpp \
     ranglist.cpp \
+    regulartile.cpp \
     score.cpp \
     settings.cpp \
-    slowingbarrier.cpp \
+    slowingtile.cpp \
     sound.cpp \
     tile.cpp \
     widget.cpp
@@ -48,9 +49,10 @@ HEADERS += \
     message.h \
     player.h \
     ranglist.h \
+    regulartile.h \
     score.h \
     settings.h \
-    slowingbarrier.h \
+    slowingtile.h \
     sound.h \
     tile.h \
     widget.h

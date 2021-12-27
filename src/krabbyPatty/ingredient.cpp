@@ -1,6 +1,7 @@
 #include "ingredient.h"
 #include "score.h"
 
+
 extern Score *score;
 
 Ingredient::Ingredient(qreal playerWidth, QString imagePath)

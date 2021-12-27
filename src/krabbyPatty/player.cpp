@@ -5,9 +5,9 @@
 #include "level.h"
 #include "ingredient.h"
 #include "life.h"
-#include "slowingbarrier.h"
+#include "slowingtile.h"
 #include "deadlybarrier.h"
-#include "tile.h"
+#include "regulartile.h"
 #include "flag.h"
 
 #include<QApplication>
@@ -128,80 +128,70 @@ void Player::detectCollision() {
     QList<QGraphicsItem *> colliding_items = collidingItems();
 
     if(colliding_items.size())
-    {
+{
         for (auto &colliding_item : colliding_items)
         {
-            if (typeid(*(colliding_item)) == typeid(Flag))
-            {
-                level->finishLevel(MessageText::LevelCompleted);
-            }
-            if(dynamic_cast<Item*>(colliding_item))
-            {
+            if(dynamic_cast<Item*>(colliding_item)){
                 dynamic_cast<Item*>(colliding_item)->collect();
                 scene()->removeItem(colliding_item);
 
                 emit countChanged();
             }
-            if (typeid(*(colliding_item)) == typeid(SlowingBarrier))
-            {
-                _slowed = true;
-                changeSpeed();
-                _isOnGround = true;
-                emit slowingBarrier();
-            }
-            if (dynamic_cast<DeadlyBarrier*>(colliding_item))
+            else if (dynamic_cast<DeadlyBarrier*>(colliding_item))
             {
                 level->finishLevel(MessageText::LostLife);
             }
-            if (typeid(*(colliding_item)) == typeid(Tile))
-             {
-                _slowed = false;
-                changeSpeed();
+            else if(dynamic_cast<Tile*>(colliding_item))
+            {
+                dynamic_cast<Tile*>(colliding_item)->changeSpeed(this);
 
-                QRectF tileRect          = colliding_item->boundingRect();
-                QPolygonF tileRectPoints = colliding_item->mapToScene(tileRect);
-
-                _playerRectPoints = mapToScene(boundingRect());
-                // 0 1
-                // 3 2
-
-                if(_playerRectPoints[2].y() <= tileRectPoints[0].y() + 22) // on the platform
-                {
-                   _isOnGround = true;
-                }
-                else if(!_isOnGround && _playerRectPoints[3].x() <= tileRectPoints[3].x() - 25 &&
-                        _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the left side
-                {
-                   setPos(x() - 8, y());
-                }
-
-                else if(!_isOnGround && _playerRectPoints[2].x() >= tileRectPoints[2].x() + 25 &&
-                        _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the right side
-                {
-                    setPos(x() + 8, y());
-                }
-                 if(!_isOnGround && _playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
-                     _playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
-                     _playerRectPoints[3].x() < tileRectPoints[2].x() - 2) // under the platform
-                {
-                        _velocityY = 5;
-                }
-             }
+                this->standOnPlatform(colliding_item);
+            }
         }
     }
     else
         {
             _isOnGround = false;
         }
-
-
 }
-void Player::changeSpeed(){
-    if(_slowed){
-        _stepX = 3;
-    }else{
-        _stepX = 8;
+
+
+
+void Player::standOnPlatform(QGraphicsItem *tile){
+
+    QRectF tileRect          = tile->boundingRect();
+    QPolygonF tileRectPoints = tile->mapToScene(tileRect);
+
+    _playerRectPoints = mapToScene(boundingRect());
+    // 0 1
+    // 3 2
+
+    if(_playerRectPoints[2].y() <= tileRectPoints[0].y() + 22) // on the platform
+    {
+       _isOnGround = true;
     }
+    else if(!_isOnGround && _playerRectPoints[3].x() <= tileRectPoints[3].x() - 25 &&
+            _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the left side
+    {
+       setPos(x() - 8, y());
+    }
+
+    else if(!_isOnGround && _playerRectPoints[2].x() >= tileRectPoints[2].x() + 25 &&
+            _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the right side
+    {
+        setPos(x() + 8, y());
+    }
+     if(!_isOnGround && _playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
+         _playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
+         _playerRectPoints[3].x() < tileRectPoints[2].x() - 2) // under the platform
+    {
+            _velocityY = 5;
+    }
+}
+
+void Player::changeSpeed(bool slowed){
+    _slowed = slowed;
+    _stepX = slowed ? 3 : 10;
 }
 
 bool Player::isDead(){

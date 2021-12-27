@@ -10,10 +10,10 @@
 #include "life.h"
 #include "ingredient.h"
 #include "score.h"
-#include "tile.h"
+#include "regulartile.h"
 #include "flag.h"
 #include "deadlybarrier.h"
-#include "slowingbarrier.h"
+#include "slowingtile.h"
 
 #include <iostream>
 
@@ -148,7 +148,7 @@ void Level::addObject(char type, int x,int y){
             break;
     }
     case '_' :{
-            Tile *tile = new Tile(playerWidth,levelData->getTiles(levelId));
+            RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
             tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
             scene->addItem(tile);
             break;
@@ -172,12 +172,12 @@ void Level::addObject(char type, int x,int y){
     case 'S' :{
 
             if(levelData->getRandomDecision()){
-                SlowingBarrier *waterTiles = new SlowingBarrier(playerWidth, levelData->getSlowingBarrier(levelId));
+                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
                 waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
                 scene->addItem(waterTiles);
             }
             else{
-                Tile *tile = new Tile(playerWidth,levelData->getTiles(levelId));
+                RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
                 tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
                 scene->addItem(tile);
                 }
@@ -185,7 +185,7 @@ void Level::addObject(char type, int x,int y){
 
     }
     case 'B' :{
-                SlowingBarrier *waterTiles = new SlowingBarrier(playerWidth, levelData->getSlowingBarrier(levelId));
+                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
                 waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
                 scene->addItem(waterTiles);
             break;

@@ -9,6 +9,7 @@
 #include "leveldata.h"
 #include "message.h"
 #include "informationbar.h"
+#include "sound.h"
 
 class Level: public QGraphicsView
 {
@@ -42,7 +43,7 @@ class Level: public QGraphicsView
         qreal playerHeight;
         InformationBar *informationBar;
         QLabel *timerLabel;
-
+        Sound *music;
         void parseLevelMap();
         void addObject(char type, int x,int y);
 

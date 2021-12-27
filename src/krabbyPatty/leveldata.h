@@ -20,7 +20,7 @@ public:
     DeadlyBarrier* getDeadlyBarrier(int playerWidth);
     QString getSlowingBarrier(int levelId);
     bool getRandomDecision();
-
+    int getSound();
     ~LevelData();
 
 

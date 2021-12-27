@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,6 +28,7 @@ SOURCES += \
     score.cpp \
     settings.cpp \
     slowingbarrier.cpp \
+    sound.cpp \
     tile.cpp \
     widget.cpp
 
@@ -50,6 +51,7 @@ HEADERS += \
     score.h \
     settings.h \
     slowingbarrier.h \
+    sound.h \
     tile.h \
     widget.h
 

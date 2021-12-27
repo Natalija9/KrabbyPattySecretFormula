@@ -70,6 +70,13 @@ void Level::startLevel(){
     timerLabel = new QLabel(view);
     QObject::connect(player, SIGNAL(activeTimer()), this, SLOT(updateTimerLabel()));
 
+
+//If sound checked then play it
+    if(levelData->getSound() == 2){
+        music = new Sound();
+        music->playMusic();
+    }
+
     view->showFullScreen();
 }
 
@@ -197,8 +204,11 @@ void Level::addObject(char type, int x,int y){
 }
 
 Level::~Level(){
-    delete this->scene;
-    delete this->view;
+//    delete this->scene;
+//    delete this->view;
+    if(levelData->getSound() == 2){
+        delete this->music;
+    }
     delete this->mainTimer;
     delete this->levelTimer;
     delete this->informationBar;

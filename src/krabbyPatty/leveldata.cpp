@@ -63,6 +63,9 @@ QString LevelData::getTiles(int levelId){
     return this->tiles[levelId - 1];
 }
 
+int LevelData::getSound(){
+    return settings->getSound();
+}
 
 QString LevelData::getIngredient(int levelId){
     return this->ingredients[levelId-1];

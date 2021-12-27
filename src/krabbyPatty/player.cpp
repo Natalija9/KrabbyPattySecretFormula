@@ -29,10 +29,10 @@ void Player::keyPressEvent(QKeyEvent *event){
         level->finishLevel(MessageText::Esc);
     }
     if(event->key() == Qt::Key_Right){
-        setPixmap(QPixmap(":images/playerRight.png").scaled(_width, _height));
+        setPixmap(QPixmap(":images/playerRight1.png").scaled(_width, _height));
         _velocityX = _stepX;
     }if(event->key() == Qt::Key_Left){
-        setPixmap(QPixmap(":images/playerLeft.png").scaled(_width, _height));
+        setPixmap(QPixmap(":images/playerLeft1.png").scaled(_width, _height));
         _velocityX = -_stepX;
     }if(event->key() == Qt::Key_Up && _isOnGround){
         if(!_slowed){

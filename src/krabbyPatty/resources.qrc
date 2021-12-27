@@ -63,7 +63,9 @@
         <file>LevelMaps/level4.txt</file>
         <file>LevelMaps/level5.txt</file>
         <file>LevelMaps/level6.txt</file>
+        <file>song/backgroundSong.wav</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource lang="KrustyKrab_font" prefix="/font"/>
+    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource prefix="/song"/>
 </RCC>

@@ -21,10 +21,16 @@ Widget::Widget(QWidget *parent)
     , settings(new Settings)
     , ranglist (new RangList)
 {
+
+//Using custom font
+    fontSetUp();
+
     ui->setupUi(this);
 
     ui->checkSound->setChecked(true);
     ui->rbEasy->setChecked(true);
+
+
 
     levelData = new LevelData(settings);
 
@@ -54,6 +60,13 @@ Widget::Widget(QWidget *parent)
     QObject::connect(ui->Level4, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level5, SIGNAL(clicked()), this, SLOT(createLevel()));
     QObject::connect(ui->Level6, SIGNAL(clicked()), this, SLOT(createLevel()));
+}
+
+void Widget::fontSetUp(){
+    int id = QFontDatabase::addApplicationFont(":/fonts/KrabbyPatty.ttf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QFont krabbyPatty(family);
+    QApplication::setFont(krabbyPatty);
 }
 
 void Widget::createLevel(){

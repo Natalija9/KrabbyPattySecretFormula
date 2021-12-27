@@ -44,6 +44,6 @@ private:
     Settings *settings;
     RangList *ranglist;
     LevelData *levelData;
-
+    void fontSetUp();
 };
 #endif // WIDGET_H

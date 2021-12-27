@@ -4,7 +4,7 @@ Message::Message()
 {
     this->msgBox = new QMessageBox();
     this->msgBox->setWindowTitle(" ");
-    this->msgBox->setFont(QFont("Seoge Ui", 25));
+    this->msgBox->setFont(QFont("krabbyPatty", 25));
     this->msgBox->setStyleSheet("border-image: url(:/images/messageBox.jpg) stretch;");
 
     messageTexts = {"Oops, you lost a life!",

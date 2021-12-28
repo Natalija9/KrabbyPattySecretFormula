@@ -1,4 +1,4 @@
-# <img src="src/krabbyPatty/images/splash.png" width="150"/> KrabbyPattySecretFormula 
+# <img src="src/krabbyPatty/images/splash.png" width="180"/> Krabby Patty Secret Formula 
 
 # Opis igre :memo: :
 
@@ -15,7 +15,7 @@ Sunđer Bob prolazi kroz različite nivoe, izbegava prepreke i sakuplja sastojke
 * Qt >= 6.2.2
 
 # Instalacija :hammer: :
-Qt i Qt Creator se mogu preuzeti na [ovom](https://www.qt.io/download) linku. 
+**Qt** i **Qt Creator** se mogu preuzeti na [ovom](https://www.qt.io/download) linku. 
 
 # Preuzimanje i pokretanje :wrench: :
 1. U terminalu se pozicionirati u zeljeni direktorijum

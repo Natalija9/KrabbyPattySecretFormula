@@ -8,7 +8,7 @@ class RegularTile : public Tile
 {
 public:
     RegularTile(qreal playerWidth, QString imagePath);
-    void changeSpeed(Player *player) override;
+    void changeSpeed(PlayerParameters *playerParameters) override;
 };
 
 #endif // REGULARTILE_H

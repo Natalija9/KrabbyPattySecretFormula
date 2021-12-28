@@ -33,47 +33,53 @@ void Level::startLevel(){
 
     scene = new QGraphicsScene(0, 0, 5 * screenWidth, screenHeight);
 
-    mainTimer = new QTimer(this);
-    QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
-    mainTimer->start(20);
-
-    levelTimer = new QTimer(this);
-    levelTimer->start(120000);
-    QObject::connect(levelTimer, SIGNAL(timeout()), this, SLOT(outOfTime()));
+    this->setView();
 
     Player *player = new Player();
     player-> setFlag(QGraphicsItem::ItemIsFocusable);
     player ->setFocus();
 
-    playerWidth = player->_width;
-    playerHeight = player->_height;
-
     scene->addItem(player);
-    parseLevelMap();
-
-    this->view = new QGraphicsView(scene);
-    QString path = levelData->getBackground(levelId);
-    view->setBackgroundBrush(QPixmap(path).scaledToHeight(screenHeight));
-    view->resize(screenWidth, screenHeight);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->ensureVisible(player);
     view->centerOn(player);
-    view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
-    view->setFocus();
+
+    playerWidth = player->parameters->_width;
+    playerHeight = player->parameters->_height;
+
+    this->parseLevelMap();
+
+    mainTimer = new QTimer(this);
+    mainTimer->start(20);
+
+    levelTimer = new QTimer(this);
+    levelTimer->start(120000);
+
+    informationBar = new InformationBar(view, levelData->getIngredient(levelId));
+    timerLabel = new QLabel(view);
+    music = new Sound(levelData->getSound());
+
+    QObject::connect(mainTimer, SIGNAL(timeout()), scene, SLOT(advance()));
+    QObject::connect(levelTimer, SIGNAL(timeout()), this, SLOT(outOfTime()));
+    QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
+    QObject::connect(player, SIGNAL(activeTimer()), this, SLOT(updateTimerLabel()));
 
     QApplication::setOverrideCursor(Qt::BlankCursor);
 
-    informationBar = new InformationBar(view, levelData->getIngredient(levelId));
-    QObject::connect(player, SIGNAL(countChanged()), this, SLOT(setInformationBar()));
-
-    timerLabel = new QLabel(view);
-    QObject::connect(player, SIGNAL(activeTimer()), this, SLOT(updateTimerLabel()));
-
-    music = new Sound(levelData->getSound());
-
-
     view->showFullScreen();
+}
+
+void Level::setView(){
+    this->view = new QGraphicsView(scene);
+
+    QString path = levelData->getBackground(levelId);
+    view->setBackgroundBrush(QPixmap(path).scaledToHeight(screenHeight));
+    view->resize(screenWidth, screenHeight);
+
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    view->setWindowTitle(QString::fromStdString("Level " + std::to_string(levelId)));
+    view->setFocus();
 }
 
 
@@ -94,12 +100,9 @@ void Level::finishLevel(MessageText msgText){
     if(msgText != MessageText::LevelCompleted)
         score->takeLife();
 
-
     score->saveCurrentScore(levelId, levelTimer->remainingTime());
     levelTimer->stop();
     score->msg->setMessageText(msgText);
-
-
 
     this->view->close();
 

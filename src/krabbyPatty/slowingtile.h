@@ -7,7 +7,7 @@ class SlowingTile: public Tile
 {
 public:
      SlowingTile(qreal playerWidth, QString imagePath);
-    void changeSpeed(Player *player) override;
+    void changeSpeed(PlayerParameters *playerParameters) override;
 };
 
 #endif // SLOWINGTILE_H

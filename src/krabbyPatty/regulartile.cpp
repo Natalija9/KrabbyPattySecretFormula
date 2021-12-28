@@ -1,7 +1,5 @@
 #include "regulartile.h"
 
-#include <iostream>
-
 RegularTile::RegularTile(qreal playerWidth, QString imagePath)
 {
     qreal width = playerWidth*0.5;
@@ -9,6 +7,6 @@ RegularTile::RegularTile(qreal playerWidth, QString imagePath)
     setPixmap(QPixmap(imagePath).scaled(width, height));
 }
 
-void RegularTile::changeSpeed(Player *player){
-    player->changeSpeed(false);
+void RegularTile::changeSpeed(PlayerParameters *playerParameters){
+    playerParameters->setSpeed(Speed::Fast);
 }

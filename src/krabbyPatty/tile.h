@@ -2,13 +2,13 @@
 #define TILE_H
 
 #include <QGraphicsPixmapItem>
-#include "player.h"
+#include "playerparameters.h"
 
 class Tile : QObject, public QGraphicsPixmapItem
 {
 public:
     Tile();
-    virtual void changeSpeed(Player *player) = 0;
+    virtual void changeSpeed(PlayerParameters *playerParameters) = 0;
 };
 
 #endif // TILE_H

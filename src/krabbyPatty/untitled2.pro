@@ -24,6 +24,7 @@ SOURCES += \
     main.cpp \
     message.cpp \
     player.cpp \
+    playerparameters.cpp \
     ranglist.cpp \
     regulartile.cpp \
     score.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     life.h \
     message.h \
     player.h \
+    playerparameters.h \
     ranglist.h \
     regulartile.h \
     score.h \

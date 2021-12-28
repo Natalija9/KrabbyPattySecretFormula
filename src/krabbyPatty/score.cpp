@@ -36,8 +36,6 @@ int Score::getLives(){
 }
 
 void Score::saveCurrentScore(int levelId, int time){
-    std::cout<< "time: "<<time/1000 <<std::endl;
-    std::cout<< "score: "<<current_score <<std::endl;
 
     current_score = current_score > 0 ? current_score * 5 * time * parameter / 1000 : 0;
     if(current_score > scores[levelId - 1]){

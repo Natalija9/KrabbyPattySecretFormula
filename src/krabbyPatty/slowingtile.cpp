@@ -1,5 +1,4 @@
 #include "slowingtile.h"
-#include <iostream>
 
 SlowingTile::SlowingTile(qreal playerWidth, QString imagePath)
 {
@@ -8,6 +7,6 @@ SlowingTile::SlowingTile(qreal playerWidth, QString imagePath)
     setPixmap(QPixmap(imagePath).scaled(width, height));
 }
 
-void SlowingTile::changeSpeed(Player *player){
-    player->changeSpeed(true);
+void SlowingTile::changeSpeed(PlayerParameters *playerParameters){
+    playerParameters->setSpeed(Speed::Slow);
 }

@@ -35,6 +35,7 @@ class Level: public QGraphicsView
         void updateTimerLabel();
 
     private:
+        void setView();
         int levelId;
         LevelData *levelData;
         QTimer *mainTimer;

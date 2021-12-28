@@ -11,8 +11,11 @@ public:
     void move() override;
 
 private:
-    bool left;
     int steps = 0;
+    const int max_steps = 100;
+    int move_x = 2;
+    void stepForward();
+    void changeDirectionIfNeeded();
 };
 
 #endif // KAREN_H

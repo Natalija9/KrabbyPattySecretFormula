@@ -7,37 +7,33 @@ EvilSpongeBob::EvilSpongeBob(qreal playerWidth)
     setPixmap(QPixmap(":/images/EvilSpongeBob.png").scaled(width, height));
 
     this->left = true;
-    this->up = true;
 }
 
-void EvilSpongeBob::move() {
-    if(this->left) {
-        if(this->up)
-            setPos(x() - 2, y() - 2);
-        else
-            setPos(x() - 2, y() + 2);
+void EvilSpongeBob::move()
+{
+    stepForward();
+    changeVerticalDirectionIfNeeded();
+    changeHorizontalDirectionIfNeeded();
+}
 
-        steps++;
-        if(steps % 25 == 0)
-            up = !up;
+void EvilSpongeBob::stepForward()
+{
+    setPos(x() - move_x, y() - move_y);
+    steps++;
+}
 
-        if(steps == 100) {
-            left = false;
-            steps = 0;
-        }
+void EvilSpongeBob::changeVerticalDirectionIfNeeded()
+{
+    if(steps % changeVertical == 0) {
+        move_y = -move_y;
     }
-    else {
-        if(this->up)
-            setPos(x() + 2, y() - 2);
-        else
-            setPos(x() + 2, y() + 2);
+}
 
-        steps++;
-        if(steps % 25 == 0)
-            up = !up;
-        if(steps == 100) {
-            left = true;
-            steps = 0;
-        }
+void EvilSpongeBob::changeHorizontalDirectionIfNeeded()
+{
+    if(steps == max_steps) {
+        left = !left;
+        steps = 0;
+        move_x = -move_x;
     }
 }

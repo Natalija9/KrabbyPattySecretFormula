@@ -1,20 +1,25 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+enum class Mode
+{
+    EasyMode = 0,
+    HardMode = 1
+};
 
 class Settings
 {
 public:
     Settings();
 
-    void setSound(int value);
-    void setMode(int value);
-    int getSound();
-    int getMode();
+    void setSound(int isSoundOn);
+    void setMode(Mode mode);
+    bool getSound();
+    Mode getMode();
 
 private:
-    int _sound;
-    int _mode;
+    bool _sound;
+    Mode _mode;
 };
 
 #endif // SETTINGS_H

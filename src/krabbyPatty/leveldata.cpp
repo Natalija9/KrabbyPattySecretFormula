@@ -63,7 +63,7 @@ QString LevelData::getTiles(int levelId){
     return this->tiles[levelId - 1];
 }
 
-int LevelData::getSound(){
+bool LevelData::getSound(){
     return settings->getSound();
 }
 
@@ -108,7 +108,7 @@ QString LevelData::getSlowingBarrier(int levelId){
 bool LevelData::getRandomDecision(){
 
     double x = generator->bounded(1.0);
-    decisionMaker = settings->getMode() ? 0.9 : 0.7;
+    decisionMaker = settings->getMode() == Mode::HardMode ? 0.9 : 0.7;
     return x < decisionMaker;
 }
 

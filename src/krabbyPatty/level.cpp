@@ -89,6 +89,7 @@ void Level::updateTimerLabel(){
 }
 
 void Level::finishLevel(MessageText msgText){
+    levelTimer->stop();
     music->stopMusic();
     QApplication::setOverrideCursor(Qt::ArrowCursor);
     if(msgText != MessageText::LevelCompleted)
@@ -97,7 +98,7 @@ void Level::finishLevel(MessageText msgText){
     score->msg->setMessageText(msgText);
 
     score->saveCurrentScore(levelId, levelTimer->remainingTime());
-    levelTimer->stop();
+
     this->view->close();
 
     emit endLevel();

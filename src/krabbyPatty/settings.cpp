@@ -2,22 +2,25 @@
 
 Settings::Settings()
 {
-    _sound = 2;
-    _mode = 0;
+    _sound = true;
+    _mode = Mode::EasyMode;
 }
 
-void Settings::setSound(int value) {
-    _sound = value;
+void Settings::setSound(int isSoundOn) {
+    if(!isSoundOn)
+        _sound = false;
+    else
+        _sound = true;
 }
 
-void Settings::setMode(int value) {
-    _mode = value;
+void Settings::setMode(Mode mode) {
+    _mode = mode;
 }
 
-int Settings::getSound() {
+bool Settings::getSound() {
     return _sound;
 }
 
-int Settings::getMode() {
+Mode Settings::getMode() {
     return _mode;
 }

@@ -1,21 +1,21 @@
 #include "sound.h"
 
 
-Sound::Sound(int soundSettings)
+Sound::Sound(bool isSoundOn)
 {
-    this->soundSettings = soundSettings;
+    this->soundOn = isSoundOn;
     mediaPlayer = new QSoundEffect();
     mediaPlayer->setSource(QUrl::fromLocalFile(":/song/backgroundSong.wav"));
     mediaPlayer->setVolume(50);
 
-    if(soundSettings == 2){
+    if(soundOn){
         mediaPlayer->play();
     }
 
 }
 
 void Sound::stopMusic(){
-    if(soundSettings == 2)
+    if(soundOn)
         mediaPlayer->stop();
 
 }

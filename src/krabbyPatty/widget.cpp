@@ -124,13 +124,13 @@ void Widget::on_checkSound_stateChanged(int arg1)
 
 void Widget::on_rbEasy_clicked()
 {
-    settings->setMode(0);
+    settings->setMode(Mode::EasyMode);
     score->parameter = 0.1;
 }
 
 void Widget::on_rbHard_clicked()
 {
-    settings->setMode(1);
+    settings->setMode(Mode::HardMode);
     score->parameter = 0.15;
 }
 

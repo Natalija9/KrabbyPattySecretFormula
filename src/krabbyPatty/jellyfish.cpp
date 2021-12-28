@@ -13,26 +13,24 @@ Jellyfish::Jellyfish(qreal playerWidth)
     else
         setPixmap(QPixmap(":/images/jellyfish_blue.png").scaled(width, height));
 
-    this->up = true;
 }
 
-void Jellyfish::move() {
-    if(this->up) {
-        setPos(x(), y() - 1);
+void Jellyfish::move()
+{
+    stepForward();
+    changeDirectionIfNeeded();
+}
 
-        steps++;
-        if(steps == 60) {
-            up = false;
-            steps = 0;
-        }
-    }
-    else {
-        setPos(x(), y() + 1);
+void Jellyfish::stepForward()
+{
+    setPos(x(), y() - move_y);
+    steps++;
+}
 
-        steps++;
-        if(steps == 60) {
-            up = true;
-            steps = 0;
-        }
+void Jellyfish::changeDirectionIfNeeded()
+{
+    if(steps == max_steps) {
+        steps = 0;
+        move_y = -move_y;
     }
 }

@@ -79,7 +79,7 @@
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <italic>true</italic>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>
@@ -125,7 +125,7 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <italic>true</italic>
+                <italic>false</italic>
                 <bold>true</bold>
                 <stylestrategy>PreferDefault</stylestrategy>
                </font>
@@ -175,7 +175,7 @@ color: #feff41;</string>
               <property name="font">
                <font>
                 <pointsize>19</pointsize>
-                <italic>true</italic>
+                <italic>false</italic>
                 <bold>true</bold>
                </font>
               </property>

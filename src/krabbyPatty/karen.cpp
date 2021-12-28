@@ -6,27 +6,25 @@ Karen::Karen(qreal playerWidth)
     qreal width = playerWidth * 0.75;
     qreal height = width * 1.3;
     setPixmap(QPixmap(":/images/karen.png").scaled(width, height));
-
-    this->left = true;
 }
 
-void Karen::move() {
-    if(this->left) {
-        setPos(x() - 2, y());
+void Karen::move()
+{
+    stepForward();
+    changeDirectionIfNeeded();
+}
 
-        steps++;
-        if(steps == 100) {
-            left = false;
-            steps = 0;
-        }
-    }
-    else {
-        setPos(x() + 2, y());
+void Karen::stepForward()
+{
+    setPos(x() - move_x, y());
+    steps++;
+}
 
-        steps++;
-        if(steps == 100) {
-            left = true;
-            steps = 0;
-        }
+void Karen::changeDirectionIfNeeded()
+{
+    if(steps == max_steps) {
+        steps = 0;
+        move_x = -move_x;
     }
 }
+

@@ -7,26 +7,26 @@ DirtyBubble::DirtyBubble(qreal playerWidth)
     qreal height = width;
     setPixmap(QPixmap(":/images/dirtyBubble.png").scaled(width, height));
 
-    this->up = true;
 }
 
-void DirtyBubble::move() {
-    if(this->up) {
-        setPos(x() + 1, y() - 1);
+void DirtyBubble::move()
+{
+    stepForward();
+    changeDirectionIfNeeded();
+}
 
-        steps++;
-        if(steps == 60) {
-            up = false;
-            steps = 0;
-        }
-    }
-    else {
-        setPos(x() - 1, y() + 1);
+void DirtyBubble::stepForward()
+{
+    setPos(x() + move_x, y() + move_y);
+    steps++;
+}
 
-        steps++;
-        if(steps == 60) {
-            up = true;
-            steps = 0;
-        }
+void DirtyBubble::changeDirectionIfNeeded()
+{
+    if(steps == max_steps) {
+        steps = 0;
+        move_x = -move_x;
+        move_y = -move_y;
     }
 }
+

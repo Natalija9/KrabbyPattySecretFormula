@@ -8,13 +8,13 @@
 class Sound
 {
 public:
-    Sound(int soundSettings);
+    Sound(bool isSoundOn);
     ~Sound();
 
     QSoundEffect *mediaPlayer;
     void stopMusic();
 private:
-    int soundSettings;
+    bool soundOn;
 };
 
 

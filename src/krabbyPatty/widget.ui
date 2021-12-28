@@ -225,13 +225,15 @@ color: #feff41;
                <bool>true</bool>
               </property>
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/images/help.png);</string>
+               <string notr="true">border-image: url(:/images/help.png);
+width: 60;
+height: 50;</string>
               </property>
               <property name="text">
                <string/>

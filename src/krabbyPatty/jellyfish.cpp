@@ -6,13 +6,13 @@ Jellyfish::Jellyfish(qreal playerWidth)
     qreal width = playerWidth * 0.5;
     qreal height = width;
 
-    int x = rand() % 2;
+    this->generator = new QRandomGenerator();
+    int x = generator->bounded(2);
 
     if (x == 0)
         setPixmap(QPixmap(":/images/jellyfish.png").scaled(width, height));
     else
         setPixmap(QPixmap(":/images/jellyfish_blue.png").scaled(width, height));
-
 }
 
 void Jellyfish::move()

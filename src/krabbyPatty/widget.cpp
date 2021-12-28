@@ -4,8 +4,8 @@
 #include "settings.h"
 #include "score.h"
 #include "ranglist.h"
-#include<QFile>
-#include<QVector>
+#include <QFile>
+#include <QVector>
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QDir>
@@ -171,7 +171,7 @@ void Widget::on_Give_up_clicked()
         bool ok = true;
         QInputDialog diag;
         diag.setWindowTitle("");
-        diag.setStyleSheet("font-size: 20px; font-style: bolid italic; color: rgb(0,0,0);");
+        diag.setStyleSheet("font-size: 20px; font-style: bolid italic;");
         setStyleSheet("QInputDialog {background-color: rgb(148, 153, 0);}");
 
         QString username = diag.getText(this, tr(" "), tr("Username: "), QLineEdit::Normal, "", &ok);

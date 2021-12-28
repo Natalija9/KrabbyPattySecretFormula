@@ -2,6 +2,7 @@
 #define JELLYFISH_H
 
 #include "deadlybarrier.h"
+#include <QRandomGenerator>
 
 class Jellyfish : public DeadlyBarrier
 {
@@ -15,6 +16,7 @@ private:
     const int max_steps = 60;
     void stepForward();
     void changeDirectionIfNeeded();
+    QRandomGenerator *generator;
 };
 
 #endif // JELLYFISH_H

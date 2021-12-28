@@ -1,18 +1,12 @@
 #include "ranglist.h"
 #include <QDir>
 #include<iostream>
-RangList::RangList()
-{
-}
 
-struct QPairScoreComparer {
-    template <typename T1, typename T2>
-    bool operator()(const std::pair<T1, T2>& a,
-        const std::pair<T1, T2>& b)
-    {
-        return a.second > b.second;
-    }
-};
+RangList::RangList(){ }
+
+bool QPairScoreComparer(const std::pair<QString, int> &player1, const std::pair<QString, int> &player2){
+    return player1.second > player2.second;
+}
 
 
 // adding name-score to memory
@@ -31,16 +25,16 @@ void RangList::readFromFileAndInsertIntoList()
 {
     QFile players("../krabbyPatty/files/players.txt");
 
-//    if(players.exists()){
-//        std::cout << "fajl postoji na toj putanji" <<std:: endl;
-//    }
-//    if (players.open(QIODevice::ReadOnly)){
-//        std::cout << "otvoren" << std::endl;
-//    }else
-//        std::cout << " nije otvoren " <<std::  endl;
+    if(!players.exists()){
+        qDebug() << "File does not exist";
+        return ;
+    }
 
+    if(!players.open(QIODevice::ReadOnly | QIODevice::Text)){
+        qDebug() << "Opening failed";
+        return ;
+    }
 
-    players.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&players);
 
     while (!stream.atEnd()) {
@@ -59,7 +53,7 @@ void RangList::readFromFileAndInsertIntoList()
 // sorting list of players
 void RangList::sortPlayersByScore()
 {
-    std::sort(playerList.begin(), playerList.end(), QPairScoreComparer());
+    std::sort(playerList.begin(), playerList.end(), QPairScoreComparer);
 }
 
 // inserting new player to list

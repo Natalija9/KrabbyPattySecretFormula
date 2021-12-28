@@ -1,5 +1,5 @@
-#include<QGraphicsScene>
-#include<QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 #include <QApplication>
 #include <QMessageBox>
 #include <QTimer>
@@ -14,8 +14,6 @@
 #include "flag.h"
 #include "deadlybarrier.h"
 #include "slowingtile.h"
-
-#include <iostream>
 
 extern Score *score;
 

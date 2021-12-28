@@ -10,8 +10,8 @@ InformationBar::InformationBar(QGraphicsView *view, QString ingredientPath)
     this->view = view;
 
     ingredientLabelPic = new QLabel(view);
-    ingredientLabelPic->setGeometry(10,60,40,40);
-    ingredientLabelPic->setPixmap(QPixmap(ingredientPath).scaled(40,40));
+    ingredientLabelPic->setGeometry(10, 60, 40, 40);
+    ingredientLabelPic->setPixmap(QPixmap(ingredientPath).scaled(40, 40));
     ingredientLabelPic->show();
 
     ingredientLabelText = new QLabel(view);

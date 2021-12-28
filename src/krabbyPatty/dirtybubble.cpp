@@ -17,7 +17,7 @@ void DirtyBubble::move()
 
 void DirtyBubble::stepForward()
 {
-    setPos(x() + move_x, y() + move_y);
+    setPos(x() + move_x, y() - move_y);
     steps++;
 }
 

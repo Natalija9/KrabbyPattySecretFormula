@@ -25,11 +25,7 @@ Level::Level(int levelId, LevelData *levelData)
 
 void Level::startLevel(){
 
-    QScreen *screen = QApplication::screens().at(0);
-    screenHeight = screen->size().height();
-    screenWidth = screen->size().width();
-
-    scene = new QGraphicsScene(0, 0, 5 * screenWidth, screenHeight);
+    scene = new QGraphicsScene(0, 0, levelData->sceneSizeX, levelData->screenHeight);
 
     this->setView();
 
@@ -70,8 +66,8 @@ void Level::setView(){
     this->view = new QGraphicsView(scene);
 
     QString path = levelData->getBackground(levelId);
-    view->setBackgroundBrush(QPixmap(path).scaledToHeight(screenHeight));
-    view->resize(screenWidth, screenHeight);
+    view->setBackgroundBrush(QPixmap(path).scaledToHeight(levelData->screenHeight));
+    view->resize(levelData->screenWidth, levelData->screenHeight);
 
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -88,7 +84,7 @@ void Level::setInformationBar(){
 void Level::updateTimerLabel(){
     timerLabel->setText("time: " + QString::number(levelTimer->remainingTime()/1000) + " s");
     timerLabel->setStyleSheet("font-size: 23px; font: bold;");
-    timerLabel->setGeometry(screenWidth-140, 10, 120, 20);
+    timerLabel->setGeometry(levelData->screenWidth-140, 10, 120, 20);
     timerLabel->show();
 }
 
@@ -125,13 +121,13 @@ void Level::parseLevelMap(){
 
     QTextStream in(&file);
     QStringList line = in.readLine().split(" ");
-    int sizeX = line[0].toInt();
-    int sizeY = line[1].toInt();
+    qreal sizeX = line[0].toInt();
+    qreal sizeY = line[1].toInt();
 
     for(int y = 0; y < sizeY; y++){
         QString sceneObjects = in.readLine();
         for( int x = 0; x < sizeX - 1; x++){
-            addObject(sceneObjects[x].toLatin1(), x*screenWidth*5/200,y);
+            addObject(sceneObjects[x].toLatin1(), x * levelData->sceneSizeX / sizeX, y / sizeY);
         }
     }
 
@@ -139,27 +135,27 @@ void Level::parseLevelMap(){
 }
 
 
-void Level::addObject(char type, int x,int y){
+void Level::addObject(char type, qreal x, qreal y){
     switch(type){
         case '-' :
             break;
     case '*' :{
             if(score->getLives() < 4){
                 Life *life = new Life(playerWidth);
-                life->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+                life->setPos(x,  y * levelData->screenHeight + levelData->itemOffset);
                 scene->addItem(life);
             }
             break;
     }
     case '_' :{
             RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
-            tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
+            tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
             scene->addItem(tile);
             break;
     }
     case '$' :{
             Ingredient *ingredient = new Ingredient(playerWidth, levelData->getIngredient(levelId));
-            ingredient->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            ingredient->setPos(x,  y * levelData->screenHeight + levelData->itemOffset);
             scene->addItem(ingredient);
             break;
     }
@@ -167,7 +163,7 @@ void Level::addObject(char type, int x,int y){
 
             if(levelData->getRandomDecision()){
                 DeadlyBarrier *barrier = levelData->getDeadlyBarrier(playerWidth);
-                barrier->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+                barrier->setPos(x,  y * levelData->screenHeight + levelData->itemOffset);
                 scene->addItem(barrier);
             }
             break;
@@ -177,12 +173,12 @@ void Level::addObject(char type, int x,int y){
 
             if(levelData->getRandomDecision()){
                 SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
-                waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                waterTiles->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(waterTiles);
             }
             else{
                 RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
-                tile->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(tile);
                 }
             break;
@@ -190,13 +186,13 @@ void Level::addObject(char type, int x,int y){
     }
     case 'B' :{
                 SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
-                waterTiles->setPos(x, (0.1 + y * 0.25)*screenHeight);
+                waterTiles->setPos(x,  y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(waterTiles);
             break;
     }
     case '+' :{
             Flag *flag = new Flag(playerHeight*1.41);
-            flag->setPos(x, (0.225 + y * 0.25 )*screenHeight);
+            flag->setPos(x,  y * levelData->screenHeight + levelData->itemOffset);
             scene->addItem(flag);
             break;
     }

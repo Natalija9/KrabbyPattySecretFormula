@@ -5,11 +5,15 @@
 #include "evilspongebob.h"
 
 #include <QRandomGenerator>
+#include <QApplication>
+#include <QScreen>
 
 LevelData::LevelData(Settings *settings)
 {
 
     this->settings = settings;
+
+    calculateScalingParameters();
 
     backgrounds = {":/images/level1.jpg",
                   ":/images/level2.png",
@@ -110,6 +114,17 @@ bool LevelData::getRandomDecision(){
     double x = generator->bounded(1.0);
     decisionMaker = settings->getMode() == Mode::HardMode ? 0.9 : 0.7;
     return x < decisionMaker;
+}
+
+void LevelData::calculateScalingParameters(){
+    QScreen *screen = QApplication::screens().at(0);
+    screenHeight = screen->size().height();
+    screenWidth = screen->size().width();
+
+    sceneSizeX = screenWidth * 5;
+    platformOffset = screenHeight * 0.1;
+    itemOffset = screenHeight * 0.225;
+
 }
 
 LevelData::~LevelData(){

@@ -14,6 +14,7 @@ class PlayerParameters
 {
 public:
     PlayerParameters();
+    qreal _screenHeight;
     qreal _height;
     qreal _width;
     qreal _gravity;

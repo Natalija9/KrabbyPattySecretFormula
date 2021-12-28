@@ -16,7 +16,7 @@ Score::Score(LevelData *level_data)
 
 void Score::increase()
 {
-    current_score ++;;
+    current_score ++;
 }
 
 
@@ -35,12 +35,12 @@ int Score::getLives(){
     return this->lives;
 }
 
-void Score::saveCurrentScore(int levelId, int time){
+void Score::saveCurrentScore(int levelId, int remainingTime){
 
-    current_score = current_score > 0 ? current_score * 5 * time * parameter / 1000 : 0;
+    current_score = countLevelScore(remainingTime / 1000);
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;
-        this->level_time[levelId - 1] = time;
+        this->level_time[levelId - 1] = remainingTime;
         if(levelId < 6){
             unlocked[levelId] = true;
             updateLevelButton(levelId+1, true);
@@ -49,6 +49,13 @@ void Score::saveCurrentScore(int levelId, int time){
 
     current_score = 0;
     updateScoreLabel(levelId);
+}
+
+int Score::countLevelScore(int remainingTime){
+    if(current_score > 0 && remainingTime > 0){
+        return current_score * ingredientPoints * remainingTime * settingsModeParameter + lives * lifePoints;
+    }
+    return 0;
 }
 
 

@@ -21,6 +21,12 @@ public:
     QString getSlowingBarrier(int levelId);
     bool getRandomDecision();
     bool getSound();
+    qreal screenWidth;
+    qreal screenHeight;
+    qreal sceneSizeX;
+    qreal platformOffset;
+    qreal itemOffset;
+    void calculateScalingParameters();
     ~LevelData();
 
 

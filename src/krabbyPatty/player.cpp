@@ -26,6 +26,8 @@ Player::Player()
 void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_Escape){
+        _velocityX = 0;
+        _velocityY = 0;
         level->finishLevel(MessageText::Esc);
     }
     if(event->key() == Qt::Key_Right){
@@ -71,6 +73,7 @@ void Player::advance(int phase)
     else{
         level->view->centerOn(this);
     }
+
 
     walk();
     jump();
@@ -162,31 +165,31 @@ void Player::standOnPlatform(QGraphicsItem *tile){
     // 0 1
     // 3 2
 
-    if(_playerRectPoints[2].y() <= tileRectPoints[0].y() + 22) // on the platform
+    if(_playerRectPoints[2].y() <= tileRectPoints[0].y() + 20) // on the platform
     {
        _isOnGround = true;
     }
-    else if(!_isOnGround && _playerRectPoints[3].x() <= tileRectPoints[3].x() - 25 &&
+    else if(!_isOnGround && _playerRectPoints[3].x() <= tileRectPoints[3].x() - 20 &&
             _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the left side
     {
-       setPos(x() - 8, y());
+       setPos(x() - 10, y());
     }
 
-    else if(!_isOnGround && _playerRectPoints[2].x() >= tileRectPoints[2].x() + 25 &&
+    else if(!_isOnGround && _playerRectPoints[2].x() >= tileRectPoints[2].x() + 20 &&
             _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the right side
     {
-        setPos(x() + 8, y());
+        setPos(x() + 10, y());
     }
      if(!_isOnGround && _playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
          _playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
          _playerRectPoints[3].x() < tileRectPoints[2].x() - 2) // under the platform
     {
-            _velocityY = 5;
+            _velocityY = parameters->_stepY / 2;
     }
 }
 
 
 bool Player::isDead(){
-    return y() > level->screenHeight;
+    return y() > parameters->_screenHeight;
 }
 

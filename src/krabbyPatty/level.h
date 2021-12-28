@@ -19,8 +19,8 @@ class Level: public QGraphicsView
 
         void startLevel();
         void finishLevel(MessageText msgText);
-        qreal screenWidth;
-        qreal screenHeight;
+//        qreal screenWidth;
+//        qreal screenHeight;
         QGraphicsView *view;
         QTimer *levelTimer;
 
@@ -46,7 +46,7 @@ class Level: public QGraphicsView
         QLabel *timerLabel;
         Sound *music;
         void parseLevelMap();
-        void addObject(char type, int x,int y);
+        void addObject(char type, qreal x, qreal y);
 
 };
 

@@ -28,8 +28,11 @@ public:
     void setLevelButtons(QVector<QPushButton*> buttons);
     void updateLabels(int levelId);
     int getTotalScore();
+    int countLevelScore(int remainingTime);
     int current_score;
-    double parameter = 0.1;
+    double settingsModeParameter = 0.1;
+    const int ingredientPoints = 5;
+    const int lifePoints = 10;
     Message *msg;
 
 

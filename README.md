@@ -1,4 +1,4 @@
-# <img src="10-KrabbyPattySecretFormula/src/krabbyPatty/images/splash.png" width="150"/> KrabbyPattySecretFormula 
+# <img src="src/krabbyPatty/images/splash.png" width="150"/> KrabbyPattySecretFormula 
 
 # Opis igre :memo: :
 

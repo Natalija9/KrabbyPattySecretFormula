@@ -12,12 +12,10 @@ Sunđer Bob prolazi kroz različite nivoe, izbegava prepreke i sakuplja sastojke
 [![qtCreator](https://img.shields.io/badge/IDE-Qt_Creator-green)](https://www.qt.io/product/development-tools)
 
 # Korisćene biblioteke :books: :
-* Qt >= 6.2.1
+* Qt >= 6.2.2
 
-# Instalacija potebnih biblioteka :hammer: :
-## Qt i Qt Creator
-1. `$ sudo apt install qtcreator`
-2. `$ sudo apt install build-essential`
+# Instalacija :hammer: :
+Qt i Qt Creator se mogu preuzeti na [ovom](https://www.qt.io/download) linku. 
 
 # Preuzimanje i pokretanje :wrench: :
 1. U terminalu se pozicionirati u zeljeni direktorijum

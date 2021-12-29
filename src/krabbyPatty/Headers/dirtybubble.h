@@ -8,7 +8,7 @@ class DirtyBubble : public DeadlyBarrier
 public:
     DirtyBubble(qreal playerWidth);
     void move() override;
-
+    ~DirtyBubble();
 private:
     int steps = 0;
     int move_x = 1;

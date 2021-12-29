@@ -9,7 +9,7 @@ class EvilSpongeBob : public DeadlyBarrier
 public:
     EvilSpongeBob(qreal playerWidth);
     void move() override;
-
+    ~EvilSpongeBob();
 private:
     bool left;
     int move_x = 2;

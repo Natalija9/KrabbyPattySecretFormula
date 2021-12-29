@@ -1,4 +1,4 @@
-#include "karen.h"
+#include "Headers/karen.h"
 
 
 Karen::Karen(qreal playerWidth)
@@ -28,3 +28,6 @@ void Karen::changeDirectionIfNeeded()
     }
 }
 
+Karen::~Karen(){
+
+}

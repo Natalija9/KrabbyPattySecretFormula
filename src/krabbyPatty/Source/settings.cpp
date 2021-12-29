@@ -1,4 +1,4 @@
-#include "settings.h"
+#include "Headers/settings.h"
 
 Settings::Settings()
 {
@@ -23,4 +23,7 @@ bool Settings::getSound() {
 
 Mode Settings::getMode() {
     return _mode;
+}
+Settings::~Settings(){
+
 }

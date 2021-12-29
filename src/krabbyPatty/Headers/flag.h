@@ -7,11 +7,12 @@
 class Flag : public Item
 {
 public:
-    Flag(qreal playerWidth);
+    Flag(Level *parent, qreal playerWidth);
     void collect() override;
-
+    ~Flag();
 private:
     int number_of_points;
+    Level *lvl;
 };
 
 

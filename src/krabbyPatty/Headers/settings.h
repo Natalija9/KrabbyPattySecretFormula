@@ -16,6 +16,7 @@ public:
     void setMode(Mode mode);
     bool getSound();
     Mode getMode();
+    ~Settings();
 
 private:
     bool _sound;

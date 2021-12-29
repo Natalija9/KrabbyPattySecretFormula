@@ -1,9 +1,9 @@
-#include "widget.h"
+#include "Headers/widget.h"
 #include "ui_widget.h"
-#include "level.h"
-#include "settings.h"
-#include "score.h"
-#include "ranglist.h"
+#include "Headers/level.h"
+#include "Headers/settings.h"
+#include "Headers/score.h"
+#include "Headers/ranglist.h"
 #include <QFile>
 #include <QVector>
 #include <QMessageBox>

@@ -17,6 +17,7 @@ class Player:  public QObject, public QGraphicsPixmapItem
         void standOnPlatform(QGraphicsItem *tile);
         PlayerParameters *parameters;
 
+        ~Player();
     signals:
         void slowingBarrier();
         void countChanged();

@@ -1,4 +1,4 @@
-#include "playerparameters.h"
+#include "Headers/playerparameters.h"
 
 PlayerParameters::PlayerParameters()
 {
@@ -18,4 +18,7 @@ void PlayerParameters::setSpeed(Speed speed){
 
 Speed PlayerParameters::getSpeed(){
     return Speed(_stepX);
+}
+PlayerParameters::~PlayerParameters(){
+
 }

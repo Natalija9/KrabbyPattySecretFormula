@@ -1,5 +1,6 @@
-#include "life.h"
-#include "score.h"
+#include "Headers/life.h"
+#include "Headers/score.h"
+#include <QGraphicsScene>
 
 extern Score *score;
 
@@ -12,4 +13,9 @@ Life::Life(qreal playerWidth)
 
 void Life::collect(){
     score->addLife();
+    scene()->removeItem(this);
+    delete this;
+}
+Life::~Life(){
+
 }

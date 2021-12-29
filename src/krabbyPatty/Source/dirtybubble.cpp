@@ -1,4 +1,4 @@
-#include "dirtybubble.h"
+#include "Headers/dirtybubble.h"
 
 
 DirtyBubble::DirtyBubble(qreal playerWidth)
@@ -28,5 +28,8 @@ void DirtyBubble::changeDirectionIfNeeded()
         move_x = -move_x;
         move_y = -move_y;
     }
+}
+DirtyBubble::~DirtyBubble(){
+
 }
 

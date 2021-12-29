@@ -1,7 +1,7 @@
-#include "informationbar.h"
+#include "Headers/informationbar.h"
 
 #include <iostream>
-#include "score.h"
+#include "Headers/score.h"
 
 extern Score *score;
 

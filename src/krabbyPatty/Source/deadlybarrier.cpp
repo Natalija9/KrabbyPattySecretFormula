@@ -1,4 +1,4 @@
-#include "deadlybarrier.h"
+#include "Headers/deadlybarrier.h"
 #include <iostream>
 
 DeadlyBarrier::DeadlyBarrier() {}
@@ -8,4 +8,8 @@ void DeadlyBarrier::advance(int phase) {
         return;
 
     move();
+}
+DeadlyBarrier::~DeadlyBarrier(){
+
+
 }

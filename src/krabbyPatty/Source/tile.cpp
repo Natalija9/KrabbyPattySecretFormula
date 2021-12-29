@@ -1,3 +1,8 @@
-#include "tile.h"
+#include "Headers/tile.h"
 
 Tile::Tile() {}
+
+
+Tile::~Tile(){
+
+}

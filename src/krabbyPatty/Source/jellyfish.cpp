@@ -1,4 +1,4 @@
-#include "jellyfish.h"
+#include "Headers/jellyfish.h"
 #include <cstdlib>
 
 Jellyfish::Jellyfish(qreal playerWidth)
@@ -34,3 +34,7 @@ void Jellyfish::changeDirectionIfNeeded()
         move_y = -move_y;
     }
 }
+Jellyfish::~Jellyfish(){
+
+}
+

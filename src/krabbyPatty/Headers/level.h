@@ -19,11 +19,9 @@ class Level: public QGraphicsView
 
         void startLevel();
         void finishLevel(MessageText msgText);
-//        qreal screenWidth;
-//        qreal screenHeight;
         QGraphicsView *view;
         QTimer *levelTimer;
-
+     QGraphicsScene *scene ;
         ~Level();
 
     signals:
@@ -39,7 +37,7 @@ class Level: public QGraphicsView
         int levelId;
         LevelData *levelData;
         QTimer *mainTimer;
-        QGraphicsScene *scene ;
+
         qreal playerWidth;
         qreal playerHeight;
         InformationBar *informationBar;

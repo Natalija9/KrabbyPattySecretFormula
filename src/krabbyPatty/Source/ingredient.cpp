@@ -1,6 +1,6 @@
-#include "ingredient.h"
-#include "score.h"
-
+#include "Headers/ingredient.h"
+#include "Headers/score.h"
+#include <QGraphicsScene>
 
 extern Score *score;
 
@@ -13,4 +13,9 @@ Ingredient::Ingredient(qreal playerWidth, QString imagePath)
 
 void Ingredient::collect(){
     score->increase();
+    scene()->removeItem(this);
+    delete this;
+}
+Ingredient::~Ingredient(){
+
 }

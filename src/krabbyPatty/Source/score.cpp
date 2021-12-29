@@ -1,4 +1,4 @@
-#include "score.h"
+#include "Headers/score.h"
 #include<iostream>
 
 
@@ -155,4 +155,9 @@ int Score::getTotalScore(){
         sum += score;
 
     return sum;
+}
+
+
+Score::~Score(){
+
 }

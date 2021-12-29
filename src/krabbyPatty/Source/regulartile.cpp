@@ -1,4 +1,4 @@
-#include "regulartile.h"
+#include "Headers/regulartile.h"
 
 RegularTile::RegularTile(qreal playerWidth, QString imagePath)
 {
@@ -9,4 +9,7 @@ RegularTile::RegularTile(qreal playerWidth, QString imagePath)
 
 void RegularTile::changeSpeed(PlayerParameters *playerParameters){
     playerParameters->setSpeed(Speed::Fast);
+}
+RegularTile::~RegularTile(){
+
 }

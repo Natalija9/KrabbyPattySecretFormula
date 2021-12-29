@@ -5,15 +5,17 @@
 #include <QTimer>
 #include <QFile>
 
-#include "level.h"
-#include "player.h"
-#include "life.h"
-#include "ingredient.h"
-#include "score.h"
-#include "regulartile.h"
-#include "flag.h"
-#include "deadlybarrier.h"
-#include "slowingtile.h"
+#include "Headers/level.h"
+#include "Headers/player.h"
+#include "Headers/life.h"
+#include "Headers/ingredient.h"
+#include "Headers/score.h"
+#include "Headers/regulartile.h"
+#include "Headers/flag.h"
+#include "Headers/deadlybarrier.h"
+#include "Headers/slowingtile.h"
+
+#include <iostream>
 
 extern Score *score;
 
@@ -191,7 +193,7 @@ void Level::addObject(char type, qreal x, qreal y){
             break;
     }
     case '+' :{
-            Flag *flag = new Flag(playerHeight*1.41);
+            Flag *flag = new Flag(this, playerHeight*1.41);
             flag->setPos(x,  y * levelData->screenHeight + levelData->itemOffset);
             scene->addItem(flag);
             break;
@@ -202,6 +204,14 @@ void Level::addObject(char type, qreal x, qreal y){
 }
 
 Level::~Level(){
+
+    QList<QGraphicsItem *> items = scene->items();
+
+    foreach( QGraphicsItem *item, items ){
+            scene->removeItem(item);
+    }
+    items.clear();
+
     delete this->music;
     delete this->mainTimer;
     delete this->levelTimer;

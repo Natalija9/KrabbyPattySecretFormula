@@ -24,7 +24,7 @@ public:
     qreal _stepX = int(Speed::Fast);
     void setSpeed(Speed speed);
     Speed getSpeed();
-
+    ~PlayerParameters();
 };
 
 #endif // PLAYERPARAMETERS_H

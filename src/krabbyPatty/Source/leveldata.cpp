@@ -1,8 +1,8 @@
-#include "leveldata.h"
-#include "jellyfish.h"
-#include "dirtybubble.h"
-#include "karen.h"
-#include "evilspongebob.h"
+#include "Headers/leveldata.h"
+#include "Headers/jellyfish.h"
+#include "Headers/dirtybubble.h"
+#include "Headers/karen.h"
+#include "Headers/evilspongebob.h"
 
 #include <QRandomGenerator>
 #include <QApplication>

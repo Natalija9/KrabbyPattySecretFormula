@@ -9,6 +9,7 @@ class Tile : QObject, public QGraphicsPixmapItem
 public:
     Tile();
     virtual void changeSpeed(PlayerParameters *playerParameters) = 0;
+    ~Tile();
 };
 
 #endif // TILE_H

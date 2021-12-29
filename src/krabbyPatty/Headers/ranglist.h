@@ -15,6 +15,7 @@ public:
      void printPlayersIntoFile();
      QString printListToRangList();
 
+     ~RangList();
 private:
     QList<std::pair<QString, int>> playerList;
 

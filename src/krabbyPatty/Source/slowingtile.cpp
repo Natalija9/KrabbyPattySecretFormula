@@ -1,4 +1,4 @@
-#include "slowingtile.h"
+#include "Headers/slowingtile.h"
 
 SlowingTile::SlowingTile(qreal playerWidth, QString imagePath)
 {
@@ -9,4 +9,8 @@ SlowingTile::SlowingTile(qreal playerWidth, QString imagePath)
 
 void SlowingTile::changeSpeed(PlayerParameters *playerParameters){
     playerParameters->setSpeed(Speed::Slow);
+}
+
+SlowingTile::~SlowingTile(){
+
 }

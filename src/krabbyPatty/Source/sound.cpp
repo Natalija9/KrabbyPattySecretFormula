@@ -1,4 +1,4 @@
-#include "sound.h"
+#include "Headers/sound.h"
 
 
 Sound::Sound(bool isSoundOn)

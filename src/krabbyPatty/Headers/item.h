@@ -8,6 +8,7 @@ class Item : QObject, public QGraphicsPixmapItem
         Q_OBJECT
 public:
     Item();
+    ~Item();
     virtual void collect() = 0;
 };
 

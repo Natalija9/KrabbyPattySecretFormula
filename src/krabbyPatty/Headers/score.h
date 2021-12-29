@@ -35,6 +35,7 @@ public:
     const int lifePoints = 10;
     Message *msg;
 
+    ~Score();
 
 
 private:

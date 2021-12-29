@@ -9,7 +9,7 @@ class Jellyfish : public DeadlyBarrier
 public:
     Jellyfish(qreal playerWidth);
     void move() override;
-
+    ~Jellyfish();
 private:
     int steps = 0;
     int move_y = 1;

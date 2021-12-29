@@ -1,14 +1,14 @@
-#include "player.h"
+#include "Headers/player.h"
 #include <thread>
 #include <QKeyEvent>
 #include <iostream>
-#include "level.h"
-#include "ingredient.h"
-#include "life.h"
-#include "slowingtile.h"
-#include "deadlybarrier.h"
-#include "regulartile.h"
-#include "flag.h"
+#include "Headers/level.h"
+#include "Headers/ingredient.h"
+#include "Headers/life.h"
+#include "Headers/slowingtile.h"
+#include "Headers/deadlybarrier.h"
+#include "Headers/regulartile.h"
+#include "Headers/flag.h"
 
 #include<QApplication>
 #include<QTimer>
@@ -133,7 +133,6 @@ void Player::detectCollision() {
         {
             if(dynamic_cast<Item*>(colliding_item)){
                 dynamic_cast<Item*>(colliding_item)->collect();
-                scene()->removeItem(colliding_item);
 
                 emit countChanged();
             }
@@ -191,5 +190,9 @@ void Player::standOnPlatform(QGraphicsItem *tile){
 
 bool Player::isDead(){
     return y() > parameters->_screenHeight;
+}
+
+Player::~Player(){
+
 }
 

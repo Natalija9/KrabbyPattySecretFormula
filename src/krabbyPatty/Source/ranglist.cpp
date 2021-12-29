@@ -1,4 +1,4 @@
-#include "ranglist.h"
+#include "Headers/ranglist.h"
 #include <QDir>
 #include<iostream>
 
@@ -122,6 +122,8 @@ QString RangList::printListToRangList()
     return rez;
 }
 
+RangList::~RangList(){
 
+}
 
 

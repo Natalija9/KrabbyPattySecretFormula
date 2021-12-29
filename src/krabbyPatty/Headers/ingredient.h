@@ -9,7 +9,7 @@ class Ingredient : public Item
 public:
     Ingredient(qreal playerWidth, QString imagePath);
     void collect() override;
-
+    ~Ingredient();
 private:
     int number_of_points;
 };

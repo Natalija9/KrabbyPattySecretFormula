@@ -1,4 +1,4 @@
-#include "evilspongebob.h"
+#include "Headers/evilspongebob.h"
 
 EvilSpongeBob::EvilSpongeBob(qreal playerWidth)
 {
@@ -36,4 +36,7 @@ void EvilSpongeBob::changeHorizontalDirectionIfNeeded()
         steps = 0;
         move_x = -move_x;
     }
+}
+EvilSpongeBob::~EvilSpongeBob(){
+
 }

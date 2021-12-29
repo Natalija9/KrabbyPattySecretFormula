@@ -9,7 +9,7 @@ class Karen : public DeadlyBarrier
 public:
     Karen(qreal playerWidth);
     void move() override;
-
+    ~Karen();
 private:
     int steps = 0;
     const int max_steps = 100;

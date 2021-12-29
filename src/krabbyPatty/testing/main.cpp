@@ -1,9 +1,9 @@
 #define CATCH_CONFIG_RUNNER
 #include <testing/catch.hpp>
-#include <QtGui/QGuiApplication>
+#include <QApplication>
 
 int main(int argc, char** argv)
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     return Catch::Session().run(argc, argv);
 }

@@ -1,5 +1,5 @@
 TEMPLATE = app
-QT += gui
+QT += gui core widgets
 
 CONFIG += c++11
 
@@ -12,8 +12,12 @@ isEmpty(CATCH_INCLUDE_DIR): {
 
 SOURCES +=    testing/main.cpp     \
     Source/settings.cpp \
+    Source/ranglist.cpp \
+    testing/rangListTest.cpp \
     testing/settingsTest.cpp
 
 HEADERS += \
     Headers/settings.h \
-    testing/catch.hpp \
+    Headers/ranglist.h \
+    testing/catch.hpp
+

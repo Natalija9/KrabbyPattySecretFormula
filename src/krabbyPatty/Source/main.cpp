@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
-    a.setWindowIcon(QIcon(":/images/splash.png"));
+    a.setWindowIcon(QIcon(":/images/icon1.png"));
 
     QSplashScreen *splash = new QSplashScreen;
     splash->setPixmap(QPixmap(":/images/splash.png"));

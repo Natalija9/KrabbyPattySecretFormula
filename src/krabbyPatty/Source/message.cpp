@@ -15,8 +15,16 @@ Message::Message()
 }
 
 void Message::setMessageText(MessageText messageValue) {
-    this->msgBox->setText(messageTexts[int(messageValue)]);
+    this->msgBox->setText(getMessage(messageValue));
     this->msgBox->exec();
+}
+
+QString Message::getMessage(MessageText messageValue)
+{
+    if(messageValue < MessageText::LostLife || messageValue > MessageText::OutOfTime)
+        throw "Unknown message";
+
+    return messageTexts[int(messageValue)];
 }
 
 Message::~Message(){

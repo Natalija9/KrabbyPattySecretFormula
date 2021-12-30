@@ -21,6 +21,12 @@ extern Score *score;
 
 Level::Level(int levelId, LevelData *levelData)
 {
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid levelId";
+
+    if(levelData == nullptr)
+        throw "Invalid levelData";
+
     this->levelId = levelId;
     this->levelData = levelData;
 }

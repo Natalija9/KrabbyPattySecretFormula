@@ -34,9 +34,12 @@ SOURCES +=    testing/main.cpp     \
         Source/sound.cpp \
         Source/tile.cpp \
         Source/widget.cpp \
+    testing/dirtybubbleTest.cpp \
             testing/jellyfishTest.cpp \
             testing/evilSpongeBobTest.cpp \
             testing/levelDataTest.cpp \
+    testing/levelTest.cpp \
+    testing/messageTest.cpp \
             testing/playerTest.cpp \
             testing/rangListTest.cpp \
             testing/settingsTest.cpp

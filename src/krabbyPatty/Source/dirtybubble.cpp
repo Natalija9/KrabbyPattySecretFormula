@@ -3,10 +3,20 @@
 
 DirtyBubble::DirtyBubble(qreal playerWidth)
 {
-    qreal width = playerWidth * 0.75;
-    qreal height = width;
+    this->width = playerWidth * 0.75;
+    this->height = width;
     setPixmap(QPixmap(":/images/dirtyBubble.png").scaled(width, height));
 
+}
+
+qreal DirtyBubble::getWidth()
+{
+    return this->width;
+}
+
+qreal DirtyBubble::getHeight()
+{
+    return this->height;
 }
 
 void DirtyBubble::move()

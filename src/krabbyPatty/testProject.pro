@@ -44,7 +44,7 @@ SOURCES +=    testing/main.cpp     \
         testing/playerTest.cpp \
         testing/rangListTest.cpp \
         testing/settingsTest.cpp \
-        testing/scoreTest.cpp
+        testing/scoreTest.cpp \
         testing/playerParametersTest.cpp
 
 HEADERS += \

@@ -35,7 +35,7 @@ U glavnom meniju postoje 4 dugmeta:
 U gornjem desnom uglu glavnog menija se nalazi **Help** dugme koje prikazuje nacin kretanja igraca i cilj igre.
 
 # Demo snimak igrice :movie_camera: :
-[Video] ovde cemo ubaciti video
+[Video] (https://www.youtube.com/watch?v=y55sQuo5_4s)
 
 ## Developers
 

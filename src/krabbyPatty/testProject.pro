@@ -1,5 +1,5 @@
 TEMPLATE = app
-QT += gui core widgets
+QT += gui core widgets multimedia
 
 CONFIG += c++11
 
@@ -11,31 +11,62 @@ isEmpty(CATCH_INCLUDE_DIR): {
 }
 
 SOURCES +=    testing/main.cpp     \
-    Source/settings.cpp \
-    Source/ranglist.cpp \
-    testing/jellyfishTest.cpp \
-    Source/leveldata.cpp \
-    Source/deadlybarrier.cpp \
-    Source/leveldata.cpp \
-    Source/jellyfish.cpp \
-    Source/dirtybubble.cpp \
-    Source/karen.cpp \
-    Source/evilspongebob.cpp \
-    testing/evilSpongeBobTest.cpp \
-    testing/levelDataTest.cpp \
-    testing/rangListTest.cpp \
-    testing/settingsTest.cpp
+        Source/deadlybarrier.cpp \
+        Source/dirtybubble.cpp \
+        Source/evilspongebob.cpp \
+        Source/flag.cpp \
+        Source/informationbar.cpp \
+        Source/ingredient.cpp \
+        Source/item.cpp \
+        Source/jellyfish.cpp \
+        Source/karen.cpp \
+        Source/level.cpp \
+        Source/leveldata.cpp \
+        Source/life.cpp \
+        Source/message.cpp \
+        Source/player.cpp \
+        Source/playerparameters.cpp \
+        Source/ranglist.cpp \
+        Source/regulartile.cpp \
+        Source/score.cpp \
+        Source/settings.cpp \
+        Source/slowingtile.cpp \
+        Source/sound.cpp \
+        Source/tile.cpp \
+        Source/widget.cpp \
+            testing/jellyfishTest.cpp \
+            testing/evilSpongeBobTest.cpp \
+            testing/levelDataTest.cpp \
+            testing/playerTest.cpp \
+            testing/rangListTest.cpp \
+            testing/settingsTest.cpp
 
 HEADERS += \
-    Headers/settings.h \
-    Headers/ranglist.h \
-    testing/catch.hpp \
-    Headers/leveldata.h \
-    Headers/deadlybarrier.h \
-    Headers/leveldata.h \
-    Headers/jellyfish.h \
-    Headers/dirtybubble.h \
-    Headers/karen.h \
-    Headers/evilspongebob.h \
-    testing/catch.hpp
+        Headers/deadlybarrier.h \
+        Headers/dirtybubble.h \
+        Headers/evilspongebob.h \
+        Headers/flag.h \
+        Headers/informationbar.h \
+        Headers/ingredient.h \
+        Headers/item.h \
+        Headers/jellyfish.h \
+        Headers/karen.h \
+        Headers/level.h \
+        Headers/leveldata.h \
+        Headers/life.h \
+        Headers/message.h \
+        Headers/player.h \
+        Headers/playerparameters.h \
+        Headers/ranglist.h \
+        Headers/regulartile.h \
+        Headers/score.h \
+        Headers/settings.h \
+        Headers/slowingtile.h \
+        Headers/sound.h \
+        Headers/tile.h \
+        Headers/widget.h \
+            testing/catch.hpp
 
+
+FORMS += \
+    widget.ui

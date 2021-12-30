@@ -18,14 +18,14 @@ class Player:  public QObject, public QGraphicsPixmapItem
         PlayerParameters *parameters;
         qreal getVelocityX();
         qreal getVelocityY();
+        virtual void advance(int phase) override;
         ~Player();
+
     signals:
         void slowingBarrier();
         void countChanged();
         void activeTimer();
 
-    protected:
-        virtual void advance(int phase) override;
 
     private:
         bool _isOnGround = true;

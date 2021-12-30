@@ -35,8 +35,14 @@ int Score::getLives(){
     return this->lives;
 }
 
+std::vector<int> Score::getScores(){
+    return this->scores;
+}
+
 void Score::saveCurrentScore(int levelId, int remainingTime){
 
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
     current_score = countLevelScore(remainingTime / 1000);
     if(current_score > scores[levelId - 1]){
         this->scores[levelId - 1] = this->current_score;

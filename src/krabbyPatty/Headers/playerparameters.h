@@ -21,6 +21,9 @@ public:
     qreal _stepY;
     qreal _posY;
     const qreal _posX = 100;
+
+    void getScreenHeight();
+    void calculateScalingParameters();
     qreal _stepX = int(Speed::Fast);
     void setSpeed(Speed speed);
     Speed getSpeed();

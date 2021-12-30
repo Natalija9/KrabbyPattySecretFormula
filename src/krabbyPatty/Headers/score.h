@@ -19,6 +19,7 @@ public:
     void saveCurrentScore(int levelId, int time);
     int getLevelTime(int levelId);
     int getLives();
+    std::vector<int> getScores();
     bool isSuccessful();
     void reset();
     void updateScoreLabel(int levelId);

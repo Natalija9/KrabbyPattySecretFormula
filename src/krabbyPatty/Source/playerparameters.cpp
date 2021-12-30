@@ -19,6 +19,7 @@ void PlayerParameters::setSpeed(Speed speed){
 Speed PlayerParameters::getSpeed(){
     return Speed(_stepX);
 }
+
 PlayerParameters::~PlayerParameters(){
 
 }

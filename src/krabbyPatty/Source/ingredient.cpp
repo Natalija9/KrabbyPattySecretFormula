@@ -16,6 +16,7 @@ void Ingredient::collect(){
     scene()->removeItem(this);
     delete this;
 }
+
 Ingredient::~Ingredient(){
 
 }

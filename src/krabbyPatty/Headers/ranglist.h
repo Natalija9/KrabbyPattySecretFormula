@@ -14,7 +14,6 @@ public:
      void insertPlayerIntoList(QString name, int score);
      void printPlayersIntoFile();
      QString printListToRangList();
-     bool EqualLists(QList<std::pair<QString, int>> &other);
      QList<std::pair<QString, int>> playerList;
 
      ~RangList();

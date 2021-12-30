@@ -37,6 +37,7 @@ SOURCES +=    testing/main.cpp     \
     testing/dirtybubbleTest.cpp \
             testing/jellyfishTest.cpp \
             testing/evilSpongeBobTest.cpp \
+    testing/karenTest.cpp \
             testing/levelDataTest.cpp \
     testing/levelTest.cpp \
     testing/messageTest.cpp \

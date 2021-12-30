@@ -19,16 +19,6 @@ void RangList::addPlayer(QString &name, int score)
     printPlayersIntoFile();
 }
 
-bool RangList::EqualLists(QList<std::pair<QString, int>> &other){
-    QList<std::pair<QString, int>> list1;
-    bool equal = std::equal( list1.begin(), list1.end(),
-                                other.begin(),
-                                []( const std::pair<QString, int> &a, const std::pair<QString, int> & b ) {
-                                   return a.first == b.first  && a.second == b.second;
-                                } );
-    return equal;
-}
-
 // reading players from file and inserting into list
 void RangList::readFromFileAndInsertIntoList()
 {

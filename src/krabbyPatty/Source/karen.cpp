@@ -3,9 +3,16 @@
 
 Karen::Karen(qreal playerWidth)
 {
-    qreal width = playerWidth * 0.75;
-    qreal height = width * 1.3;
+    width = playerWidth * 0.75;
+    height = width * 1.3;
     setPixmap(QPixmap(":/images/karen.png").scaled(width, height));
+}
+
+qreal Karen::getWidth(){
+    return width;
+}
+qreal Karen::getHeight(){
+    return height;
 }
 
 void Karen::move()

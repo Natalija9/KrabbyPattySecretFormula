@@ -13,11 +13,16 @@ isEmpty(CATCH_INCLUDE_DIR): {
 SOURCES +=    testing/main.cpp     \
     Source/settings.cpp \
     Source/ranglist.cpp \
+    Source/jellyfish.cpp \
+    Source/deadlybarrier.cpp \
+    testing/jellyfishTest.cpp \
     testing/rangListTest.cpp \
     testing/settingsTest.cpp
 
 HEADERS += \
     Headers/settings.h \
     Headers/ranglist.h \
-    testing/catch.hpp
+    Headers/jellyfish.h \
+    Headers/deadlybarrier.h \
+    testing/catch.hpp \
 

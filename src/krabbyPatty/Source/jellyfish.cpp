@@ -3,8 +3,8 @@
 
 Jellyfish::Jellyfish(qreal playerWidth)
 {
-    qreal width = playerWidth * 0.5;
-    qreal height = width;
+    width = playerWidth * 0.5;
+    height = width;
 
     this->generator = new QRandomGenerator();
     int x = generator->bounded(2);
@@ -33,6 +33,22 @@ void Jellyfish::changeDirectionIfNeeded()
         steps = 0;
         move_y = -move_y;
     }
+}
+
+int Jellyfish::getSteps(){
+   return steps;
+}
+
+int Jellyfish::getMoveY(){
+   return move_y;
+}
+
+int Jellyfish::getWidth(){
+    return width;
+}
+
+int Jellyfish::getHeight(){
+    return height;
 }
 Jellyfish::~Jellyfish(){
 

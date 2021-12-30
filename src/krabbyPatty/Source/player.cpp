@@ -48,6 +48,13 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
 }
 
+qreal Player::getVelocityX(){
+    return _velocityX;
+}
+
+qreal Player::getVelocityY(){
+    return _velocityX;
+}
 void Player::keyReleaseEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_Right){
         _velocityX = 0;

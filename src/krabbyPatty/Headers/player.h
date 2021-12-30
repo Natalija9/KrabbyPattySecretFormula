@@ -16,7 +16,8 @@ class Player:  public QObject, public QGraphicsPixmapItem
         bool isDead();
         void standOnPlatform(QGraphicsItem *tile);
         PlayerParameters *parameters;
-
+        qreal getVelocityX();
+        qreal getVelocityY();
         ~Player();
     signals:
         void slowingBarrier();

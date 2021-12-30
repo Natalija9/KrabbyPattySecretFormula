@@ -67,6 +67,6 @@
         <file>images/splash.png</file>
     </qresource>
     <qresource prefix="/font"/>
-    <qresource prefix="/font" lang="KrustyKrab_font"/>
+    <qresource lang="KrustyKrab_font" prefix="/font"/>
     <qresource prefix="/song"/>
 </RCC>

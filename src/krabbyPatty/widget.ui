@@ -888,7 +888,7 @@ color: #feff41;</string>
         <string notr="true">border-image: url(:/images/transparent.png) 0 0 0 0 stretch stretch; font-size: 18px;</string>
        </property>
        <property name="plainText">
-        <string>up, down and right. Try to be fast and to avoid every obstacle. If you manage to pass all the levels, you may be in the top 10! So, have a good luck!</string>
+        <string>up and right. Try to be fast and to avoid every obstacle. If you manage to pass all the levels, you may be in the top 10! So, have a good luck!</string>
        </property>
       </widget>
      </widget>

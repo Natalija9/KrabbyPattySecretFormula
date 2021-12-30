@@ -34,7 +34,7 @@ TEST_CASE("JellyFish()", "[function]"){
 
 
 
-TEST_CASE("move()", "[function]"){
+TEST_CASE("JellyFish::move()", "[function]"){
      SECTION("proveravamo da li poziv stepForward() menja x koordinatu igraca"){
         // Arrange
         Jellyfish *jellyFish = new Jellyfish(10);

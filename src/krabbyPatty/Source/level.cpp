@@ -150,7 +150,7 @@ void Level::addObject(char type, qreal x, qreal y){
             break;
     }
     case '_' :{
-            RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
+            RegularTile *tile = new RegularTile(playerWidth,levelData->getTile(levelId));
             tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
             scene->addItem(tile);
             break;
@@ -174,12 +174,12 @@ void Level::addObject(char type, qreal x, qreal y){
     case 'S' :{
 
             if(levelData->getRandomDecision()){
-                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
+                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingTile(levelId));
                 waterTiles->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(waterTiles);
             }
             else{
-                RegularTile *tile = new RegularTile(playerWidth,levelData->getTiles(levelId));
+                RegularTile *tile = new RegularTile(playerWidth,levelData->getTile(levelId));
                 tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(tile);
                 }
@@ -187,7 +187,7 @@ void Level::addObject(char type, qreal x, qreal y){
 
     }
     case 'B' :{
-                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingBarrier(levelId));
+                SlowingTile *waterTiles = new SlowingTile(playerWidth, levelData->getSlowingTile(levelId));
                 waterTiles->setPos(x,  y * levelData->screenHeight + levelData->platformOffset);
                 scene->addItem(waterTiles);
             break;

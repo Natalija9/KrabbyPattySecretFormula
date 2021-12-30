@@ -2,8 +2,8 @@
 
 EvilSpongeBob::EvilSpongeBob(qreal playerWidth)
 {
-    qreal width = playerWidth;
-    qreal height = width;
+    width = playerWidth;
+    height = width;
     setPixmap(QPixmap(":/images/EvilSpongeBob.png").scaled(width, height));
 
     this->left = true;
@@ -37,6 +37,15 @@ void EvilSpongeBob::changeHorizontalDirectionIfNeeded()
         move_x = -move_x;
     }
 }
+
+qreal EvilSpongeBob::getHeight(){
+    return height;
+}
+
+qreal EvilSpongeBob::getWidth(){
+    return width;
+}
+
 EvilSpongeBob::~EvilSpongeBob(){
 
 }

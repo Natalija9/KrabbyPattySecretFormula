@@ -13,6 +13,7 @@ LevelData::LevelData(Settings *settings)
 
     this->settings = settings;
 
+    getScreenDimensions();
     calculateScalingParameters();
 
     backgrounds = {":/images/level1.jpg",
@@ -61,21 +62,36 @@ LevelData::LevelData(Settings *settings)
 
 
 QString LevelData::getBackground(int levelId){
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
     return this->backgrounds[levelId - 1];
 }
-QString LevelData::getTiles(int levelId){
+QString LevelData::getTile(int levelId){
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
     return this->tiles[levelId - 1];
+}
+
+QString LevelData::getSlowingTile(int levelId){
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
+    return this->slowingBarriers[levelId - 1];
+}
+
+QString LevelData::getIngredient(int levelId){
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
+    return this->ingredients[levelId-1];
 }
 
 bool LevelData::getSound(){
     return settings->getSound();
 }
 
-QString LevelData::getIngredient(int levelId){
-    return this->ingredients[levelId-1];
-}
 
 QString LevelData::getLevelMap(int levelId){
+    if(levelId < 1 || levelId > 6)
+        throw "Invalid id";
     return this->levelMaps[levelId-1];
 }
 
@@ -104,11 +120,6 @@ DeadlyBarrier* LevelData::getDeadlyBarrier(int playerWidth){
 }
 
 
-QString LevelData::getSlowingBarrier(int levelId){
-    return this->slowingBarriers[levelId - 1];
-}
-
-
 bool LevelData::getRandomDecision(){
 
     double x = generator->bounded(1.0);
@@ -116,10 +127,13 @@ bool LevelData::getRandomDecision(){
     return x < decisionMaker;
 }
 
-void LevelData::calculateScalingParameters(){
+void LevelData::getScreenDimensions(){
     QScreen *screen = QApplication::screens().at(0);
     screenHeight = screen->size().height();
     screenWidth = screen->size().width();
+}
+
+void LevelData::calculateScalingParameters(){
 
     sceneSizeX = screenWidth * 5;
     platformOffset = screenHeight * 0.1;

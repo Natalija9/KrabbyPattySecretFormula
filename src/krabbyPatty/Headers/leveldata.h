@@ -14,11 +14,11 @@ class LevelData
 public:
     LevelData(Settings *settings);
     QString getBackground(int levelId);
-    QString getTiles(int levelId);
+    QString getTile(int levelId);
+    QString getSlowingTile(int levelId);
     QString getIngredient(int levelId);
     QString getLevelMap(int levelId);
     DeadlyBarrier* getDeadlyBarrier(int playerWidth);
-    QString getSlowingBarrier(int levelId);
     bool getRandomDecision();
     bool getSound();
     qreal screenWidth;
@@ -26,7 +26,6 @@ public:
     qreal sceneSizeX;
     qreal platformOffset;
     qreal itemOffset;
-    void calculateScalingParameters();
     ~LevelData();
 
 
@@ -37,6 +36,8 @@ private:
     std::vector<QString> levelMaps;
     std::vector<QString> deadlyBarriers;
     std::vector<QString> slowingBarriers;
+    void getScreenDimensions();
+    void calculateScalingParameters();
 
     Settings *settings;
     double decisionMaker;

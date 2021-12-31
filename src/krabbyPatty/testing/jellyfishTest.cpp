@@ -1,10 +1,6 @@
 #include "testing/catch.hpp"
 #include "Headers/jellyfish.h"
 
-#include "Headers/deadlybarrier.h"
-#include <QRandomGenerator>
-
-
 TEST_CASE("JellyFish()", "[function]"){
      SECTION("u odnosu na sirinu igraca se postavlja se sirina meduze"){
         // Arrange
@@ -14,6 +10,8 @@ TEST_CASE("JellyFish()", "[function]"){
 
         // Act
         qreal currentWidth = jellyFish->getWidth();
+
+        delete jellyFish;
 
         // Assert
         REQUIRE(currentWidth == expectedWidth);
@@ -26,6 +24,8 @@ TEST_CASE("JellyFish()", "[function]"){
 
         // Act
         qreal currentHeight = jellyFish->getHeight();
+
+        delete jellyFish;
 
         // Assert
         REQUIRE(currentHeight == expectedHeight);

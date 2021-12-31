@@ -12,6 +12,7 @@ public:
     qreal getWidth();
     qreal getHeight();
     ~EvilSpongeBob();
+
 private:
     qreal width = 0;
     qreal height = 0;

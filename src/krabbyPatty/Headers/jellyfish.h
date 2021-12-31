@@ -17,14 +17,15 @@ public:
     const int max_steps = 60;
 
     ~Jellyfish();
+
 private:
     int steps = 0;
     int move_y = 1;
     qreal width = 0;
     qreal height = 0;
+    QRandomGenerator *generator;
     void stepForward();
     void changeDirectionIfNeeded();
-    QRandomGenerator *generator;
 };
 
 #endif // JELLYFISH_H

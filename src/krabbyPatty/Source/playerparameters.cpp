@@ -1,7 +1,6 @@
 #include "Headers/playerparameters.h"
 
-PlayerParameters::PlayerParameters()
-{
+PlayerParameters::PlayerParameters(){
     getScreenHeight();
     calculateScalingParameters();
 }
@@ -9,7 +8,6 @@ PlayerParameters::PlayerParameters()
 void PlayerParameters::getScreenHeight(){
     QScreen *screen = QApplication::screens().at(0);
     _screenHeight = screen->availableSize().height();
-
 }
 
 void PlayerParameters::calculateScalingParameters(){
@@ -20,14 +18,12 @@ void PlayerParameters::calculateScalingParameters(){
     _posY = _screenHeight * 0.65;
 }
 
-void PlayerParameters::setSpeed(Speed speed){
+void PlayerParameters::setStepFromSpeed(Speed speed){
     _stepX = int(speed);
 }
 
-Speed PlayerParameters::getSpeed(){
+Speed PlayerParameters::getSpeedFromStep(){
     return Speed(_stepX);
 }
 
-PlayerParameters::~PlayerParameters(){
-
-}
+PlayerParameters::~PlayerParameters(){}

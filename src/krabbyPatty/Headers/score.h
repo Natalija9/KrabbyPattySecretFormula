@@ -4,6 +4,7 @@
 #include <vector>
 #include <QLabel>
 #include <QPushButton>
+
 #include "leveldata.h"
 #include "message.h"
 
@@ -17,11 +18,10 @@ public:
     void addLife();
     void takeLife();
     void saveCurrentScore(int levelId, int time);
+    void reset();
     int getLevelTime(int levelId);
     int getLives();
-    std::vector<int> getScores();
     bool isSuccessful();
-    void reset();
     void updateScoreLabel(int levelId);
     void updateLevelButton(int levelId, bool enabled);
     bool isUnlocked(int levelId);
@@ -30,14 +30,14 @@ public:
     void updateLabels(int levelId);
     int getTotalScore();
     int countLevelScore(int remainingTime);
+    std::vector<int> getScores();
+    Message *msg;
     int current_score;
     double settingsModeParameter = 0.1;
     const int ingredientPoints = 5;
     const int lifePoints = 10;
-    Message *msg;
 
     ~Score();
-
 
 private:
     int lives;

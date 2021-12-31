@@ -1,8 +1,7 @@
 #include "Headers/jellyfish.h"
 #include <cstdlib>
 
-Jellyfish::Jellyfish(qreal playerWidth)
-{
+Jellyfish::Jellyfish(qreal playerWidth){
     width = playerWidth * 0.5;
     height = width;
 
@@ -15,20 +14,17 @@ Jellyfish::Jellyfish(qreal playerWidth)
         setPixmap(QPixmap(":/images/jellyfish_blue.png").scaled(width, height));
 }
 
-void Jellyfish::move()
-{
+void Jellyfish::move(){
     stepForward();
     changeDirectionIfNeeded();
 }
 
-void Jellyfish::stepForward()
-{
+void Jellyfish::stepForward(){
     setPos(x(), y() - move_y);
     steps++;
 }
 
-void Jellyfish::changeDirectionIfNeeded()
-{
+void Jellyfish::changeDirectionIfNeeded(){
     if(steps == max_steps) {
         steps = 0;
         move_y = -move_y;
@@ -50,7 +46,5 @@ int Jellyfish::getWidth(){
 int Jellyfish::getHeight(){
     return height;
 }
-Jellyfish::~Jellyfish(){
-
-}
+Jellyfish::~Jellyfish(){}
 

@@ -1,7 +1,7 @@
 #include "Headers/message.h"
 
-Message::Message()
-{
+Message::Message(){
+
     this->msgBox = new QMessageBox();
     this->msgBox->setWindowTitle(" ");
     this->msgBox->setStyleSheet("font-size: 25px; font: bold; border-image: url(:/images/messageBox.jpg) stretch;");

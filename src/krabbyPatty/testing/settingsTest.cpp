@@ -13,6 +13,8 @@ TEST_CASE("settings()", "[function]"){
 
         // Assert
         REQUIRE(currentValue == expectedValue);
+
+        delete settings;
     }
     SECTION("Kada se kreira nova instanca tezina je na easy"){
         // Arrange
@@ -24,6 +26,8 @@ TEST_CASE("settings()", "[function]"){
 
         // Assert
         REQUIRE(currentValue == expectedValue);
+
+        delete settings;
     }
 }
 
@@ -39,6 +43,8 @@ TEST_CASE("setSound()", "[function]"){
 
         // Assert
         REQUIRE(currentValue == expectedValue);
+
+        delete settings;
      }
 }
 
@@ -55,6 +61,8 @@ TEST_CASE("setMode()", "[function]"){
 
         // Assert
         REQUIRE(currentValue == expectedValue);
+
+        delete settings;
     }
 }
 

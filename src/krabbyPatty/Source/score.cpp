@@ -2,8 +2,7 @@
 #include<iostream>
 
 
-Score::Score(LevelData *level_data)
-{
+Score::Score(LevelData *level_data){
     scores.resize(6, 0);
     unlocked.resize(6, false);
     unlocked[0] = true;
@@ -14,19 +13,16 @@ Score::Score(LevelData *level_data)
     this->msg = new Message();
 }
 
-void Score::increase()
-{
+void Score::increase(){
     current_score ++;
 }
 
 
-void Score::addLife()
-{
+void Score::addLife(){
     this->lives++;
 }
 
-void Score::takeLife()
-{
+void Score::takeLife(){
     this->lives--;
     current_score = 0;
 }
@@ -102,7 +98,6 @@ void Score::reset(){
 
 
 void Score::setScoreLabels(QVector<QLabel *> labels){
-
     this->scoreLabels = labels;
 }
 
@@ -120,7 +115,6 @@ void Score::updateScoreLabel(int levelId){
         QLabel *next_label = scoreLabels[levelId];
         next_label->setStyleSheet("border-image: url(:/images/unlocked.png);");
     }
-
     label->setText(str);
 }
 
@@ -149,7 +143,8 @@ void Score::updateLevelButton(int levelId, bool enabled){
     buttons[levelId - 1]->setEnabled(enabled);
     if(enabled){
         buttons[levelId-1]->setStyleSheet("border-image: url(:/images/transparent.png); color: #feff41;");
-    }else{
+    }
+    else{
         buttons[levelId-1]->setStyleSheet("border-image: url(:/images/transparent.png); color: rgb(128, 128, 128); ");
     }
 
@@ -164,6 +159,4 @@ int Score::getTotalScore(){
 }
 
 
-Score::~Score(){
-
-}
+Score::~Score(){}

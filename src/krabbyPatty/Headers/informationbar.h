@@ -10,7 +10,6 @@ class InformationBar : public QObject
 public:
     InformationBar(QGraphicsView *view, QString ingredientPath);
     void updateInformation();
-
     ~InformationBar();
 
 private:

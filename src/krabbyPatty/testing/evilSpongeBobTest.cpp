@@ -61,6 +61,7 @@ TEST_CASE("EvilSpongeBob::move()", "[function]")
         qreal dobijeno_x = evilSpongeBob->x();
         qreal dobijeno_y = evilSpongeBob->y();
 
+        delete evilSpongeBob;
 
 //        assert)
         REQUIRE(dobijeno_x == ocekivano_x);
@@ -86,6 +87,7 @@ TEST_CASE("EvilSpongeBob::move()", "[function]")
         qreal dobijeno_x = evilSpongeBob->x();
         qreal dobijeno_y = evilSpongeBob->y();
 
+        delete evilSpongeBob;
 
 //        assert
         REQUIRE(dobijeno_x == ocekivano_x);
@@ -113,6 +115,8 @@ TEST_CASE("EvilSpongeBob::move()", "[function]")
 
         qreal dobijena_razlika = x2 - x1;
 
+        delete evilSpongeBob;
+
 //        assert
         REQUIRE(dobijena_razlika == ocekivana_razlika);
 
@@ -139,6 +143,8 @@ TEST_CASE("EvilSpongeBob::move()", "[function]")
 
         qreal dobijena_razlika = y2 - y1;
 
+        delete evilSpongeBob;
+
 //        assert
         REQUIRE(dobijena_razlika == ocekivana_razlika);
 
@@ -162,6 +168,7 @@ TEST_CASE("EvilSpongeBob::move()", "[function]")
         qreal dobijeno_x = evilSpongeBob->x();
         qreal dobijeno_y = evilSpongeBob->y();
 
+        delete evilSpongeBob;
 
 //        assert
         REQUIRE(dobijeno_x == ocekivano_x);

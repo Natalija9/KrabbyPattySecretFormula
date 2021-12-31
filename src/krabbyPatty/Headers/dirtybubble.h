@@ -11,6 +11,7 @@ public:
     qreal getWidth();
     qreal getHeight();
     ~DirtyBubble();
+
 private:
     qreal width;
     qreal height;

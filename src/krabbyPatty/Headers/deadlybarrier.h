@@ -9,6 +9,7 @@ class DeadlyBarrier : public QObject, public QGraphicsPixmapItem
 public:
     DeadlyBarrier();
     ~DeadlyBarrier();
+
 protected:
     virtual void advance(int phase) override;
     virtual void move() = 0;

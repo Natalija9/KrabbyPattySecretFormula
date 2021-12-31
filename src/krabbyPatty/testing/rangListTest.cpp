@@ -1,6 +1,5 @@
 #include "testing/catch.hpp"
 #include "Headers/ranglist.h"
-#include <QList>
 
 bool EqualLists(QList<std::pair<QString, int>> &a, QList<std::pair<QString, int>> &b){
 

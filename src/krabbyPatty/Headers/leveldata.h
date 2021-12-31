@@ -2,7 +2,6 @@
 #define LEVELDATA_H
 
 #include <vector>
-#include <string>
 #include <QRandomGenerator>
 #include <QString>
 
@@ -13,6 +12,11 @@ class LevelData
 {
 public:
     LevelData(Settings *settings);
+    qreal screenWidth;
+    qreal screenHeight;
+    qreal sceneSizeX;
+    qreal platformOffset;
+    qreal itemOffset;
     QString getBackground(int levelId);
     QString getTile(int levelId);
     QString getSlowingTile(int levelId);
@@ -21,13 +25,7 @@ public:
     DeadlyBarrier* getDeadlyBarrier(int playerWidth);
     bool getRandomDecision();
     bool getSound();
-    qreal screenWidth;
-    qreal screenHeight;
-    qreal sceneSizeX;
-    qreal platformOffset;
-    qreal itemOffset;
     ~LevelData();
-
 
 private:
     std::vector<QString> backgrounds;
@@ -36,12 +34,11 @@ private:
     std::vector<QString> levelMaps;
     std::vector<QString> deadlyBarriers;
     std::vector<QString> slowingBarriers;
+    Settings *settings;
+    QRandomGenerator *generator;
+    double decisionMaker;
     void getScreenDimensions();
     void calculateScalingParameters();
-
-    Settings *settings;
-    double decisionMaker;
-    QRandomGenerator *generator;
 
 };
 

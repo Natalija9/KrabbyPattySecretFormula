@@ -14,6 +14,9 @@ TEST_CASE("LevelData()", "[function]")
 //        assert
         REQUIRE(levelData->screenHeight > 0);
         REQUIRE(levelData->screenWidth > 0);
+
+        delete levelData;
+        delete settings;
     }
 
     SECTION("Kada se kreira nova instanca, parametri skaliranja su pozitivni brojevi")
@@ -29,6 +32,8 @@ TEST_CASE("LevelData()", "[function]")
         REQUIRE(levelData->platformOffset > 0);
         REQUIRE(levelData->itemOffset > 0);
 
+        delete levelData;
+        delete settings;
     }
 }
 
@@ -44,6 +49,9 @@ TEST_CASE("getBackground", "[function]")
 
 //        act and assert
         REQUIRE_THROWS(levelData->getBackground(ulaz));
+
+        delete levelData;
+        delete settings;
 
     }
 
@@ -61,6 +69,9 @@ TEST_CASE("getBackground", "[function]")
 //        assert
 
         REQUIRE(QString::compare(ocekivani_izlaz, dobijeni_izlaz) == 0);
+
+        delete levelData;
+        delete settings;
     }
 }
 
@@ -76,6 +87,9 @@ TEST_CASE("getTile", "[function]")
 
 //        act and assert
         REQUIRE_THROWS(levelData->getTile(ulaz));
+
+        delete levelData;
+        delete settings;
 
     }
 
@@ -93,6 +107,9 @@ TEST_CASE("getTile", "[function]")
 //        assert
 
         REQUIRE(QString::compare(ocekivani_izlaz, dobijeni_izlaz) == 0);
+
+        delete levelData;
+        delete settings;
     }
 }
 
@@ -107,6 +124,9 @@ TEST_CASE("getSlowingTile", "[function]")
 
 //        act and assert
         REQUIRE_THROWS(levelData->getSlowingTile(ulaz));
+
+        delete levelData;
+        delete settings;
 
     }
 
@@ -124,6 +144,9 @@ TEST_CASE("getSlowingTile", "[function]")
 //        assert
 
         REQUIRE(QString::compare(ocekivani_izlaz, dobijeni_izlaz) == 0);
+
+        delete levelData;
+        delete settings;
     }
 }
 
@@ -139,6 +162,9 @@ TEST_CASE("getIngredient", "[function]")
 
 //        act and assert
         REQUIRE_THROWS(levelData->getIngredient(ulaz));
+
+        delete levelData;
+        delete settings;
 
     }
 
@@ -156,6 +182,9 @@ TEST_CASE("getIngredient", "[function]")
 //        assert
 
         REQUIRE(QString::compare(ocekivani_izlaz, dobijeni_izlaz) == 0);
+
+        delete levelData;
+        delete settings;
     }
 }
 
@@ -173,6 +202,9 @@ TEST_CASE("getLevelMap", "[function]")
 //        act and assert
         REQUIRE_THROWS(levelData->getLevelMap(ulaz));
 
+        delete levelData;
+        delete settings;
+
     }
 
     SECTION("za validnu vrednost nivoa funkcija vraca odgovarajuci fajl mape")
@@ -189,6 +221,9 @@ TEST_CASE("getLevelMap", "[function]")
 //        assert
 
         REQUIRE(QString::compare(ocekivani_izlaz, dobijeni_izlaz) == 0);
+
+        delete levelData;
+        delete settings;
     }
 }
 

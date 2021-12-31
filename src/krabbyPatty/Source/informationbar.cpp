@@ -1,12 +1,10 @@
 #include "Headers/informationbar.h"
-
-#include <iostream>
 #include "Headers/score.h"
 
 extern Score *score;
 
-InformationBar::InformationBar(QGraphicsView *view, QString ingredientPath)
-{
+InformationBar::InformationBar(QGraphicsView *view, QString ingredientPath){
+
     this->view = view;
 
     ingredientLabelPic = new QLabel(view);
@@ -27,7 +25,6 @@ InformationBar::InformationBar(QGraphicsView *view, QString ingredientPath)
         lifeLabels[i]->setPixmap(lifePixmap);
         lifeLabels[i]->show();
     }
-
 }
 
 void InformationBar::updateInformation(){
@@ -44,11 +41,9 @@ void InformationBar::updateInformation(){
        ingredientLabelText->setText(QString::number(score->current_score));
        ingredientLabelText->show();
    }
-
 }
 
 InformationBar::~InformationBar(){
     delete this->ingredientLabelPic;
     delete this->ingredientLabelText;
-
 }

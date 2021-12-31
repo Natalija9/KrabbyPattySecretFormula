@@ -14,6 +14,7 @@ TEST_CASE("PlayerParameters()", "[function]")
         parameters->getScreenHeight();
         qreal returnValue = parameters->_screenHeight;
 
+        delete parameters;
 
         // Assert
         REQUIRE(returnValue > 0 );
@@ -29,6 +30,8 @@ TEST_CASE("PlayerParameters()", "[function]")
         // Act
         parameters->calculateScalingParameters();
         qreal returnValue = parameters->_height;
+
+        delete parameters;
 
         // Assert
         REQUIRE(returnValue == expectedValue);
@@ -46,6 +49,8 @@ TEST_CASE("PlayerParameters()", "[function]")
         parameters->calculateScalingParameters();
         qreal returnValue = parameters->_width;
 
+        delete parameters;
+
         // Assert
         REQUIRE(returnValue == expectedValue);
     }
@@ -57,10 +62,11 @@ TEST_CASE("PlayerParameters()", "[function]")
         parameters->_screenHeight = 100;
         qreal expectedValue = 20 * 0.13;
 
-
         // Act
         parameters->calculateScalingParameters();
         qreal returnValue = parameters->_stepY;
+
+        delete parameters;
 
         // Assert
         REQUIRE(returnValue == expectedValue);
@@ -78,6 +84,8 @@ TEST_CASE("PlayerParameters()", "[function]")
         parameters->calculateScalingParameters();
         qreal returnValue = parameters->_gravity;
 
+        delete parameters;
+
         // Assert
         REQUIRE(returnValue == expectedValue);
     }
@@ -92,6 +100,9 @@ TEST_CASE("PlayerParameters()", "[function]")
         // Act
         parameters->calculateScalingParameters();
         qreal returnValue = parameters->_posY;
+
+        delete parameters;
+
 
         // Assert
         REQUIRE(returnValue == expectedValue);

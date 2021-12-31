@@ -9,7 +9,5 @@ void DeadlyBarrier::advance(int phase) {
 
     move();
 }
-DeadlyBarrier::~DeadlyBarrier(){
 
-
-}
+DeadlyBarrier::~DeadlyBarrier(){}

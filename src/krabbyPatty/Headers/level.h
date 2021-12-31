@@ -2,7 +2,7 @@
 #define LEVEL_H
 
 #include <QKeyEvent>
-#include<QGraphicsView>
+#include <QGraphicsView>
 #include <QLabel>
 
 #include "player.h"
@@ -16,12 +16,11 @@ class Level: public QGraphicsView
     Q_OBJECT
     public:
         Level(int levelId, LevelData *levelData);
-
+        QGraphicsView *view;
+        QGraphicsScene *scene;
+        QTimer *levelTimer;
         void startLevel();
         void finishLevel(MessageText msgText);
-        QGraphicsView *view;
-        QTimer *levelTimer;
-     QGraphicsScene *scene ;
         ~Level();
 
     signals:
@@ -33,16 +32,15 @@ class Level: public QGraphicsView
         void updateTimerLabel();
 
     private:
-        void setView();
         int levelId;
         LevelData *levelData;
         QTimer *mainTimer;
-
         qreal playerWidth;
         qreal playerHeight;
         InformationBar *informationBar;
         QLabel *timerLabel;
         Sound *music;
+        void setView();
         void parseLevelMap();
         void addObject(char type, qreal x, qreal y);
 

@@ -8,8 +8,7 @@
 #include <QApplication>
 #include <QScreen>
 
-LevelData::LevelData(Settings *settings)
-{
+LevelData::LevelData(Settings *settings){
 
     this->settings = settings;
 
@@ -116,7 +115,6 @@ DeadlyBarrier* LevelData::getDeadlyBarrier(int playerWidth){
             return new Jellyfish(playerWidth);
         }
     }
-
 }
 
 

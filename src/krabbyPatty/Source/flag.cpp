@@ -1,8 +1,7 @@
 #include "Headers/flag.h"
 
 
-Flag::Flag(Level *parent, qreal playerWidth)
-{
+Flag::Flag(Level *parent, qreal playerWidth){
      lvl = parent;
     qreal width = playerWidth * 0.7;
     qreal height = width*2;
@@ -13,6 +12,4 @@ void Flag::collect(){
     lvl->finishLevel(MessageText::LevelCompleted);
 }
 
-Flag::~Flag(){
-
-}
+Flag::~Flag(){}

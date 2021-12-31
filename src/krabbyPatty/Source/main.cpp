@@ -1,12 +1,10 @@
 #include "Headers/widget.h"
 
 #include <QApplication>
-#include<QFile>
+#include <QFile>
 #include <QFontDatabase>
 #include <QSplashScreen>
 #include <QTimer>
-
-#include <iostream>
 
 int main(int argc, char *argv[])
 {

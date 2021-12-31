@@ -19,7 +19,6 @@ public:
     Message();
     void setMessageText(MessageText messageValue);
     QString getMessage(MessageText messageValue);
-
     ~Message();
 
 private:

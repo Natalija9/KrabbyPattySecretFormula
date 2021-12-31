@@ -12,10 +12,11 @@ public:
     qreal getWidth();
     qreal getHeight();
     ~Karen();
+
 private:
     int steps = 0;
-    const int max_steps = 100;
     int move_x = 2;
+    const int max_steps = 100;
     qreal width = 0;
     qreal height = 0;
     void stepForward();

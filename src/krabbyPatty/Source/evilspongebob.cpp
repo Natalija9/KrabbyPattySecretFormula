@@ -1,7 +1,7 @@
 #include "Headers/evilspongebob.h"
 
-EvilSpongeBob::EvilSpongeBob(qreal playerWidth)
-{
+EvilSpongeBob::EvilSpongeBob(qreal playerWidth){
+
     width = playerWidth;
     height = width;
     setPixmap(QPixmap(":/images/EvilSpongeBob.png").scaled(width, height));
@@ -9,28 +9,23 @@ EvilSpongeBob::EvilSpongeBob(qreal playerWidth)
     this->left = true;
 }
 
-void EvilSpongeBob::move()
-{
+void EvilSpongeBob::move(){
     stepForward();
     changeVerticalDirectionIfNeeded();
     changeHorizontalDirectionIfNeeded();
 }
 
-void EvilSpongeBob::stepForward()
-{
+void EvilSpongeBob::stepForward(){
     setPos(x() - move_x, y() - move_y);
     steps++;
 }
 
-void EvilSpongeBob::changeVerticalDirectionIfNeeded()
-{
-    if(steps % changeVertical == 0) {
+void EvilSpongeBob::changeVerticalDirectionIfNeeded(){
+    if(steps % changeVertical == 0)
         move_y = -move_y;
-    }
 }
 
-void EvilSpongeBob::changeHorizontalDirectionIfNeeded()
-{
+void EvilSpongeBob::changeHorizontalDirectionIfNeeded(){
     if(steps == max_steps) {
         left = !left;
         steps = 0;
@@ -46,6 +41,4 @@ qreal EvilSpongeBob::getWidth(){
     return width;
 }
 
-EvilSpongeBob::~EvilSpongeBob(){
-
-}
+EvilSpongeBob::~EvilSpongeBob(){}

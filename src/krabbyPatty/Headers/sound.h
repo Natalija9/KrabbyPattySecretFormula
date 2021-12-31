@@ -9,10 +9,10 @@ class Sound
 {
 public:
     Sound(bool isSoundOn);
-    ~Sound();
-
     QSoundEffect *mediaPlayer;
     void stopMusic();
+    ~Sound();
+
 private:
     bool soundOn;
 };

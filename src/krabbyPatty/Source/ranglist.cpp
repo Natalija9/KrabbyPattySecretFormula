@@ -1,13 +1,11 @@
 #include "Headers/ranglist.h"
 #include <QDir>
-#include<iostream>
 
-RangList::RangList(){ }
+RangList::RangList(){}
 
 bool QPairScoreComparer(const std::pair<QString, int> &player1, const std::pair<QString, int> &player2){
     return player1.second > player2.second;
 }
-
 
 // adding name-score to memory
 void RangList::addPlayer(QString &name, int score)
@@ -121,8 +119,6 @@ QString RangList::printListToRangList()
     return rez;
 }
 
-RangList::~RangList(){
-
-}
+RangList::~RangList(){}
 
 

@@ -7,20 +7,17 @@
 
 #include "Headers/level.h"
 #include "Headers/player.h"
+#include "Headers/score.h"
+#include "Headers/flag.h"
 #include "Headers/life.h"
 #include "Headers/ingredient.h"
-#include "Headers/score.h"
 #include "Headers/regulartile.h"
-#include "Headers/flag.h"
-#include "Headers/deadlybarrier.h"
 #include "Headers/slowingtile.h"
-
-#include <iostream>
+#include "Headers/deadlybarrier.h"
 
 extern Score *score;
 
-Level::Level(int levelId, LevelData *levelData)
-{
+Level::Level(int levelId, LevelData *levelData){
     if(levelId < 1 || levelId > 6)
         throw "Invalid levelId";
 
@@ -141,7 +138,6 @@ void Level::parseLevelMap(){
 
     file.close();
 }
-
 
 void Level::addObject(char type, qreal x, qreal y){
     switch(type){

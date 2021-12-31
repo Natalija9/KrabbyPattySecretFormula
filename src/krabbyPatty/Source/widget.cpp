@@ -4,6 +4,7 @@
 #include "Headers/settings.h"
 #include "Headers/score.h"
 #include "Headers/ranglist.h"
+
 #include <QFile>
 #include <QVector>
 #include <QMessageBox>
@@ -22,15 +23,12 @@ Widget::Widget(QWidget *parent)
     , ranglist (new RangList)
 {
 
-//Using custom font
     fontSetUp();
 
     ui->setupUi(this);
 
     ui->checkSound->setChecked(true);
     ui->rbEasy->setChecked(true);
-
-
 
     levelData = new LevelData(settings);
 

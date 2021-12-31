@@ -1,20 +1,5 @@
 #include "testing/catch.hpp"
-
 #include "Headers/player.h"
-#include "Headers/playerparameters.h"
-#include "Headers/level.h"
-#include "Headers/ingredient.h"
-#include "Headers/life.h"
-#include "Headers/slowingtile.h"
-#include "Headers/deadlybarrier.h"
-#include "Headers/regulartile.h"
-#include "Headers/flag.h"
-
-#include <QGraphicsPixmapItem>
-#include <QKeyEvent>
-#include <thread>
-#include<QApplication>
-#include<QTimer>
 
 extern Level *level;
 

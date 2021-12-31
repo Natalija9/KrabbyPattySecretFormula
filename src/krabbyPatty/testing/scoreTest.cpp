@@ -1,22 +1,5 @@
 #include "testing/catch.hpp"
-#include <QList>
 #include "Headers/score.h"
-#include <iostream>
-#include <Headers/level.h>
-#include <Headers/leveldata.h>
-#include "Headers/leveldata.h"
-#include "Headers/jellyfish.h"
-#include "Headers/dirtybubble.h"
-#include "Headers/karen.h"
-#include "Headers/evilspongebob.h"
-#include <Headers/settings.h>
-
-#include <QRandomGenerator>
-#include <QApplication>
-#include <QScreen>
-#include <vector>
-
-
 
 TEST_CASE("increase()", "[function]")
 {
@@ -35,29 +18,35 @@ TEST_CASE("increase()", "[function]")
 
         // Assert
         REQUIRE(currentValue == expectedValue);
+
+        delete settings;
+        delete level_data;
+        delete score;
     }
 
     SECTION("Trenutni skor se uvecava za 1 pri svakom pozivu funkcije")
     {
         // Arrange
-        Settings *settings1 = new Settings();
-        LevelData *level_data1 = new LevelData(settings1);
-        Score *score1 = new Score(level_data1);
+        Settings *settings = new Settings();
+        LevelData *level_data = new LevelData(settings);
+        Score *score = new Score(level_data);
 
-        score1->current_score = 10;
+        score->current_score = 10;
         int expectedValue1 = 11;
 
 
 
         // Act
-        score1->increase();
-        int returnValue1 = score1->current_score;
+        score->increase();
+        int returnValue1 = score->current_score;
 
 
         // Assert
         REQUIRE(returnValue1 == expectedValue1);
 
-
+        delete settings;
+        delete level_data;
+        delete score;
     }
 }
 
@@ -78,24 +67,32 @@ TEST_CASE("addLife()", "function")
         // Assert
         REQUIRE(returnValue == expectedValue);
 
+        delete settings;
+        delete level_data;
+        delete score;
+
     }
 
     SECTION("Broj trenutnih zivota se uvecava za 1")
     {
 
         // Arrange
-        Settings *settings1 = new Settings();
-        LevelData *level_data1 = new LevelData(settings1);
-        Score *score1 = new Score(level_data1);
+        Settings *settings = new Settings();
+        LevelData *level_data = new LevelData(settings);
+        Score *score = new Score(level_data);
 
-        int expectedValue1 = 4;
+        int expectedValue = 4;
 
         // Act
-        score1->addLife();
-        int returnValue1 = score1->getLives();
+        score->addLife();
+        int returnValue = score->getLives();
 
         // Assert
-        REQUIRE(returnValue1 == expectedValue1);
+        REQUIRE(returnValue == expectedValue);
+
+        delete settings;
+        delete level_data;
+        delete score;
     }
 }
 
@@ -108,27 +105,30 @@ TEST_CASE("takeLife()", "[function]")
 
         Settings *settings = new Settings();
         LevelData *level_data = new LevelData(settings);
-        Score *score1 = new Score(level_data);
+        Score *score = new Score(level_data);
 
         int expectedValue = 2;
         int expectedValue1 = 0;
 
         // Act
-        score1->takeLife();
-        int returnValue = score1->getLives();
-        int returnValue1 = score1->current_score;
+        score->takeLife();
+        int returnValue = score->getLives();
+        int returnValue1 = score->current_score;
 
         // Assert
         REQUIRE(returnValue == expectedValue);
         REQUIRE(returnValue1 == expectedValue1);
 
+        delete settings;
+        delete level_data;
+        delete score;
 
     }
 }
 
 TEST_CASE("countLevelScore()", "[function]")
 {
-    SECTION("Izbacivanje izuzetka nakon odigranog nivoa ukoliko je preostalo vreme 0")
+    SECTION("Vraca rezultat 0 nakon odigranog nivoa ukoliko je preostalo vreme 0")
     {
         // Arrange
         Settings *settings = new Settings();
@@ -143,43 +143,55 @@ TEST_CASE("countLevelScore()", "[function]")
 
         // Assert
         REQUIRE(expectedValue == returnValue);
+
+        delete settings;
+        delete level_data;
+        delete score;
     }
 
-    SECTION("Izbacivanje izuzetka nakon odigranog nivoa ukoliko je trenutni skor 0")
+    SECTION("Vraca rezultat 0 nakon odigranog nivoa ukoliko je trenutni skor 0")
     {
         // Arrange
-        Settings *settings1 = new Settings();
-        LevelData *level_data1 = new LevelData(settings1);
-        Score *score1 = new Score(level_data1);
+        Settings *settings = new Settings();
+        LevelData *level_data = new LevelData(settings);
+        Score *score = new Score(level_data);
 
         int currentValue = 60;
-        int expectedValue1 = 0;
-        score1->current_score = 0;
+        int expectedValue = 0;
+        score->current_score = 0;
 
         // Act
-        int returnValue1 = score1->countLevelScore(currentValue);
+        int returnValue = score->countLevelScore(currentValue);
 
         // Assert
-        REQUIRE(expectedValue1 == returnValue1);
+        REQUIRE(expectedValue == returnValue);
+
+        delete settings;
+        delete level_data;
+        delete score;
     }
 
     SECTION("Racunanje skora nakon odigranog nivoa prema zadatoj formuli")
     {
          // Arrange
-         Settings *settings2 = new Settings();
-         LevelData *level_data2 = new LevelData(settings2);
-         Score *score2 = new Score(level_data2);
+         Settings *settings = new Settings();
+         LevelData *level_data = new LevelData(settings);
+         Score *score = new Score(level_data);
 
-         int currentValue1 = 60;
-         score2->current_score = 10;
+         int currentValue = 60;
+         score->current_score = 10;
 
          int expectedValue = 10*5*60*0.1 + 3*10;
 
          // Act
-         int returnValue1 = score2->countLevelScore(currentValue1);
+         int returnValue = score->countLevelScore(currentValue);
 
          // Assert
-         REQUIRE(expectedValue == returnValue1);
+         REQUIRE(expectedValue == returnValue);
+
+         delete settings;
+         delete level_data;
+         delete score;
 
     }
 
@@ -187,7 +199,7 @@ TEST_CASE("countLevelScore()", "[function]")
 
 TEST_CASE("getTotalScore", "[function]")
 {
-    SECTION("Racunanje konacnog skora ukoliko nije sakupljen nijedan sastojak ni u jednom nivou")
+    SECTION("Racunanje konacnog skora ukoliko nije predjen nijedan nivo")
     {
         // Arrange
         Settings *settings = new Settings();
@@ -201,8 +213,13 @@ TEST_CASE("getTotalScore", "[function]")
 
         // Assert
         REQUIRE(expectedValue == returnValue);
+
+        delete settings;
+        delete level_data;
+        delete score;
     }
 }
+
 TEST_CASE("saveCurrentScore()", "[function]")
 {
     SECTION("Izbacivanje izuzetka za nevalidan unos levelId-a pri pozivu funkcije za cuvanje trenuntnog skora")
@@ -218,6 +235,9 @@ TEST_CASE("saveCurrentScore()", "[function]")
         // Act and Assert
         REQUIRE_THROWS(score->saveCurrentScore(currentValue,remainingTime));
 
+        delete settings;
+        delete level_data;
+        delete score;
     }
 
    }

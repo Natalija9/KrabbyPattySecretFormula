@@ -1,22 +1,17 @@
 #include "Headers/player.h"
-#include <thread>
-#include <QKeyEvent>
-#include <iostream>
 #include "Headers/level.h"
-#include "Headers/ingredient.h"
-#include "Headers/life.h"
-#include "Headers/slowingtile.h"
+#include "Headers/item.h"
+#include "Headers/tile.h"
 #include "Headers/deadlybarrier.h"
-#include "Headers/regulartile.h"
-#include "Headers/flag.h"
 
-#include<QApplication>
-#include<QTimer>
+#include <QKeyEvent>
+#include <QApplication>
+#include <QTimer>
 
 extern Level *level;
 
-Player::Player()
-{
+Player::Player(){
+
     parameters = new PlayerParameters();
     setPixmap(QPixmap(":images/player.png").scaled(parameters->_width, parameters->_height));
     setPos(parameters->_posX, parameters->_posY);
@@ -37,7 +32,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPixmap(QPixmap(":images/playerLeft1.png").scaled(parameters->_width, parameters->_height));
         _velocityX = - parameters->_stepX;
     }if(event->key() == Qt::Key_Up && _isOnGround){
-        if(parameters->getSpeed() == Speed::Fast){
+        if(parameters->getSpeedFromStep() == Speed::Fast){
             _velocityY = - parameters->_stepY;
             setPos(x(), y() + _velocityY);
             _isOnGround = false;
@@ -48,13 +43,6 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
 }
 
-qreal Player::getVelocityX(){
-    return _velocityX;
-}
-
-qreal Player::getVelocityY(){
-    return _velocityX;
-}
 void Player::keyReleaseEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_Right){
         _velocityX = 0;
@@ -140,7 +128,6 @@ void Player::detectCollision() {
         {
             if(dynamic_cast<Item*>(colliding_item)){
                 dynamic_cast<Item*>(colliding_item)->collect();
-
                 emit countChanged();
             }
             else if (dynamic_cast<DeadlyBarrier*>(colliding_item))
@@ -150,15 +137,13 @@ void Player::detectCollision() {
             else if(dynamic_cast<Tile*>(colliding_item))
             {
                 dynamic_cast<Tile*>(colliding_item)->changeSpeed(parameters);
-
                 this->standOnPlatform(colliding_item);
             }
         }
     }
-    else
-        {
-            _isOnGround = false;
-        }
+    else{
+        _isOnGround = false;
+    }
 }
 
 
@@ -199,7 +184,13 @@ bool Player::isDead(){
     return y() > parameters->_screenHeight;
 }
 
-Player::~Player(){
-
+qreal Player::getVelocityX(){
+    return _velocityX;
 }
+
+qreal Player::getVelocityY(){
+    return _velocityX;
+}
+
+Player::~Player(){}
 

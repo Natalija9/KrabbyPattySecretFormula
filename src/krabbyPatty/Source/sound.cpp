@@ -1,8 +1,7 @@
 #include "Headers/sound.h"
 
 
-Sound::Sound(bool isSoundOn)
-{
+Sound::Sound(bool isSoundOn){
     this->soundOn = isSoundOn;
     mediaPlayer = new QSoundEffect();
     mediaPlayer->setSource(QUrl::fromLocalFile(":/song/backgroundSong.wav"));
@@ -11,7 +10,6 @@ Sound::Sound(bool isSoundOn)
     if(soundOn){
         mediaPlayer->play();
     }
-
 }
 
 void Sound::stopMusic(){

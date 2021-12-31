@@ -20,13 +20,13 @@ public:
     qreal _gravity;
     qreal _stepY;
     qreal _posY;
+    qreal _stepX = int(Speed::Fast);
     const qreal _posX = 100;
 
     void getScreenHeight();
     void calculateScalingParameters();
-    qreal _stepX = int(Speed::Fast);
-    void setSpeed(Speed speed);
-    Speed getSpeed();
+    void setStepFromSpeed(Speed speed);
+    Speed getSpeedFromStep();
     ~PlayerParameters();
 };
 

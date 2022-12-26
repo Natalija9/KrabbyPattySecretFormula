@@ -4,15 +4,15 @@
 #include "item.h"
 #include "level.h"
 
-class Flag : public Item
-{
+class Flag : public Item {
 public:
-    Flag(Level *parent, qreal playerWidth);
-    void collect() override;
-    ~Flag();
+  Flag(Level* parent, qreal playerWidth);
+  void collect() override;
+  ~Flag();
+
 private:
-    int number_of_points;
-    Level *lvl;
+  int number_of_points;
+  Level* lvl;
 };
 
 

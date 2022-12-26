@@ -5,16 +5,16 @@
 #include <QtMultimedia/QSoundEffect>
 
 
-class Sound
-{
+class Sound {
 public:
-    Sound(bool isSoundOn);
-    ~Sound();
+  Sound(bool isSoundOn);
+  ~Sound();
 
-    QSoundEffect *mediaPlayer;
-    void stopMusic();
+  QSoundEffect* mediaPlayer;
+  void stopMusic();
+
 private:
-    bool soundOn;
+  bool soundOn;
 };
 
 

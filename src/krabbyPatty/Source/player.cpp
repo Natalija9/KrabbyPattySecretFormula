@@ -1,205 +1,195 @@
 #include "Headers/player.h"
-#include <thread>
+#include "Headers/deadlybarrier.h"
+#include "Headers/flag.h"
+#include "Headers/ingredient.h"
+#include "Headers/level.h"
+#include "Headers/life.h"
+#include "Headers/regulartile.h"
+#include "Headers/slowingtile.h"
 #include <QKeyEvent>
 #include <iostream>
-#include "Headers/level.h"
-#include "Headers/ingredient.h"
-#include "Headers/life.h"
-#include "Headers/slowingtile.h"
-#include "Headers/deadlybarrier.h"
-#include "Headers/regulartile.h"
-#include "Headers/flag.h"
+#include <thread>
 
-#include<QApplication>
-#include<QTimer>
+#include <QApplication>
+#include <QTimer>
 
-extern Level *level;
+extern Level* level;
 
-Player::Player()
-{
-    parameters = new PlayerParameters();
-    setPixmap(QPixmap(":images/player.png").scaled(parameters->_width, parameters->_height));
-    setPos(parameters->_posX, parameters->_posY);
-
+Player::Player() {
+  parameters = new PlayerParameters();
+  setPixmap(QPixmap(":images/player.png")
+                .scaled(parameters->_width, parameters->_height));
+  setPos(parameters->_posX, parameters->_posY);
 }
 
-void Player::keyPressEvent(QKeyEvent *event){
+void Player::keyPressEvent(QKeyEvent* event) {
 
-    if(event->key() == Qt::Key_Escape){
-        _velocityX = 0;
-        _velocityY = 0;
-        level->finishLevel(MessageText::Esc);
+  if (event->key() == Qt::Key_Escape) {
+    _velocityX = 0;
+    _velocityY = 0;
+    level->finishLevel(MessageText::Esc);
+  }
+  if (event->key() == Qt::Key_Right) {
+    setPixmap(QPixmap(":images/playerRight1.png")
+                  .scaled(parameters->_width, parameters->_height));
+    _velocityX = parameters->_stepX;
+  }
+  if (event->key() == Qt::Key_Left) {
+    setPixmap(QPixmap(":images/playerLeft1.png")
+                  .scaled(parameters->_width, parameters->_height));
+    _velocityX = -parameters->_stepX;
+  }
+  if (event->key() == Qt::Key_Up && _isOnGround) {
+    if (parameters->getSpeed() == Speed::Fast) {
+      _velocityY = -parameters->_stepY;
+      setPos(x(), y() + _velocityY);
+      _isOnGround = false;
+    } else {
+      event->ignore();
     }
-    if(event->key() == Qt::Key_Right){
-        setPixmap(QPixmap(":images/playerRight1.png").scaled(parameters->_width, parameters->_height));
-        _velocityX = parameters->_stepX;
-    }if(event->key() == Qt::Key_Left){
-        setPixmap(QPixmap(":images/playerLeft1.png").scaled(parameters->_width, parameters->_height));
-        _velocityX = - parameters->_stepX;
-    }if(event->key() == Qt::Key_Up && _isOnGround){
-        if(parameters->getSpeed() == Speed::Fast){
-            _velocityY = - parameters->_stepY;
-            setPos(x(), y() + _velocityY);
-            _isOnGround = false;
-        }
-        else{
-            event->ignore();
-        }
-    }
+  }
 }
 
-qreal Player::getVelocityX(){
-    return _velocityX;
-}
+qreal Player::getVelocityX() { return _velocityX; }
 
-qreal Player::getVelocityY(){
-    return _velocityX;
-}
-void Player::keyReleaseEvent(QKeyEvent *event){
-    if(event->key() == Qt::Key_Right){
-        _velocityX = 0;
-        setPixmap(QPixmap(":images/player.png").scaled(parameters->_width, parameters->_height));
-    }
-    if(event->key() == Qt::Key_Left){
-        _velocityX = 0;
-        setPixmap(QPixmap(":images/player.png").scaled(parameters->_width, parameters->_height));
-    }
+qreal Player::getVelocityY() { return _velocityX; }
+void Player::keyReleaseEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_Right) {
+    _velocityX = 0;
+    setPixmap(QPixmap(":images/player.png")
+                  .scaled(parameters->_width, parameters->_height));
+  }
+  if (event->key() == Qt::Key_Left) {
+    _velocityX = 0;
+    setPixmap(QPixmap(":images/player.png")
+                  .scaled(parameters->_width, parameters->_height));
+  }
 }
 
 
-void Player::advance(int phase)
-{
+void Player::advance(int phase) {
 
-    if(!phase){
-        return;
-    }
+  if (!phase) {
+    return;
+  }
 
-    if(isDead()){
-        level->finishLevel(MessageText::LostLife);
-    }
-    else{
-        level->view->centerOn(this);
-    }
+  if (isDead()) {
+    level->finishLevel(MessageText::LostLife);
+  } else {
+    level->view->centerOn(this);
+  }
 
 
-    walk();
-    jump();
-    detectCollision();
+  walk();
+  jump();
+  detectCollision();
 
-    emit activeTimer();
+  emit activeTimer();
 }
 
-void Player::jump()
-{
+void Player::jump() {
 
-    if(!_isOnGround)
-    {
-        if(_velocityY < 10)
-            _velocityY += parameters->_gravity;
+  if (!_isOnGround) {
+    if (_velocityY < 10)
+      _velocityY += parameters->_gravity;
 
-         setPos(x(), y() + _velocityY);
-    }
+    setPos(x(), y() + _velocityY);
+  }
 }
 
 
-void Player::walk()
-{
+void Player::walk() {
 
-    if(_velocityX > 0 && _isOnGround){
-        _stepsCounter ++;
-        if(_stepsCounter <= 4){
-            setPixmap(QPixmap(":images/playerRight1.png").scaled(parameters->_width, parameters->_height));
-            show();
-        }else if(_stepsCounter <= 8){
-            setPixmap(QPixmap(":images/playerRight2.png").scaled(parameters->_width, parameters->_height));
-            show();
-        }
-    }else if(_velocityX < 0 && _isOnGround){
-        _stepsCounter ++;
-        if(_stepsCounter <= 4){
-            setPixmap(QPixmap(":images/playerLeft1.png").scaled(parameters->_width, parameters->_height));
-            show();
-        }else if(_stepsCounter <= 8){
-            setPixmap(QPixmap(":images/playerLeft2.png").scaled(parameters->_width, parameters->_height));
-            show();
-        }
+  if (_velocityX > 0 && _isOnGround) {
+    _stepsCounter++;
+    if (_stepsCounter <= 4) {
+      setPixmap(QPixmap(":images/playerRight1.png")
+                    .scaled(parameters->_width, parameters->_height));
+      show();
+    } else if (_stepsCounter <= 8) {
+      setPixmap(QPixmap(":images/playerRight2.png")
+                    .scaled(parameters->_width, parameters->_height));
+      show();
     }
-    if(_stepsCounter == 8)
-        _stepsCounter = 0;
-    setPos(x() + _velocityX, y());
+  } else if (_velocityX < 0 && _isOnGround) {
+    _stepsCounter++;
+    if (_stepsCounter <= 4) {
+      setPixmap(QPixmap(":images/playerLeft1.png")
+                    .scaled(parameters->_width, parameters->_height));
+      show();
+    } else if (_stepsCounter <= 8) {
+      setPixmap(QPixmap(":images/playerLeft2.png")
+                    .scaled(parameters->_width, parameters->_height));
+      show();
+    }
+  }
+  if (_stepsCounter == 8)
+    _stepsCounter = 0;
+  setPos(x() + _velocityX, y());
 }
 
 
 void Player::detectCollision() {
 
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+  QList<QGraphicsItem*> colliding_items = collidingItems();
 
-    if(colliding_items.size())
-{
-        for (auto &colliding_item : colliding_items)
-        {
-            if(dynamic_cast<Item*>(colliding_item)){
-                dynamic_cast<Item*>(colliding_item)->collect();
+  if (colliding_items.size()) {
+    for (auto& colliding_item : colliding_items) {
+      if (dynamic_cast<Item*>(colliding_item)) {
+        dynamic_cast<Item*>(colliding_item)->collect();
 
-                emit countChanged();
-            }
-            else if (dynamic_cast<DeadlyBarrier*>(colliding_item))
-            {
-                level->finishLevel(MessageText::LostLife);
-            }
-            else if(dynamic_cast<Tile*>(colliding_item))
-            {
-                dynamic_cast<Tile*>(colliding_item)->changeSpeed(parameters);
+        emit countChanged();
+      } else if (dynamic_cast<DeadlyBarrier*>(colliding_item)) {
+        level->finishLevel(MessageText::LostLife);
+      } else if (dynamic_cast<Tile*>(colliding_item)) {
+        dynamic_cast<Tile*>(colliding_item)->changeSpeed(parameters);
 
-                this->standOnPlatform(colliding_item);
-            }
-        }
+        this->standOnPlatform(colliding_item);
+      }
     }
-    else
-        {
-            _isOnGround = false;
-        }
+  } else {
+    _isOnGround = false;
+  }
 }
 
 
-void Player::standOnPlatform(QGraphicsItem *tile){
+void Player::standOnPlatform(QGraphicsItem* tile) {
 
-    QRectF tileRect          = tile->boundingRect();
-    QPolygonF tileRectPoints = tile->mapToScene(tileRect);
+  QRectF tileRect = tile->boundingRect();
+  QPolygonF tileRectPoints = tile->mapToScene(tileRect);
 
-    QPolygonF _playerRectPoints = mapToScene(boundingRect());
-    // 0 1
-    // 3 2
+  QPolygonF _playerRectPoints = mapToScene(boundingRect());
+  // 0 1
+  // 3 2
 
-    if(_playerRectPoints[2].y() <= tileRectPoints[0].y() + 20) // on the platform
-    {
-       _isOnGround = true;
-    }
-    else if(!_isOnGround && _playerRectPoints[3].x() <= tileRectPoints[3].x() - 20 &&
-            _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the left side
-    {
-       setPos(x() - 10, y());
-    }
+  if (_playerRectPoints[2].y() <= tileRectPoints[0].y() + 20) // on the platform
+  {
+    _isOnGround = true;
+  } else if (!_isOnGround &&
+             _playerRectPoints[3].x() <= tileRectPoints[3].x() - 20 &&
+             _playerRectPoints[1].y() <=
+                 tileRectPoints[3].y() - 20) // on the left side
+  {
+    setPos(x() - 10, y());
+  }
 
-    else if(!_isOnGround && _playerRectPoints[2].x() >= tileRectPoints[2].x() + 20 &&
-            _playerRectPoints[1].y() <= tileRectPoints[3].y() - 20) // on the right side
-    {
-        setPos(x() + 10, y());
-    }
-     if(!_isOnGround && _playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
-         _playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
-         _playerRectPoints[3].x() < tileRectPoints[2].x() - 2) // under the platform
-    {
-            _velocityY = parameters->_stepY / 2;
-    }
+  else if (!_isOnGround &&
+           _playerRectPoints[2].x() >= tileRectPoints[2].x() + 20 &&
+           _playerRectPoints[1].y() <=
+               tileRectPoints[3].y() - 20) // on the right side
+  {
+    setPos(x() + 10, y());
+  }
+  if (!_isOnGround && _playerRectPoints[1].y() <= tileRectPoints[3].y() + 5 &&
+      _playerRectPoints[2].x() > tileRectPoints[3].x() + 2 &&
+      _playerRectPoints[3].x() <
+          tileRectPoints[2].x() - 2) // under the platform
+  {
+    _velocityY = parameters->_stepY / 2;
+  }
 }
 
 
-bool Player::isDead(){
-    return y() > parameters->_screenHeight;
-}
+bool Player::isDead() { return y() > parameters->_screenHeight; }
 
-Player::~Player(){
-
-}
-
+Player::~Player() {}

@@ -4,12 +4,9 @@
 DeadlyBarrier::DeadlyBarrier() {}
 
 void DeadlyBarrier::advance(int phase) {
-    if(!phase)
-        return;
+  if (!phase)
+    return;
 
-    move();
+  move();
 }
-DeadlyBarrier::~DeadlyBarrier(){
-
-
-}
+DeadlyBarrier::~DeadlyBarrier() {}

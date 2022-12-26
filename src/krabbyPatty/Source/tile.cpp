@@ -3,6 +3,4 @@
 Tile::Tile() {}
 
 
-Tile::~Tile(){
-
-}
+Tile::~Tile() {}

@@ -1,25 +1,23 @@
 #ifndef INFORMATIONBAR_H
 #define INFORMATIONBAR_H
 
-#include <QLabel>
 #include <QGraphicsView>
+#include <QLabel>
 
 
-class InformationBar : public QObject
-{
+class InformationBar : public QObject {
 public:
-    InformationBar(QGraphicsView *view, QString ingredientPath);
-    void updateInformation();
+  InformationBar(QGraphicsView* view, QString ingredientPath);
+  void updateInformation();
 
-    ~InformationBar();
+  ~InformationBar();
 
 private:
-    QGraphicsView *view;
-    QLabel *ingredientLabelPic;
-    QLabel *ingredientLabelText;
-    QVector<QLabel*> lifeLabels;
-    QPixmap lifePixmap;
-
+  QGraphicsView* view;
+  QLabel* ingredientLabelPic;
+  QLabel* ingredientLabelText;
+  QVector<QLabel*> lifeLabels;
+  QPixmap lifePixmap;
 };
 
 #endif // INFORMATIONBAR_H

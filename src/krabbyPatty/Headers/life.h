@@ -3,12 +3,11 @@
 
 #include "item.h"
 
-class Life : public Item
-{
+class Life : public Item {
 public:
-    Life(qreal playerWidth);
-    void collect() override;
-    ~Life();
+  Life(qreal playerWidth);
+  void collect() override;
+  ~Life();
 };
 
 #endif // LIFE_H

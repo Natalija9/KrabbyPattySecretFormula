@@ -4,27 +4,27 @@
 #include "deadlybarrier.h"
 #include <QRandomGenerator>
 
-class Jellyfish : public DeadlyBarrier
-{
+class Jellyfish : public DeadlyBarrier {
 public:
-    Jellyfish(qreal playerWidth);
+  Jellyfish(qreal playerWidth);
 
-    void move() override;
-    int getSteps();
-    int getMoveY();
-    int getWidth();
-    int getHeight();
-    const int max_steps = 60;
+  void move() override;
+  int getSteps();
+  int getMoveY();
+  int getWidth();
+  int getHeight();
+  const int max_steps = 60;
 
-    ~Jellyfish();
+  ~Jellyfish();
+
 private:
-    int steps = 0;
-    int move_y = 1;
-    qreal width = 0;
-    qreal height = 0;
-    void stepForward();
-    void changeDirectionIfNeeded();
-    QRandomGenerator *generator;
+  int steps = 0;
+  int move_y = 1;
+  qreal width = 0;
+  qreal height = 0;
+  void stepForward();
+  void changeDirectionIfNeeded();
+  QRandomGenerator* generator;
 };
 
 #endif // JELLYFISH_H

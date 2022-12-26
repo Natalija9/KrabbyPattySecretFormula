@@ -1,45 +1,31 @@
 #include "Headers/dirtybubble.h"
 
 
-DirtyBubble::DirtyBubble(qreal playerWidth)
-{
-    this->width = playerWidth * 0.75;
-    this->height = width;
-    setPixmap(QPixmap(":/images/dirtyBubble.png").scaled(width, height));
-
+DirtyBubble::DirtyBubble(qreal playerWidth) {
+  this->width = playerWidth * 0.75;
+  this->height = width;
+  setPixmap(QPixmap(":/images/dirtyBubble.png").scaled(width, height));
 }
 
-qreal DirtyBubble::getWidth()
-{
-    return this->width;
+qreal DirtyBubble::getWidth() { return this->width; }
+
+qreal DirtyBubble::getHeight() { return this->height; }
+
+void DirtyBubble::move() {
+  stepForward();
+  changeDirectionIfNeeded();
 }
 
-qreal DirtyBubble::getHeight()
-{
-    return this->height;
+void DirtyBubble::stepForward() {
+  setPos(x() + move_x, y() - move_y);
+  steps++;
 }
 
-void DirtyBubble::move()
-{
-    stepForward();
-    changeDirectionIfNeeded();
+void DirtyBubble::changeDirectionIfNeeded() {
+  if (steps == max_steps) {
+    steps = 0;
+    move_x = -move_x;
+    move_y = -move_y;
+  }
 }
-
-void DirtyBubble::stepForward()
-{
-    setPos(x() + move_x, y() - move_y);
-    steps++;
-}
-
-void DirtyBubble::changeDirectionIfNeeded()
-{
-    if(steps == max_steps) {
-        steps = 0;
-        move_x = -move_x;
-        move_y = -move_y;
-    }
-}
-DirtyBubble::~DirtyBubble(){
-
-}
-
+DirtyBubble::~DirtyBubble() {}

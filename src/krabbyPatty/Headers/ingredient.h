@@ -4,14 +4,14 @@
 #include "item.h"
 #include <QObject>
 
-class Ingredient : public Item
-{
+class Ingredient : public Item {
 public:
-    Ingredient(qreal playerWidth, QString imagePath);
-    void collect() override;
-    ~Ingredient();
+  Ingredient(qreal playerWidth, QString imagePath);
+  void collect() override;
+  ~Ingredient();
+
 private:
-    int number_of_points;
+  int number_of_points;
 };
 
 #endif // INGREDIENT_H

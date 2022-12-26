@@ -3,12 +3,11 @@
 
 #include "tile.h"
 
-class SlowingTile: public Tile
-{
+class SlowingTile : public Tile {
 public:
-     SlowingTile(qreal playerWidth, QString imagePath);
-     void changeSpeed(PlayerParameters *playerParameters) override;
-     ~SlowingTile();
+  SlowingTile(qreal playerWidth, QString imagePath);
+  void changeSpeed(PlayerParameters* playerParameters) override;
+  ~SlowingTile();
 };
 
 #endif // SLOWINGTILE_H

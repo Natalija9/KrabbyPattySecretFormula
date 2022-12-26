@@ -3,13 +3,12 @@
 
 #include <QGraphicsPixmapItem>
 
-class Item : QObject, public QGraphicsPixmapItem
-{
-        Q_OBJECT
+class Item : QObject, public QGraphicsPixmapItem {
+  Q_OBJECT
 public:
-    Item();
-    ~Item();
-    virtual void collect() = 0;
+  Item();
+  ~Item();
+  virtual void collect() = 0;
 };
 
 #endif // ITEM_H

@@ -165,5 +165,5 @@ int Score::getTotalScore(){
 
 
 Score::~Score(){
-
+    delete msg;
 }

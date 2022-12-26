@@ -22,5 +22,6 @@ int main(int argc, char *argv[])
     QTimer::singleShot(5000,splash,SLOT(close()));
     QTimer::singleShot(5000,&w,SLOT(show()));
 
+    delete splash;
     return a.exec();
 }

@@ -194,5 +194,7 @@ Widget::~Widget()
     delete ui;
     delete levelData;
     delete score;
+    delete ranglist;
+    delete settings;
 }
 

@@ -34,16 +34,18 @@ SOURCES +=    testing/main.cpp     \
         Source/sound.cpp \
         Source/tile.cpp \
         Source/widget.cpp \
-    testing/dirtybubbleTest.cpp \
-            testing/jellyfishTest.cpp \
-            testing/evilSpongeBobTest.cpp \
-    testing/karenTest.cpp \
-            testing/levelDataTest.cpp \
-    testing/levelTest.cpp \
-    testing/messageTest.cpp \
-            testing/playerTest.cpp \
-            testing/rangListTest.cpp \
-            testing/settingsTest.cpp
+        testing/dirtybubbleTest.cpp \
+        testing/jellyfishTest.cpp \
+        testing/evilSpongeBobTest.cpp \
+        testing/karenTest.cpp \
+        testing/levelDataTest.cpp \
+        testing/levelTest.cpp \
+        testing/messageTest.cpp \
+        testing/playerTest.cpp \
+        testing/rangListTest.cpp \
+        testing/settingsTest.cpp \
+        testing/scoreTest.cpp \
+        testing/playerParametersTest.cpp
 
 HEADERS += \
         Headers/deadlybarrier.h \
@@ -69,7 +71,7 @@ HEADERS += \
         Headers/sound.h \
         Headers/tile.h \
         Headers/widget.h \
-            testing/catch.hpp
+        testing/catch.hpp
 
 
 FORMS += \

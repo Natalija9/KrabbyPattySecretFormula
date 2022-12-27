@@ -192,4 +192,4 @@ void Player::standOnPlatform(QGraphicsItem* tile) {
 
 bool Player::isDead() { return y() > parameters->_screenHeight; }
 
-Player::~Player() {}
+Player::~Player() = default;

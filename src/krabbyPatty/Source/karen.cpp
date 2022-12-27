@@ -27,4 +27,4 @@ void Karen::changeDirectionIfNeeded() {
   }
 }
 
-Karen::~Karen() {}
+Karen::~Karen() = default;

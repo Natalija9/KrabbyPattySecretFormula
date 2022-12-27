@@ -10,4 +10,4 @@ void SlowingTile::changeSpeed(PlayerParameters* playerParameters) {
   playerParameters->setSpeed(Speed::Slow);
 }
 
-SlowingTile::~SlowingTile() {}
+SlowingTile::~SlowingTile() = default;

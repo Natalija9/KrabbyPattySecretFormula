@@ -15,4 +15,4 @@ void Life::collect() {
   scene()->removeItem(this);
   delete this;
 }
-Life::~Life() {}
+Life::~Life() = default;

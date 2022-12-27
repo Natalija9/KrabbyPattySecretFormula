@@ -37,7 +37,7 @@ void Level::startLevel() {
 
   this->setView();
 
-  Player* player = new Player();
+  auto* player = new Player();
   player->setFlag(QGraphicsItem::ItemIsFocusable);
   player->setFocus();
 
@@ -158,14 +158,14 @@ void Level::addObject(char type, qreal x, qreal y) {
     break;
   }
   case '_': {
-    RegularTile* tile =
+    auto* tile =
         new RegularTile(playerWidth, levelData->getTile(levelId));
     tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
     scene->addItem(tile);
     break;
   }
   case '$': {
-    Ingredient* ingredient =
+    auto* ingredient =
         new Ingredient(playerWidth, levelData->getIngredient(levelId));
     ingredient->setPos(x, y * levelData->screenHeight + levelData->itemOffset);
     scene->addItem(ingredient);
@@ -183,13 +183,13 @@ void Level::addObject(char type, qreal x, qreal y) {
   case 'S': {
 
     if (levelData->getRandomDecision()) {
-      SlowingTile* waterTiles =
+      auto* waterTiles =
           new SlowingTile(playerWidth, levelData->getSlowingTile(levelId));
       waterTiles->setPos(x, y * levelData->screenHeight +
                                 levelData->platformOffset);
       scene->addItem(waterTiles);
     } else {
-      RegularTile* tile =
+      auto* tile =
           new RegularTile(playerWidth, levelData->getTile(levelId));
       tile->setPos(x, y * levelData->screenHeight + levelData->platformOffset);
       scene->addItem(tile);
@@ -197,7 +197,7 @@ void Level::addObject(char type, qreal x, qreal y) {
     break;
   }
   case 'B': {
-    SlowingTile* waterTiles =
+    auto* waterTiles =
         new SlowingTile(playerWidth, levelData->getSlowingTile(levelId));
     waterTiles->setPos(x,
                        y * levelData->screenHeight + levelData->platformOffset);

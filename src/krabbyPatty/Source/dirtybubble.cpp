@@ -28,4 +28,4 @@ void DirtyBubble::changeDirectionIfNeeded() {
     move_y = -move_y;
   }
 }
-DirtyBubble::~DirtyBubble() {}
+DirtyBubble::~DirtyBubble() = default;

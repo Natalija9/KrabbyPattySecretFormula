@@ -38,4 +38,4 @@ int Jellyfish::getMoveY() { return move_y; }
 int Jellyfish::getWidth() { return width; }
 
 int Jellyfish::getHeight() { return height; }
-Jellyfish::~Jellyfish() {}
+Jellyfish::~Jellyfish() = default;

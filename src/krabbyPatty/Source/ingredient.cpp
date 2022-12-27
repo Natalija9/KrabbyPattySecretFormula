@@ -16,4 +16,4 @@ void Ingredient::collect() {
   delete this;
 }
 
-Ingredient::~Ingredient() {}
+Ingredient::~Ingredient() = default;

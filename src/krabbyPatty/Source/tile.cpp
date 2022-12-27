@@ -1,6 +1,6 @@
 #include "Headers/tile.h"
 
-Tile::Tile() {}
+Tile::Tile() = default;
 
 
-Tile::~Tile() {}
+Tile::~Tile() = default;

@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
   a.setWindowIcon(QIcon(":/images/icon1.png"));
 
-  QSplashScreen* splash = new QSplashScreen;
+  auto* splash = new QSplashScreen;
   splash->setPixmap(QPixmap(":/images/splash.png"));
   splash->show();
 

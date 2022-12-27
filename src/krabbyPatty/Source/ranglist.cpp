@@ -2,7 +2,7 @@
 #include <QDir>
 #include <iostream>
 
-RangList::RangList() {}
+RangList::RangList() = default;
 
 bool QPairScoreComparer(const std::pair<QString, int>& player1,
                         const std::pair<QString, int>& player2) {
@@ -85,8 +85,7 @@ void RangList::printPlayersIntoFile() {
 
   QTextStream stream(&players);
 
-  for (int i = 0; i < playerList.size(); i++) {
-    std::pair<QString, int> player = playerList.at(i);
+  for (auto player : playerList) {
     stream << player.first << " " << player.second << '\n';
   }
 
@@ -116,4 +115,4 @@ QString RangList::printListToRangList() {
   return rez;
 }
 
-RangList::~RangList() {}
+RangList::~RangList() = default;

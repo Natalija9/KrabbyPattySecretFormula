@@ -1,4 +1,4 @@
 #include "Headers/item.h"
 
-Item::Item() {}
-Item::~Item() {}
+Item::Item() = default;
+Item::~Item() = default;

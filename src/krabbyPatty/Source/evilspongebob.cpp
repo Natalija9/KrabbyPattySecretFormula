@@ -37,4 +37,4 @@ qreal EvilSpongeBob::getHeight() { return height; }
 
 qreal EvilSpongeBob::getWidth() { return width; }
 
-EvilSpongeBob::~EvilSpongeBob() {}
+EvilSpongeBob::~EvilSpongeBob() = default;

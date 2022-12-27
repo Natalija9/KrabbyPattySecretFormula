@@ -17,4 +17,4 @@ void Settings::setMode(Mode mode) { _mode = mode; }
 bool Settings::getSound() { return _sound; }
 
 Mode Settings::getMode() { return _mode; }
-Settings::~Settings() {}
+Settings::~Settings() = default;

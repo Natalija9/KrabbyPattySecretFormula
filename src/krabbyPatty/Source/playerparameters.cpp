@@ -22,4 +22,4 @@ void PlayerParameters::setSpeed(Speed speed) { _stepX = int(speed); }
 
 Speed PlayerParameters::getSpeed() { return Speed(_stepX); }
 
-PlayerParameters::~PlayerParameters() {}
+PlayerParameters::~PlayerParameters() = default;

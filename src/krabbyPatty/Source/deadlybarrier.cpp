@@ -1,7 +1,7 @@
 #include "Headers/deadlybarrier.h"
 #include <iostream>
 
-DeadlyBarrier::DeadlyBarrier() {}
+DeadlyBarrier::DeadlyBarrier() = default;
 
 void DeadlyBarrier::advance(int phase) {
   if (!phase)
@@ -9,4 +9,4 @@ void DeadlyBarrier::advance(int phase) {
 
   move();
 }
-DeadlyBarrier::~DeadlyBarrier() {}
+DeadlyBarrier::~DeadlyBarrier() = default;

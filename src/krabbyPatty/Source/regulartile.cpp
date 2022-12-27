@@ -9,4 +9,4 @@ RegularTile::RegularTile(qreal playerWidth, QString imagePath) {
 void RegularTile::changeSpeed(PlayerParameters* playerParameters) {
   playerParameters->setSpeed(Speed::Fast);
 }
-RegularTile::~RegularTile() {}
+RegularTile::~RegularTile() = default;

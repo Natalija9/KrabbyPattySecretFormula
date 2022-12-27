@@ -10,4 +10,4 @@ Flag::Flag(Level* parent, qreal playerWidth) {
 
 void Flag::collect() { lvl->finishLevel(MessageText::LevelCompleted); }
 
-Flag::~Flag() {}
+Flag::~Flag() = default;

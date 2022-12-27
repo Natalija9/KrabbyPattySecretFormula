@@ -1,0 +1,292 @@
+{
+	"BUILD_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/untitled2_autogen",
+	"CMAKE_BINARY_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty",
+	"HEADERS" : 
+	[
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/deadlybarrier.h",
+			"MU",
+			"D2MWKIZDYH/moc_deadlybarrier.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/dirtybubble.h",
+			"MU",
+			"D2MWKIZDYH/moc_dirtybubble.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/evilspongebob.h",
+			"MU",
+			"D2MWKIZDYH/moc_evilspongebob.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/flag.h",
+			"MU",
+			"D2MWKIZDYH/moc_flag.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/informationbar.h",
+			"MU",
+			"D2MWKIZDYH/moc_informationbar.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/ingredient.h",
+			"MU",
+			"D2MWKIZDYH/moc_ingredient.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/item.h",
+			"MU",
+			"D2MWKIZDYH/moc_item.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/jellyfish.h",
+			"MU",
+			"D2MWKIZDYH/moc_jellyfish.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/karen.h",
+			"MU",
+			"D2MWKIZDYH/moc_karen.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/level.h",
+			"MU",
+			"D2MWKIZDYH/moc_level.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/leveldata.h",
+			"MU",
+			"D2MWKIZDYH/moc_leveldata.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/life.h",
+			"MU",
+			"D2MWKIZDYH/moc_life.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/message.h",
+			"MU",
+			"D2MWKIZDYH/moc_message.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/player.h",
+			"MU",
+			"D2MWKIZDYH/moc_player.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/playerparameters.h",
+			"MU",
+			"D2MWKIZDYH/moc_playerparameters.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/ranglist.h",
+			"MU",
+			"D2MWKIZDYH/moc_ranglist.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/regulartile.h",
+			"MU",
+			"D2MWKIZDYH/moc_regulartile.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/score.h",
+			"MU",
+			"D2MWKIZDYH/moc_score.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/settings.h",
+			"MU",
+			"D2MWKIZDYH/moc_settings.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/slowingtile.h",
+			"MU",
+			"D2MWKIZDYH/moc_slowingtile.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/sound.h",
+			"MU",
+			"D2MWKIZDYH/moc_sound.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/tile.h",
+			"MU",
+			"D2MWKIZDYH/moc_tile.cpp"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Headers/widget.h",
+			"MU",
+			"D2MWKIZDYH/moc_widget.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/untitled2_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/untitled2_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_MULTIMEDIA_LIB",
+		"QT_NETWORK_LIB",
+		"QT_NO_DEBUG",
+		"QT_WIDGETS_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build",
+		"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty",
+		"/home/marija/Qt/6.2.2/gcc_64/include/QtCore",
+		"/home/marija/Qt/6.2.2/gcc_64/include",
+		"/home/marija/Qt/6.2.2/gcc_64/mkspecs/linux-g++",
+		"/home/marija/Qt/6.2.2/gcc_64/include/QtWidgets",
+		"/home/marija/Qt/6.2.2/gcc_64/include/QtGui",
+		"/home/marija/Qt/6.2.2/gcc_64/include/QtMultimedia",
+		"/home/marija/Qt/6.2.2/gcc_64/include/QtNetwork",
+		"/usr/include",
+		"/usr/include/c++/10",
+		"/usr/include/x86_64-linux-gnu/c++/10",
+		"/usr/include/c++/10/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/10/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/untitled2_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/untitled2_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/home/marija/Qt/6.2.2/gcc_64/./libexec/moc",
+	"QT_UIC_EXECUTABLE" : "/home/marija/Qt/6.2.2/gcc_64/./libexec/uic",
+	"QT_VERSION_MAJOR" : 6,
+	"SETTINGS_FILE" : "/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/untitled2_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/deadlybarrier.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/dirtybubble.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/evilspongebob.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/flag.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/informationbar.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/ingredient.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/item.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/jellyfish.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/karen.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/level.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/leveldata.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/life.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/main.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/message.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/player.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/playerparameters.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/ranglist.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/regulartile.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/score.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/settings.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/slowingtile.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/sound.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/tile.cpp",
+			"MU"
+		],
+		[
+			"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/Source/widget.cpp",
+			"MU"
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : 
+	[
+		"/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty"
+	],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

@@ -1,0 +1,5 @@
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/config.tests/static_link_order/CMakeFiles/rebuild_cache.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/config.tests/static_link_order/CMakeFiles/edit_cache.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/config.tests/static_link_order/CMakeFiles/static_link_order_test.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/config.tests/static_link_order/CMakeFiles/staticLib.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/config.tests/static_link_order/CMakeFiles/objLib.dir

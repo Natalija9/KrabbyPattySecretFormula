@@ -71,6 +71,7 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
+    CMakeLists.txt \
     files/players.txt \
     images/messageBox1.jpg \
     images/player.png \

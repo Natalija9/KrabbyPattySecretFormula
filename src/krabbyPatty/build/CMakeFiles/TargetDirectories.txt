@@ -1,0 +1,4 @@
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/rebuild_cache.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/edit_cache.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/untitled2.dir
+/home/marija/Desktop/projekat_RS/10-KrabbyPattySecretFormula/src/krabbyPatty/build/CMakeFiles/untitled2_autogen.dir
